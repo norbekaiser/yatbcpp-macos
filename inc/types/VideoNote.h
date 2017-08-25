@@ -13,7 +13,7 @@
 // Created by norbert on 23.08.17.
 //
 
-#ifndef YATBCPP_VIDEONOTE
+#ifndef YATBCPP_VIDEONOTE_H
 #define YATBCPP_VIDEONOTE_H
 
 #include <string>
