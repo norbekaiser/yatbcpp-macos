@@ -1,0 +1,298 @@
+//
+// Created by norbert on 12.08.17.
+//
+
+#include <iostream>
+#include <functional>
+#include <thread>
+#include <condition_variable>
+#include <vector>
+#include <queue>
+#include <curl/curl.h>
+#include <inc/exceptions/curl_error.h>
+#include <inc/exceptions/telegram_api_error.h>
+#include "types/User.h"
+#include "types/Update.h"
+#include "Bot.h"
+
+using namespace yatbcpp;
+using namespace std;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Constructor Section                                                                                                //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bot::Bot(Token& T) : token(T), isPolling(false){
+//    isPolling=false;
+//    cout << T.getToken() << endl;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Util Section                                                                                                       //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Function to join the main threads so cpu load is not 100 % when using this
+ * @return
+ */
+void Bot::join(){
+    Polling.join();
+    Updating.join();
+}
+
+/**
+ * String Writeback Method for Curl Related stuff
+ * Related: https://curl.haxx.se/libcurl/c/CURLOPT_WRITEFUNCTION.html >>
+ * This callback function gets called by libcurl as soon as there is data received that needs to be saved
+ * the size of that data is size multiplied with nmemb.
+ * @param contents the curl values which are received
+ * @param size
+ * @param nmemb
+ * @param stringptr, the user data supplied later in curl settings
+ * @return
+ */
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *stringptr){
+    ((string*)stringptr)->append((char*)contents, size * nmemb);
+    return size * nmemb;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Polling Section                                                                                                    //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Defaults starts with a timeout of 100s
+ */
+void Bot::startLongPoll() {
+    this->startLongPoll(100);
+}
+
+void Bot::startLongPoll(long timeout) {
+    if(!(timeout <0 || timeout >200)){
+        //timeout is out of telegram usable range, 0 for shortpolling
+    }
+    if(this->isPolling){
+        //throw bot is polling
+    }
+    this->isPolling=true;
+    Polling = std::thread(&Bot::LongPolling,this,timeout);
+}
+
+void Bot::stopLongPoll() {
+    if(!this->isPolling){
+        //Bot has already stopped
+    }
+    this->isPolling=false;
+    this->Polling.join();
+}
+
+void Bot::LongPolling(long timeout){
+    if(!(timeout <0 || timeout >200)){
+        //timeout is out of telegram usable range, 0 for shortpolling
+    }
+//    int retrys_availlable=5;
+    CURL* curl = curl_easy_init();
+    Json::Reader reader;
+    string readBuffer;
+    string apiURL("https://api.telegram.org/bot"+token.getToken()+"/getUpdates");
+    curl_easy_setopt(curl,CURLOPT_URL,apiURL.c_str());
+    curl_easy_setopt(curl,CURLOPT_TIMEOUT, timeout);//100 sekunden?
+    curl_easy_setopt(curl,CURLOPT_WRITEFUNCTION,WriteCallback);
+    curl_easy_setopt(curl,CURLOPT_WRITEDATA,&readBuffer);
+    CURLcode res = CURLE_OK;
+    Update last(0);//Latest Dummy Update
+    do{
+        string offset("timeout="+to_string(timeout)+"&offset="+to_string(last.getUpdate_id()+1));// No NEed to get them again
+        curl_easy_setopt(curl,CURLOPT_POSTFIELDS,offset.c_str());
+        res = curl_easy_perform(curl);
+        Json::Value Response;
+        reader.parse(readBuffer,Response);
+        if(Response["ok"].asBool()){
+            // parse string, and enque updates
+            unique_lock<mutex> lock(m);
+            for(int i=0;i<Response["result"].size();i++){
+                Json::Value Update_json;
+                Update_json = Response["result"][i];
+                Update update = Update::fromJson(Update_json);
+                pendingUpdates.push(update);
+                pendingUpdatesAvailable.notify_one();
+                last = update;
+            }
+        }
+        else{
+                cerr << "Response was not ok" << readBuffer << endl;
+                curl_easy_cleanup(curl);
+                throw telegram_api_error(Response["error_code"].asInt(),Response["description"].asString());
+        }
+        readBuffer.clear();
+        Response.clear();
+    }
+    while(isPolling && !res);
+    if(res != CURLE_OK){
+        throw curl_error(res,curl_easy_strerror(res));
+//        cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+    }
+    curl_easy_cleanup(curl);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Update Notify Section                                                                                              //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void Bot::startUpdating() {
+    this->isUpdating=true;
+    Updating = std::thread(&Bot::NotifyRegisteredListeners,this);
+
+}
+
+void Bot::stopUpdating() {
+    this->isUpdating=false;
+    this->Updating.join();
+}
+
+void Bot::NotifyRegisteredListeners() {
+    //todo not check whom all wants, pre check then notify
+
+    std::unique_lock<std::mutex> lock(m);
+    while(isUpdating)
+    {
+        pendingUpdatesAvailable.wait(lock);
+        while(!pendingUpdates.empty()){
+//            cout << "Removing From Queue";
+            Update U = pendingUpdates.front();
+            //On Update Listeners
+            for(function<void(Update)> L: OnUpdateListeners){
+                L(U);
+            }
+            //On Message Listeners
+            for(function<void(Message)> L: OnMessageListener){
+                if(U.getMessage()){
+                    L(U.getMessage().value());
+                }
+            }
+            //On Bot Command Listener
+//            for(function<void(Message,MessageEntity)> L: OnMessageCommandListener){
+//                if(U.getMessage()){
+//                    for(MessageEntity entity : U.getMessage().value().getEntities()){
+//                        if(entity.getType().compare("bot_command")){
+//                            L(U.getMessage().value(),entity);
+//                        }
+//                    }
+//                }
+//            }
+            //On Message Edited
+            for(function<void(Message)> L: OnMessageEditedListener){
+                if(U.getEdited_message()){
+                    L(U.getEdited_message().value());
+                }
+            }
+            //On Channel Post
+            for(function<void(Message)> L: OnChannelPostListener){
+                if(U.getChannel_post()){
+                    L(U.getChannel_post().value());
+                }
+            }
+            //On Channel Post Edited
+            for(function<void(Message)> L: OnChannelPostEditedListener){
+                if(U.getEdited_channel_post()){
+                    L(U.getEdited_channel_post().value());
+                }
+            }
+            //Checking if Command was issued, extracting it and notifying
+
+
+            pendingUpdates.pop();
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Callback Section                                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+void Bot::addOnUpdateListener(function<void(Update)> Listener) {
+    OnUpdateListeners.push_back(Listener);
+}
+void Bot::addOnMessageBotCommandListener(std::function<void(Message,MessageEntity)> Listener) {
+    OnMessageCommandListener.push_back(Listener);
+}
+
+void Bot::addOnMessageListener(std::function<void(Message)> Listener) {
+    OnMessageListener.push_back(Listener);
+}
+
+void Bot::addOnMessageEditedListener(function<void(Message)> Listener) {
+    OnMessageEditedListener.push_back(Listener);
+}
+
+void Bot::addOnChannelPostListener(function<void(Message)> Listener) {
+    OnChannelPostListener.push_back(Listener);
+}
+
+void Bot::addOnChannelPostEditedListener(std::function<void(Message)> Listener) {
+    OnChannelPostEditedListener.push_back(Listener);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// "Outgoing"  Section                                                                                                //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//maybe enum of allowed functions?
+template <typename T> T Bot::perform_request(T (*fptr)(Json::Value),std::string function,std::string params){
+    CURL* curl = curl_easy_init();
+    string apiURL("https://api.telegram.org/bot"+token.getToken()+"/"+function);
+    string readBuffer;
+    Json::Reader reader;
+    Json::Value Response;
+    CURLcode res;
+//    char *encodedparams = curl_easy_escape(curl,params.c_str(),params.size());
+//    cout << "Encoded Params" << encodedparams << endl;
+    curl_easy_setopt(curl,CURLOPT_URL,apiURL.c_str());
+//    curl_easy_setopt(curl,CURLOPT_POSTFIELDS,encodedparams);
+    curl_easy_setopt(curl,CURLOPT_POSTFIELDS,params.c_str());
+    curl_easy_setopt(curl,CURLOPT_WRITEFUNCTION,WriteCallback);
+    curl_easy_setopt(curl,CURLOPT_WRITEDATA,&readBuffer);
+    res = curl_easy_perform(curl);
+    if(res != CURLE_OK){
+        throw curl_error(res,curl_easy_strerror(res));
+    }
+    reader.parse(readBuffer,Response);
+    if(Response["ok"].asBool()){
+//        curl_free(encodedparams);
+        curl_easy_cleanup(curl);
+        return fptr(Response["result"]);
+    }
+    else{
+        throw telegram_api_error(Response["error_code"].asInt(),Response["description"].asString());
+    }
+
+}
+
+//template User Bot::perform_request(User (*fptr)(Json::Value), std::string function, std::string params);
+
+
+const User Bot::getMe() {
+//    User u= perform_request<User>(User::fromJson,"getMe","");
+    User u= perform_request(User::fromJson,"getMe","");
+    return u;
+}
+
+const Message Bot::send(sendMessage sm){
+    string params="";
+    params+="chat_id="+sm.getChat_id();
+    params+="&text="+sm.getText();
+    if(sm.getParse_mode()){
+        params+="&parse_mode="+sm.getParse_mode().value();
+    }
+    if(sm.getDisable_web_page_preview().value_or(false)){
+        params+="&disable_web_page_preview=true";
+    }
+    if(sm.getDisable_notification().value_or(false)){
+        params+="&disable_notification=true";
+    }
+    if(sm.getReply_to_message_id()){
+        params+="&reply_to_message_id="+to_string(sm.getReply_to_message_id().value());
+    }
+    return  perform_request(Message::fromJson,"sendMessage",params);
+}

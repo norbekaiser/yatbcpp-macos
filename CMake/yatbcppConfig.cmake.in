@@ -1,0 +1,12 @@
+# - Config file for the yatbcpp package
+# It defines the following variables
+#  YATBCPP_FOUND        - the package was found
+#  YATBCPP_LIBRARRIES   - libraries to link against
+include("${CMAKE_CURRENT_LIST_DIR}/yatbcppTargets.cmake")
+
+set(YATBCPP_FOUND 1)
+# meh
+# set(YATBCPP_INCLUDE_DIRS "@INCLUDE_DIRECTORIES@")
+
+set(YATBCPP_LIBRARIES libyatbcpp)
+
