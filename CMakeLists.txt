@@ -52,12 +52,13 @@ set(SOURCE_FILES_TYPES ${yatbcppTypesHeadersList}
         src/types/ChatPhoto.cc
         src/types/Contact.cc
         src/types/Document.cc
-        src/types/KeyboardLocation.cc
+        src/types/KeyboardButton.cc
         src/types/File.cc
         src/types/Location.cc
         src/types/Message.cc
         src/types/MessageEntity.cc
         src/types/PhotoSize.cc
+        src/types/ReplyKeyboardMarkup.cc
         src/types/Update.cc
         src/types/User.cc
         src/types/UserProfilePhotos.cc

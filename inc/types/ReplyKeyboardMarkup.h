@@ -13,8 +13,8 @@
 // Created by norbert on 26.08.17.
 //
 
-#ifndef YATBCPP_KEYBOARDBUTTON_H
-#define YATBCPP_KEYBOARDBUTTON_H
+#ifndef YATBCPP_REPLYKEYBOARDMARKUP_H
+#define YATBCPP_REPLYKEYBOARDMARKUP_H
 
 #include <string>
 #if __has_include(<optional>) 
@@ -23,34 +23,42 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
+#include <vector>
 #include <json/json.h>
+#include "KeyboardButton.h"
+
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#keyboardbutton
-    class KeyboardButton {
+    //See also https://core.telegram.org/bots/api#replykeyboardmarkup
+    class ReplyKeyboardMarkup {
     public:
-        KeyboardButton(std::string text);
+        ReplyKeyboardMarkup(std::vector<std::vector<KeyboardButton>> keyboard);
 
-        static KeyboardButton fromJson(Json::Value Data);
+        static ReplyKeyboardMarkup fromJson(Json::Value Data);
 
-        void setRequest_contact(const std::optional<bool> &request_contact);
+        void setResize_keyboard(const std::optional<bool> &resize_keyboard);
 
-        void setRequest_location(const std::optional<bool> &request_location);
+        void setOne_time_keyboard(const std::optional<bool> &one_time_keyboard);
 
-        const std::string &getText() const;
+        void setSelective(const std::optional<bool> &selective);
 
-        const std::optional<bool> &getRequest_contact() const;
+        const std::vector<std::vector<KeyboardButton>> &getKeyboard() const;
 
-        const std::optional<bool> &getRequest_location() const;
+        const std::optional<bool> &getResize_keyboard() const;
+
+        const std::optional<bool> &getOne_time_keyboard() const;
+
+        const std::optional<bool> &getSelective() const;
 
 
     private:
-        std::string text;
-        std::optional<bool> request_contact;
-        std::optional<bool> request_location;
+        std::vector<std::vector<KeyboardButton>> keyboard;
+        std::optional<bool> resize_keyboard;
+        std::optional<bool> one_time_keyboard;
+        std::optional<bool> selective;
 
     };
 
 }
 
-#endif //YATBCPP_KEYBOARDBUTTON_H
+#endif //YATBCPP_REPLYKEYBOARDMARKUP_H

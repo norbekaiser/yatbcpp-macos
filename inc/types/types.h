@@ -31,6 +31,7 @@
 #include "MessageEntity.h"
 #include "PhotoSize.h"
 #include "UserProfilePhotos.h"
+#include "ReplyKeyboardMarkup.h"
 #include "Update.h"
 #include "User.h"
 #include "Venue.h"
