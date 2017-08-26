@@ -27,7 +27,7 @@
 #include "chat_type.h"
 
 namespace yatbcpp{
-
+    //See also https://core.telegram.org/bots/api#chat
     class Chat {
     public:
         Chat(int id,chat_type type);

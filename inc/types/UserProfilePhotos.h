@@ -20,7 +20,7 @@
 #include "PhotoSize.h"
 
 namespace yatbcpp{
-
+    //See also https://core.telegram.org/bots/api#userprofilephotos
     class UserProfilePhotos {
     public:
         UserProfilePhotos(int total_count,std::vector<std::vector<PhotoSize>> photos);

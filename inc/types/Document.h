@@ -28,7 +28,7 @@
 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#audio
+    //See also https://core.telegram.org/bots/api#document
     class Document {
     public:
         Document(std::string file_id);

@@ -27,7 +27,7 @@
 #include "Location.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#location
+    //See also https://core.telegram.org/bots/api#venue
     class Venue {
     public:
         Venue(Location location, std::string title, std::string address);
