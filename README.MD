@@ -29,7 +29,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 
 ## Homebrew Instructions
 * brew tap [norbekaiser/yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp)
-* brew install yatbcpp
+* There is an Issue with optional on sierra , please consider using  brew install yatbcpp --cc=gcc-7 
 
 ## vcpkg Instructions
 * coming soon?
