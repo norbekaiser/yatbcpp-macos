@@ -25,6 +25,7 @@
 #include "Contact.h"
 #include "Document.h"
 #include "File.h"
+#include "KeyboardButton.h"
 #include "Location.h"
 #include "Message.h"
 #include "MessageEntity.h"

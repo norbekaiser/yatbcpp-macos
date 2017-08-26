@@ -6,7 +6,8 @@
 
 ## About 
 Small Telegram Bot Api which sure misses some functionality, but if you think one should be implemented earlier, feel free to contact me
-For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.de/doc)
+For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.de/doc) or [Bot Api](https://core.telegram.org/bots/api)
+
 
 ## Features 
 * Allows to register on Message or on Command
