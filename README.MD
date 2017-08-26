@@ -19,17 +19,21 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 * [CURL](https://github.com/curl/curl)
 * threading ( multi threading was touched first, pure single thread might come sooner or later)
 * c++17 or experimental features at least , e.g. gcc7
-* std::variant might limit the usage to veeery new compilers soon, however currently it is implemented differently
+    * In general use CMAKE_COMPILER / CMAKE_CXX_COMPILER to set an appropriate compiler
+        * e.g. Linux supply -DCMAKE_C_COMPILER=/usr/bin/gcc-7 -DCMAKE_CXX_COMPILER=/usr/bin/g++-7
+        * e.g. MacOS supply -DCMAKE_C_COMPILER=/usr/local/bin/gcc-7 -DCMAKE_CXX_COMPILER=/usr/local/bin/g++-7
+* Support for optional or at least experimental optional,        
 
 ## Compile Instructions
 * mkdir -p build
 * cd build
+* cmake ..
 * make
 * sudo make install
 
 ## Homebrew Instructions
 * brew tap [norbekaiser/yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp)
-* There is an Issue with optional on sierra , please consider using  brew install yatbcpp --cc=gcc-7 
+* There is an Issue with optional on sierra , please consider using  brew install yatbcpp --cc=gcc-7 or 
 
 ## vcpkg Instructions
 * coming soon?
