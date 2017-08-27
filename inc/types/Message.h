@@ -178,77 +178,77 @@ namespace yatbcpp{
 
 
     private:
-        //Unique message identifier inside this chat
+        /**Unique message identifier inside this chat*/
         int message_id;
-        //Optional. Sender, empty for messages sent to channels
+        /**Optional. Sender, empty for messages sent to channels*/
         std::optional<User> from;//Optional
-        //Date the message was sent in Unix time
+        /**Date the message was sent in Unix time*/
         int date;
-        //Conversation the message belongs to
+        /**onversation the message belongs to*/
         Chat chat;
-        //Optional. For forwarded messages, sender of the original message
+        /**Optional. For forwarded messages, sender of the original message*/
         std::optional<User> forward_from;
-        //Optional. For messages forwarded from channels, information about the original channel
+        /**Optional. For messages forwarded from channels, information about the original channel*/
         std::optional<Chat> forward_from_chat;
-        //Optional. For messages forwarded from channels, identifier of the original message in the channel
+        /**Optional. For messages forwarded from channels, identifier of the original message in the channel*/
         std::optional<int> forward_from_message_id;
-        //Optional. For messages forwarded from channels, signature of the post author if present
+        /**Optional. For messages forwarded from channels, signature of the post author if present*/
         std::optional<std::string> forward_signature;
-        //Optional. For forwarded messages, date the original message was sent in Unix time
+        /**Optional. For forwarded messages, date the original message was sent in Unix time*/
         std::optional<int> forward_date;
 //        Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
 //        std::optional<Message*> reply_to_message;//=NULL;//Optional//sigh auch das noch//naja dann als pointer, ggf adden?
-        //Optional. Date the message was last edited in Unix time
+        /**Optional. Date the message was last edited in Unix time*/
         std::optional<int> edit_date;
-        //Optional. Signature of the post author for messages in channels
+        /**Optional. Signature of the post author for messages in channels*/
         std::optional<std::string> author_signature;
-        //Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters.
+        /**Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters.*/
         std::optional<std::string> text;
-        //Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text
+        /**Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text*/
         std::vector<MessageEntity> entities;
-        //Optional. Message is an audio file, information about the file
+        /**Optional. Message is an audio file, information about the file*/
         std::optional<Audio> audio;
-        //Optional. Message is a general file, information about the file
+        /**Optional. Message is a general file, information about the file*/
         std::optional<Document> document;
-        //Optional. Message is a photo, available sizes of the photo
+        /**Optional. Message is a photo, available sizes of the photo*/
         std::vector<PhotoSize> photo;
-        //Optional. Message is a video, information about the video
+        /**Optional. Message is a video, information about the video*/
         std::optional<Video> video;
-        //Optional. Message is a voice message, information about the file
+        /**Optional. Message is a voice message, information about the file*/
         std::optional<Voice> voice;
-        //Optional. Message is a video note, information about the video message
+        /**Optional. Message is a video note, information about the video message*/
         std::optional<VideoNote> video_note;
-        //Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)
+        /**Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)*/
         std::vector<User> new_chat_members;
-        //Optional. Caption for the document, photo or video, 0-200 characters
+        /**Optional. Caption for the document, photo or video, 0-200 characters*/
         std::optional<std::string> caption;
-        //Optional. Message is a shared contact, information about the contact
+        /**Optional. Message is a shared contact, information about the contact*/
         std::optional<Contact> contact;
-        //Optional. Message is a shared location, information about the location
+        /**Optional. Message is a shared location, information about the location*/
         std::optional<Location> location;
-        //Optional. Message is a venue, information about the venue
+        /**Optional. Message is a venue, information about the venue*/
         std::optional <Venue> venue;
-        //Optional. A new member was added to the group, information about them (this member may be the bot itself)
+        /**Optional. A new member was added to the group, information about them (this member may be the bot itself)*/
         std::optional<User> new_chat_member;
-        //Optional. A member was removed from the group, information about them (this member may be the bot itself)
+        /**Optional. A member was removed from the group, information about them (this member may be the bot itself)*/
         std::optional<User> left_chat_member;
-        //Optional. A chat title was changed to this value
+        /**Optional. A chat title was changed to this value*/
         std::optional<std::string> new_chat_title;
-        //Optional. A chat photo was change to this value
+        /**Optional. A chat photo was change to this value*/
         std::vector<PhotoSize> new_chat_photo;
-        //Optional. Service message: the chat photo was deleted
+        /**Optional. Service message: the chat photo was deleted*/
         std::optional<bool> delete_chat_photo;
-        //Optional. Service message: the group has been created
+        /**Optional. Service message: the group has been created*/
         std::optional<bool> group_chat_created;
-        //Optional. Service message: the supergroup has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.
+        /**Optional. Service message: the supergroup has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.*/
         std::optional<bool> supergroup_chat_created;
-        //Optional. Service message: the channel has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.
+        /**Optional. Service message: the channel has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.*/
         std::optional<bool> channel_chat_created;
-        // 	Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.
+        /**Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.*/
         std::optional<long> migrate_to_chat_id;
-        //Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.
+        /**Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.*/
         std::optional<long> migrate_from_chat_id;
-        //Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.
+        /**Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.*/
 //        std::optional<Message*> pinned_message;
         //todo invoice
         //todo payment
