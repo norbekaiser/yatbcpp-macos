@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         ChatMember(User user,std::string status);
 
-        static ChatMember fromJson(Json::Value Data);
+//        static ChatMember fromJson(Json::Value Data);
 
         void setUntil_date(const std::optional<int> &until_date);
 

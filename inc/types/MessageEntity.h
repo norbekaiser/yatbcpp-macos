@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         MessageEntity(std::string type,int offset, int length);
 
-        static MessageEntity fromJson(Json::Value Data);
+//        static MessageEntity fromJson(Json::Value Data);
 
         void setUrl(const std::optional<std::string> &url);
 

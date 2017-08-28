@@ -41,41 +41,6 @@ MessageEntity::MessageEntity(std::string type, int offset, int length) : type(ty
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Generation Section                                                                                                 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Returns A MessageEntity based on a Json Object
- * @param Data   a Json Object Containing the necessary and Optional Fields
- * @return Parsed MessageEntity
- */
-MessageEntity MessageEntity::fromJson(Json::Value Data) {
-    if(!Data.isMember("type")){
-        throw essential_key_missing("MessageEntity::type is missing");
-    }
-    if(!Data.isMember("offset")){
-        throw essential_key_missing("MessageEntity::offset is missing");
-    }
-    if(!Data.isMember("length")){
-        throw essential_key_missing("MessageEntity::length is missing");
-    }
-
-    std::string type = Data["type"].asString();
-    int offset = Data["offset"].asInt();
-    int length = Data["length"].asInt();
-
-    MessageEntity ret(type,offset,length);
-
-    if(Data.isMember("url")){
-        ret.setUrl(Data["url"].asString());
-    }
-    if(Data.isMember("user")){
-        ret.setUser(User::fromJson(Data["user"]));
-    }
-    return ret;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

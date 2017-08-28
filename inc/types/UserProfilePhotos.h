@@ -25,7 +25,7 @@ namespace yatbcpp{
     public:
         UserProfilePhotos(int total_count,std::vector<std::vector<PhotoSize>> photos);
 
-        UserProfilePhotos fromJson(Json::Value Data);
+//        UserProfilePhotos fromJson(Json::Value Data);
 
         int getTotal_count() const;
 

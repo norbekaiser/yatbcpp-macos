@@ -11,6 +11,7 @@
 #endif 
 #include <json/json.h>
 #include "exceptions/essential_key_missing.h"
+#include "types/telegram_type.h"
 #include "types/VideoNote.h"
 
 using namespace yatbcpp;
@@ -23,41 +24,6 @@ using namespace std;
 VideoNote::VideoNote(std::string file_id, int length, int duration) : file_id(file_id), length(length), duration(duration)
 {
 
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Generation Section                                                                                                 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Returns A VideoNote based on a Json Object
- * @param Data   a Json Object Containing the necessary and Optional Fields
- * @return Parsed VideoNote
- */
-VideoNote VideoNote::fromJson(Json::Value Data) {
-    if(!Data.isMember("file_id")){
-        throw essential_key_missing("VideoNote::file_id is missing");
-    }
-    if(!Data.isMember("length")){
-        throw essential_key_missing("VideoNote::length is missing");
-    }
-    if(!Data.isMember("duration")){
-        throw essential_key_missing("VideoNote::duration is missing");
-    }
-
-    std::string file_id = Data["file_id"].asString();
-    int length = Data["length"].asInt();
-    int duration = Data["duration"].asInt();
-
-    VideoNote ret(file_id,length,duration);
-
-    if(Data.isMember("thumb")){
-        ret.setThumb(PhotoSize::fromJson(Data["thumb"]));
-    }
-    if(Data.isMember("file_size")){
-        ret.setFile_size(Data["file_size"].asInt());
-    }
-    return ret;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

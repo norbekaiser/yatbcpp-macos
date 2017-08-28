@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         Chat(int id,chat_type type);
 
-        static Chat fromJson(Json::Value Data);
+//        static Chat fromJson(Json::Value Data);
 
         void setTitle(const std::optional<std::string> &title);
 

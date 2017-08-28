@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         Venue(Location location, std::string title, std::string address);
 
-        static Venue fromJson(Json::Value Data);
+//        static Venue fromJson(Json::Value Data);
 
         void setFoursquare_id(const std::optional<std::string> &foursquare_id);
 

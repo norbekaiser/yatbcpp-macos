@@ -24,7 +24,7 @@ namespace yatbcpp{
     public:
         Location(float longitude, float latitude);
 
-        static Location fromJson(Json::Value Data);
+//        static Location fromJson(Json::Value Data);
 
         float getLongitude() const;
 

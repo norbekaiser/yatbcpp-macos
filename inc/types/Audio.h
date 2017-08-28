@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         Audio(std::string file_id,int duration);
 
-        static Audio fromJson(Json::Value Data);
+//        static Audio fromJson(Json::Value Data);
 
         void setPerformer(const std::optional<std::string> &performer);
 

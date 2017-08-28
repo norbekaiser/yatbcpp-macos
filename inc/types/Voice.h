@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         Voice(std::string file_id, int duration);
 
-        static Voice fromJson(Json::Value Data);
+//        static Voice fromJson(Json::Value Data);
 
         void setMime_type(const std::optional<std::string> &mime_type);
 

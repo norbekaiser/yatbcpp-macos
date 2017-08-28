@@ -24,15 +24,14 @@
 #define optional experimental::optional 
 #endif 
 #include <json/json.h>
+#include "telegram_type.h"
 
 namespace yatbcpp{
     //See also https://core.telegram.org/bots/api#user
-    class User{
+    class User {
     public:
 
         User(int id,bool is_bot,std::string first_name);
-
-        static User fromJson(Json::Value Data);
 
         int getId() const;
 
@@ -60,6 +59,9 @@ namespace yatbcpp{
         std::optional<std::string> username;//optional
         std::optional<std::string> language_code;//optional, sigh c++17 the dream
     };
+
+
+//    User fromJson(Json::Value Data);
 
 }
 

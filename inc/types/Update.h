@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         Update(int update_id);
 
-        static Update fromJson(Json::Value Data);
+//        static Update fromJson(Json::Value Data);
 
         void setMessage(const std::optional<Message> &message);
 

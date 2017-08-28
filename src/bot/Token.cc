@@ -5,9 +5,9 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
-#include <inc/exceptions/file_not_found.h>
+#include <exceptions/file_not_found.h>
 
-#include "Token.h"
+#include "inc/bot/Token.h"
 //Namespace for Library
 using namespace yatbcpp;
 using namespace std;

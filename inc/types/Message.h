@@ -43,7 +43,7 @@ namespace yatbcpp{
     public:
         Message(int message_id,int date,Chat chat);
 
-        static Message fromJson(Json::Value Data);
+//        static Message fromJson(Json::Value Data);
 
         void setFrom(const std::optional<User> &from);
 

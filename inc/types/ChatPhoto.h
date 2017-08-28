@@ -25,7 +25,7 @@ namespace yatbcpp{
     public:
         ChatPhoto(std::string small_file_id, std::string big_file_id);
 
-        static ChatPhoto fromJson(Json::Value Data);
+//        static ChatPhoto fromJson(Json::Value Data);
 
         const std::string &getSmall_file_id() const;
 

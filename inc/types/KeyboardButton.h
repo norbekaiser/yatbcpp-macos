@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         KeyboardButton(std::string text);
 
-        static KeyboardButton fromJson(Json::Value Data);
+//        static KeyboardButton fromJson(Json::Value Data);
 
         void setRequest_contact(const std::optional<bool> &request_contact);
 

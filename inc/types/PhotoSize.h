@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         PhotoSize(std::string file_id,int width, int height);
 
-        static PhotoSize fromJson(Json::Value Data);
+//        static PhotoSize fromJson(Json::Value Data);
 
         void setFile_size(const std::optional<int> &file_size);
 

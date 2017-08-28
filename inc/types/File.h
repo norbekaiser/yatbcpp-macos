@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         File(std::string file_id);
 
-        static File fromJson(Json::Value Data);
+//        static File fromJson(Json::Value Data);
 
         void setFile_size(const std::optional<int> &file_size);
 

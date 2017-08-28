@@ -33,7 +33,7 @@ namespace yatbcpp{
     public:
         Document(std::string file_id);
 
-        static Document fromJson(Json::Value Data);
+//        static Document fromJson(Json::Value Data);
 
         void setThumb(const std::optional<PhotoSize> &thumb);
 

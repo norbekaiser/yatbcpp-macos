@@ -22,12 +22,16 @@
 #include <functional>
 #include <queue>
 #include <condition_variable>
-#include "Token.h"
-#include "types/MessageEntity.h"
-#include "types/Message.h"
-#include "types/Update.h"
-#include "types/User.h"
-#include "types/sendMessage.h"
+
+#include "../bot/Token.h"
+#include "../types/MessageEntity.h"
+#include "../types/Message.h"
+#include "../types/Update.h"
+#include "../types/User.h"
+
+#include "../methods/sendMessage.h"
+
+#include "../methods/telegram_method.h"
 
 namespace yatbcpp {
     class Bot {
@@ -45,9 +49,9 @@ namespace yatbcpp {
 
         void stopUpdating();
 
-        const User getMe() ;//yeah no parameters, ooo about the second const aem looks more consistent?
+        const User getMe() ;//better get a hold on outgoing perform request, todo allow sendmessage or get me as argument
 
-        const Message send(sendMessage sm);
+//        const Message sendSM(sendMessage sm);
 
         void addOnUpdateListener(std::function<void(Update)> Listener);
 

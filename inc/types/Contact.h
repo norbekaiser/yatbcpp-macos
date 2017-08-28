@@ -31,7 +31,7 @@ namespace yatbcpp{
     public:
         Contact(std::string phone_number, std::string first_name);
 
-        static Contact fromJson(Json::Value Data);
+//        static Contact fromJson(Json::Value Data);
 
         void setLast_name(const std::optional<std::string> &last_name);
 

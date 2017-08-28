@@ -22,7 +22,6 @@ install(TARGETS yatbcpp EXPORT yatbcppTargets
 install(
         FILES
         yatbcpp.h
-        ${yatbcppHeadersList}
         "${CMAKE_CURRENT_BINARY_DIR}/yatbcpp_export.h"
         DESTINATION
         include/yatbcpp
@@ -31,6 +30,17 @@ install(
 )
 
 ########################################################################################################################
+# Bot Headers                                                                                                          #
+########################################################################################################################
+
+install(
+        FILES
+        ${yatbcppBotHeadersList}
+        DESTINATION
+        include/yatbcpp/bot/
+        COMPONENT
+        Devel
+)########################################################################################################################
 # Type Headers                                                                                                         #
 ########################################################################################################################
 
@@ -39,6 +49,19 @@ install(
         ${yatbcppTypesHeadersList}
         DESTINATION
         include/yatbcpp/types/
+        COMPONENT
+        Devel
+)
+
+########################################################################################################################
+# Telegram Function  Headers                                                                                           #
+########################################################################################################################
+
+install(
+        FILES
+        ${yatbcppMethodsHeadersList}
+        DESTINATION
+        include/yatbcpp/methods/
         COMPONENT
         Devel
 )

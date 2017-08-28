@@ -19,9 +19,11 @@
     #include "exceptions/exceptions.h"
     //Contains the Type Headers
     #include "types/types.h"
+    //Make Sure The Methods are included
+    #include "methods/methods.h"
     //Contains the BotApi Things
-    #include "Bot.h"
+    #include "bot/Bot.h"
     //Contains the Token Data
-    #include "Token.h"
+    #include "bot/Token.h"
 
 #endif //YATBCPP_H

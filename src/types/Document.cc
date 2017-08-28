@@ -11,6 +11,7 @@
 #endif 
 #include <json/json.h>
 #include "exceptions/essential_key_missing.h"
+#include "types/telegram_type.h"
 #include "types/PhotoSize.h"
 #include "types/Document.h"
 
@@ -24,39 +25,6 @@ using namespace std;
 Document::Document(std::string file_id) : file_id(file_id)
 {
 
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Generation Section                                                                                                 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Returns A Document based on a Json Object
- * @param Data   a Json Object Containing the necessary and Optional Fields
- * @return Parsed Document
- */
-Document Document::fromJson(Json::Value Data) {
-    if(!Data.isMember("file_id")){
-        throw essential_key_missing("Document::file_id is missing");
-    }
-
-    std::string file_id = Data["file_id"].asString();
-
-    Document ret(file_id);
-
-    if(Data.isMember("thumb")){
-        ret.setThumb(PhotoSize::fromJson(Data["thumb"]));
-    }
-    if(Data.isMember("file_name")){
-        ret.setFile_name(Data["file_name"].asString());
-    }
-    if(Data.isMember("mime_type")){
-        ret.setMime_type(Data["mime_type"].asString());
-    }
-    if(Data.isMember("file_size")){
-        ret.setFile_size(Data["file_size"].asInt());
-    }
-    return ret;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

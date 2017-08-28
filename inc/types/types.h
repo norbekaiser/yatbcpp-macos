@@ -16,7 +16,7 @@
 #ifndef YATBCPP_TYPES_H
 #define YATBCPP_TYPES_H
 
-//the following might return
+//Maybe Arrange as in docu?
 #include "Audio.h"
 #include "Chat.h"
 #include "chat_type.h"
@@ -25,11 +25,13 @@
 #include "Contact.h"
 #include "Document.h"
 #include "File.h"
+#include "ForceReply.h"
 #include "KeyboardButton.h"
 #include "Location.h"
 #include "Message.h"
 #include "MessageEntity.h"
 #include "PhotoSize.h"
+#include "ReplyMarkup.h"
 #include "UserProfilePhotos.h"
 #include "ReplyKeyboardMarkup.h"
 #include "Update.h"
@@ -38,8 +40,5 @@
 #include "Video.h"
 #include "VideoNote.h"
 #include "Voice.h"
-
-//the following shall come
-#include "sendMessage.h"
 
 #endif //YATBCPP_TYPES_H

@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         VideoNote(std::string file_id,int length, int duration);
 
-        static VideoNote fromJson(Json::Value Data);
+//        static VideoNote fromJson(Json::Value Data);
 
         void setThumb(const std::optional<PhotoSize> &thumb);
 

@@ -32,7 +32,7 @@ namespace yatbcpp{
     public:
         Video(std::string file_id,int width, int height,int duration);
 
-        static Video fromJson(Json::Value Data);
+//        static Video fromJson(Json::Value Data);
 
         const std::string &getFile_id() const;
 

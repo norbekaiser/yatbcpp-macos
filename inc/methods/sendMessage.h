@@ -10,26 +10,25 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 21.08.17.
+// Created by norbert on 27.08.17.
 //
 
 #ifndef YATBCPP_SENDMESSAGE_H
 #define YATBCPP_SENDMESSAGE_H
 
-#include <string>
-#if __has_include(<optional>) 
-#include <optional> 
-#else 
-#include <experimental/optional> 
-#define optional experimental::optional 
-#endif 
-#include "Message.h"
-#include "Chat.h"
-
+#include "../types/Message.h"
+#include "../types/ReplyKeyboardMarkup.h"
+#include "../types/ReplyKeyboardMarkup.h"
+#include "../types/ReplyKeyboardRemove.h"
+#include "../types/ForceReply.h"
+#include "telegram_method.h"
 
 namespace yatbcpp{
-    class sendMessage {
+    class sendMessage : public telegram_method<Message>{
     public:
+
+        Json::Value toJson();
+
         sendMessage(int chat_id,std::string text);
 
         sendMessage(std::string chat_id,std::string text);
@@ -44,9 +43,9 @@ namespace yatbcpp{
 
         void setReply_to_message_id(const std::optional<int> &reply_to_message_id);
 
-        void setReply_to_message_id(const Message M);
-
-//        const std::variant<int, std::string> &getChat_id() const;
+        void setReplyMarkup(const ReplyKeyboardMarkup RKM);
+        void setReplyMarkup(const ReplyKeyboardRemove RKR);
+        void setReplyMarkup(const ForceReply FR);
 
         const std::string &getChat_id() const;
 
@@ -60,20 +59,18 @@ namespace yatbcpp{
 
         const std::optional<int> &getReply_to_message_id() const;
 
+        const std::optional<ReplyMarkup> &getReply_markup() const;
+
+
     private:
-        void escape_text_string();
-//        std::variant<int,std::string> chat_id;
         std::string chat_id;//Maybe simpler because @username or chat_id
-//        std::optional<int> chatid;//will be implemented in the feature some day
         std::string text;
         std::optional<std::string> parse_mode;
         std::optional<bool> disable_web_page_preview;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
-//        std::optional<> reply_markup;
+        std::optional<ReplyMarkup> reply_markup;
     };
 }
-
-
 
 #endif //YATBCPP_SENDMESSAGE_H
