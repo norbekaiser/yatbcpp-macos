@@ -13,8 +13,8 @@
 // Created by norbert on 27.08.17.
 //
 
-#ifndef YATBCPP_SENDPHOTO_H
-#define YATBCPP_SENDPHOTO_H
+#ifndef YATBCPP_SENDAUDIO_H
+#define YATBCPP_SENDAUDIO_H
 
 #include "../types/Chat.h"
 #include "../types/Message.h"
@@ -25,18 +25,24 @@
 #include "telegram_method.h"
 
 namespace yatbcpp{
-    class sendPhoto : public telegram_method<Message>{
+    class sendAudio : public telegram_method<Message>{
     public:
 
         Json::Value toJson();
 
-        sendPhoto(int chat_id,std::string photo);
+        sendAudio(int chat_id,std::string audio);
 
-        sendPhoto(std::string chat_id,std::string photo);
+        sendAudio(std::string chat_id,std::string audio);
 
-        sendPhoto(Chat C, std::string photo);
+        sendAudio(Chat C, std::string audio);
 
         void setCaption(const std::optional<std::string> &caption);
+
+        void setDuration(const std::optional<std::string> &duration);
+
+        void setPerformer(const std::optional<std::string> &performer);
+
+        void setTitle(const std::optional<std::string> &title);
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -48,9 +54,15 @@ namespace yatbcpp{
 
         const std::string &getChat_id() const;
 
-        const std::string &getPhoto() const;
+        const std::string &getAudio() const;
 
         const std::optional<std::string> &getCaption() const;
+
+        const std::optional<std::string> &getDuration() const;
+
+        const std::optional<std::string> &getPerformer() const;
+
+        const std::optional<std::string> &getTitle() const;
 
         const std::optional<bool> &getDisable_notification() const;
 
@@ -61,13 +73,15 @@ namespace yatbcpp{
 
     private:
         std::string chat_id;
-        std::string Photo;//Currently only file id
+        std::string audio;//Currently only file id
         std::optional<std::string> caption;
-
+        std::optional<std::string> duration;
+        std::optional<std::string> performer;
+        std::optional<std::string> title;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }
 
-#endif //YATBCPP_SENDPHOTO_H
+#endif //YATBCPP_SENDAUDIO_H

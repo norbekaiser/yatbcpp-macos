@@ -6,7 +6,7 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include "methods/sendPhoto.h"
+#include "methods/sendAudio.h"
 
 using namespace std;
 using namespace yatbcpp;
@@ -15,17 +15,17 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendPhoto::sendPhoto(Chat C, std::string photo) : telegram_method("sendPhoto") , chat_id(to_string(C.getId())), Photo(photo)
+sendAudio::sendAudio(Chat C, std::string audio) : telegram_method("sendAudio") , chat_id(to_string(C.getId())), audio(audio)
 {
 
 }
 
-sendPhoto::sendPhoto(int chat_id, std::string photo) : telegram_method("sendPhoto") ,chat_id(to_string(chat_id)) , Photo(photo)
+sendAudio::sendAudio(int chat_id, std::string audio) : telegram_method("sendAudio") ,chat_id(to_string(chat_id)) , audio(audio)
 {
 
 }
 
-sendPhoto::sendPhoto(string chat_id, std::string photo) : telegram_method("sendPhoto") ,chat_id(chat_id) , Photo(photo)
+sendAudio::sendAudio(string chat_id, std::string audio) : telegram_method("sendAudio") ,chat_id(chat_id) , audio(audio)
 {
 
 }
@@ -34,13 +34,23 @@ sendPhoto::sendPhoto(string chat_id, std::string photo) : telegram_method("sendP
 // Outgoing Section                                                                                                   //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Json::Value sendPhoto::toJson() {
+
+Json::Value sendAudio::toJson() {
     Json::Value Outgoing;
     Outgoing["chat_id"] = getChat_id();
-    Outgoing["photo"] = getPhoto();
+    Outgoing["audio"] = getAudio();
 
     if(getCaption()){
         Outgoing["caption"] = getCaption().value();
+    }
+    if(getDuration()){
+        Outgoing["duration"] = getDuration().value();
+    }
+    if(getPerformer()){
+        Outgoing["performer"] = getPerformer().value();
+    }
+    if(getTitle()){
+        Outgoing["title"] = getTitle().value();
     }
     if(getDisable_notification()){
         Outgoing["disable_notification"] = getDisable_notification().value();
@@ -57,69 +67,92 @@ Json::Value sendPhoto::toJson() {
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void sendPhoto::setCaption(const optional<string> &caption) {
-    sendPhoto::caption = caption;
+void sendAudio::setCaption(const optional<string> &caption) {
+    sendAudio::caption = caption;
 }
 
 
-void sendPhoto::setDisable_notification(const std::optional<bool> &disable_notification) {
-    sendPhoto::disable_notification = disable_notification;
+void sendAudio::setDuration(const optional<string> &duration) {
+    sendAudio::duration = duration;
 }
 
-void sendPhoto::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
-    sendPhoto::reply_to_message_id = reply_to_message_id;
+void sendAudio::setPerformer(const optional<string> &performer) {
+    sendAudio::performer = performer;
+}
+
+void sendAudio::setTitle(const optional<string> &title) {
+    sendAudio::title = title;
+}
+
+void sendAudio::setDisable_notification(const std::optional<bool> &disable_notification) {
+    sendAudio::disable_notification = disable_notification;
+}
+
+void sendAudio::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+    sendAudio::reply_to_message_id = reply_to_message_id;
 }
 
 /**
  * Sets an ReplyKeyboardMarkup
  * @param RKM
  */
-void sendPhoto::setReplyMarkup(const ReplyKeyboardMarkup RKM){
-    sendPhoto::reply_markup = RKM;
+void sendAudio::setReplyMarkup(const ReplyKeyboardMarkup RKM){
+    sendAudio::reply_markup = RKM;
 }
 
 /**
  * Sets an ReplyKeyboardRemove
  * @param RKR
  */
-void sendPhoto::setReplyMarkup(const ReplyKeyboardRemove RKR){
-    sendPhoto::reply_markup = RKR;
+void sendAudio::setReplyMarkup(const ReplyKeyboardRemove RKR){
+    sendAudio::reply_markup = RKR;
 }
 
 /**
  * Sets an ForceReply
  * @param FR
  */
-void sendPhoto::setReplyMarkup(const ForceReply FR){
-    sendPhoto::reply_markup = FR;
+void sendAudio::setReplyMarkup(const ForceReply FR){
+    sendAudio::reply_markup = FR;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Getter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const string &sendPhoto::getChat_id() const {
+const string &sendAudio::getChat_id() const {
     return chat_id;
 }
 
-const string &sendPhoto::getPhoto() const {
-    return Photo;
+const string &sendAudio::getAudio() const {
+    return audio;
 }
 
-const optional<string> &sendPhoto::getCaption() const {
+const optional<string> &sendAudio::getCaption() const {
     return caption;
 }
 
+const optional<string> &sendAudio::getDuration() const {
+    return duration;
+}
 
-const optional<bool> &sendPhoto::getDisable_notification() const {
+const optional<string> &sendAudio::getPerformer() const {
+    return performer;
+}
+
+const optional<string> &sendAudio::getTitle() const {
+    return title;
+}
+
+const optional<bool> &sendAudio::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendPhoto::getReply_to_message_id() const {
+const optional<int> &sendAudio::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 
-const optional<ReplyMarkup> &sendPhoto::getReply_markup() const {
+const optional<ReplyMarkup> &sendAudio::getReply_markup() const {
     return reply_markup;
 }
 

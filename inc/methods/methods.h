@@ -14,6 +14,7 @@
 
 #include "telegram_method.h"
 #include "getMe.h"
+#include "sendAudio.h"
 #include "sendMessage.h"
 #include "sendPhoto.h"
 
