@@ -12,7 +12,8 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 ## Features 
 * Allows to register on Message or on Command
 * sendMessage is possible
-* sendPhoto is possible , however uploading an image not
+* sendPhoto is possible , use telegramMethodMultipart for sending a local file
+* sendAudio is possible , use telegramMethodMultipart for sending a local file
 * Token From File fails sometimes(?)
 
 ## Requirements 

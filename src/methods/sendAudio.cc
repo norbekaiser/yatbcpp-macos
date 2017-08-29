@@ -69,7 +69,7 @@ void sendAudio::add_to_post(struct curl_httppost **start, struct curl_httppost *
                  CURLFORM_COPYCONTENTS,chat_id.c_str(),
                  CURLFORM_END);
     curl_formadd(start,end,
-                 CURLFORM_COPYNAME,"photo",
+                 CURLFORM_COPYNAME,"audio",
                  CURLFORM_FILE,audio.c_str(),
                  CURLFORM_END);
     if(caption){
