@@ -26,7 +26,7 @@
 #include "User.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#messageentity
+    /** See also https://core.telegram.org/bots/api#messageentity */
     class MessageEntity {
     public:
         MessageEntity(std::string type,int offset, int length);

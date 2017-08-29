@@ -23,7 +23,7 @@
 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#document
+    /** See also https://core.telegram.org/bots/api#document */
     class Document {
     public:
         Document(std::string file_id);

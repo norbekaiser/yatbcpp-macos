@@ -21,7 +21,7 @@
 #include "ReplyMarkup.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#forcereply
+    /** See also https://core.telegram.org/bots/api#forcereply */
     class ForceReply : public ReplyMarkup {
     public:
         ForceReply();

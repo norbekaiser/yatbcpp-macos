@@ -15,7 +15,7 @@
 #include <string>
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#chatphoto
+    /** See also https://core.telegram.org/bots/api#chatphoto */
     class ChatPhoto {
     public:
         ChatPhoto(std::string small_file_id, std::string big_file_id);
@@ -30,7 +30,5 @@ namespace yatbcpp{
     };
 
 }
-
-
 
 #endif //YATBCPP_CHATPHOTO_H

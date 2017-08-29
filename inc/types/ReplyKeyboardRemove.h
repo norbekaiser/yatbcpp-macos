@@ -26,7 +26,7 @@
 #include "ReplyMarkup.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#replykeyboardremove
+    /** See also https://core.telegram.org/bots/api#replykeyboardremove */
     class ReplyKeyboardRemove : public ReplyMarkup{
     public:
         ReplyKeyboardRemove();

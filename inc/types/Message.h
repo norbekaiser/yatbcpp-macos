@@ -37,7 +37,7 @@
 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#message
+    /** See also https://core.telegram.org/bots/api#message */
     class Message{
     public:
         Message(int message_id,int date,Chat chat);

@@ -13,7 +13,7 @@
 #define YATBCPP_LOCATION_H
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#location
+    /** See also https://core.telegram.org/bots/api#location */
     class Location {
     public:
         Location(float longitude, float latitude);

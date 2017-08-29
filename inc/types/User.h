@@ -26,7 +26,7 @@
 #include "telegram_type.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#user
+    /** See also https://core.telegram.org/bots/api#user */
     class User {
     public:
 

@@ -21,7 +21,7 @@
 #endif 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#file
+    /** See also https://core.telegram.org/bots/api#file */
     class File {
     public:
         File(std::string file_id);

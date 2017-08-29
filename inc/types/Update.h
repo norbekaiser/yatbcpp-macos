@@ -26,7 +26,7 @@
 #include "Message.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#update
+    /** See also https://core.telegram.org/bots/api#update */
     class Update {
     public:
         Update(int update_id);

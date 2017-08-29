@@ -21,7 +21,7 @@
 #endif 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#contact
+    /** See also https://core.telegram.org/bots/api#contact */
     class Contact {
     public:
         Contact(std::string phone_number, std::string first_name);

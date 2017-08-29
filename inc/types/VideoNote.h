@@ -26,7 +26,7 @@
 #include "PhotoSize.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#videonote
+    /** See also https://core.telegram.org/bots/api#videonote */
     class VideoNote {
     public:
         VideoNote(std::string file_id,int length, int duration);

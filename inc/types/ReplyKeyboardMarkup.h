@@ -29,7 +29,7 @@
 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#replykeyboardmarkup
+    /** See also https://core.telegram.org/bots/api#replykeyboardmarkup */
     class ReplyKeyboardMarkup : public ReplyMarkup{
     public:
         ReplyKeyboardMarkup(std::vector<std::vector<KeyboardButton>> keyboard);

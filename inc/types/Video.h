@@ -26,7 +26,7 @@
 #include "PhotoSize.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#video
+    /** See also https://core.telegram.org/bots/api#video */
     class Video {
     public:
         Video(std::string file_id,int width, int height,int duration);

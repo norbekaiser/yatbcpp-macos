@@ -22,7 +22,7 @@
 #include "User.h"
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#chatmember
+    /** See also https://core.telegram.org/bots/api#chatmember */
     class ChatMember {
     public:
         ChatMember(User user,std::string status);

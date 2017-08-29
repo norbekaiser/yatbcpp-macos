@@ -25,7 +25,7 @@
 #endif 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#voice
+    /** See also https://core.telegram.org/bots/api#voice */
     class Voice {
     public:
         Voice(std::string file_id, int duration);

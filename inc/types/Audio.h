@@ -21,7 +21,7 @@
 #endif 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#audio
+    /** See also https://core.telegram.org/bots/api#audio */
     class Audio {
     public:
         Audio(std::string file_id,int duration);

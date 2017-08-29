@@ -21,7 +21,7 @@
 #endif 
 
 namespace yatbcpp{
-    //See also https://core.telegram.org/bots/api#keyboardbutton
+    /** See also https://core.telegram.org/bots/api#keyboardbutton */
     class KeyboardButton {
     public:
         KeyboardButton(std::string text);
