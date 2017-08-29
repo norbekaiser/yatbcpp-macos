@@ -18,7 +18,6 @@
 
 #include "curl/curl.h"
 #include <json/json.h>
-#include <iostream>
 #include "../exceptions/telegram_api_error.h"
 #include "../exceptions/curl_error.h"
 #include "../types/telegram_type.h"
@@ -46,7 +45,6 @@ namespace yatbcpp{
 
 
         static RETURNTYPE perform_request(Token T, telegram_method<RETURNTYPE> &method_body){
-            std::cerr << "STarting to perform request" << std::endl;
             using namespace std;
             string curl_payload( method_body.toJson().toStyledString() );
             string api_url ( "https://api.telegram.org/bot"+T.getToken()+"/"+method_body.getFunctionname() );
