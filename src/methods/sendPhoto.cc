@@ -15,17 +15,17 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendPhoto::sendPhoto(Chat C, std::string photo) : telegram_method("sendPhoto") , chat_id(to_string(C.getId())), Photo(photo)
+sendPhoto::sendPhoto(Chat C, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(to_string(C.getId())), Photo(photo)
 {
 
 }
 
-sendPhoto::sendPhoto(int chat_id, std::string photo) : telegram_method("sendPhoto") ,chat_id(to_string(chat_id)) , Photo(photo)
+sendPhoto::sendPhoto(int chat_id, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(to_string(chat_id)) , Photo(photo)
 {
 
 }
 
-sendPhoto::sendPhoto(string chat_id, std::string photo) : telegram_method("sendPhoto") ,chat_id(chat_id) , Photo(photo)
+sendPhoto::sendPhoto(string chat_id, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(chat_id) , Photo(photo)
 {
 
 }
@@ -51,6 +51,24 @@ Json::Value sendPhoto::toJson() {
 
     return Outgoing;
 
+}
+
+void sendPhoto::add_to_post(struct curl_httppost **start, struct curl_httppost **end) {
+    curl_formadd(start,end,
+                 CURLFORM_COPYNAME,"chat_id",
+                 CURLFORM_COPYCONTENTS,chat_id.c_str(),
+                 CURLFORM_END);
+    curl_formadd(start,end,
+                 CURLFORM_COPYNAME,"photo",
+                 CURLFORM_FILE,Photo.c_str(),
+                 CURLFORM_END);
+    if(caption){
+        curl_formadd(start,end,
+                     CURLFORM_COPYNAME,"caption",
+                     CURLFORM_COPYCONTENTS,caption.value().c_str(),
+                     CURLFORM_END);
+    }
+    //TODO add other fields
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -122,10 +140,3 @@ const optional<int> &sendPhoto::getReply_to_message_id() const {
 const optional<ReplyMarkup> &sendPhoto::getReply_markup() const {
     return reply_markup;
 }
-
-
-
-
-
-
-

@@ -22,10 +22,10 @@
 #include "../types/ReplyKeyboardMarkup.h"
 #include "../types/ReplyKeyboardRemove.h"
 #include "../types/ForceReply.h"
-#include "telegram_method.h"
+#include "telegram_methodJSON.h"
 
 namespace yatbcpp{
-    class sendMessage : public telegram_method<Message>{
+    class sendMessage : public telegram_methodJSON<Message>{
     public:
 
         Json::Value toJson();

@@ -22,18 +22,37 @@
 #include "../types/ReplyKeyboardMarkup.h"
 #include "../types/ReplyKeyboardRemove.h"
 #include "../types/ForceReply.h"
-#include "telegram_method.h"
+#include "telegram_methodJSON.h"
+#include "telegram_methodMultipart.h"
 
 namespace yatbcpp{
-    class sendAudio : public telegram_method<Message>{
+    class sendAudio : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
     public:
 
+
+        void add_to_post(struct curl_httppost **start, struct curl_httppost **end);
+
         Json::Value toJson();
-
+        /**
+         *
+         * @param chat_id
+         * @param audio , and audio file id or an audio file location
+         * to send local files use methodMultipart
+         */
         sendAudio(int chat_id,std::string audio);
-
+        /**
+         *
+         * @param chat_id
+         * @param audio , and audio file id or an audio file location
+         * to send local files use methodMultipart
+         */
         sendAudio(std::string chat_id,std::string audio);
-
+        /**
+         *
+         * @param C
+         * @param audio , and audio file id or an audio file location
+         * to send local files use methodMultipart
+         */
         sendAudio(Chat C, std::string audio);
 
         void setCaption(const std::optional<std::string> &caption);

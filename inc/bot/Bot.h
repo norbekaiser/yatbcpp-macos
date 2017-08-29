@@ -31,7 +31,8 @@
 
 #include "../methods/sendMessage.h"
 
-#include "../methods/telegram_method.h"
+#include "../methods/telegram_methodJSON.h"
+#include "../methods/telegram_methodMultipart.h"
 
 namespace yatbcpp {
     class Bot {

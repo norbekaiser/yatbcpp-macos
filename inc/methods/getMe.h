@@ -16,11 +16,11 @@
 #ifndef YATBCPP_GETME_H
 #define YATBCPP_GETME_H
 
-#include "telegram_method.h"
+#include "telegram_methodJSON.h"
 #include "../types/User.h"
 
 namespace yatbcpp{
-    class getMe : public telegram_method<User>{
+    class getMe : public telegram_methodJSON<User>{
     public:
         getMe();
         Json::Value toJson();

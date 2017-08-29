@@ -9,31 +9,30 @@
 //        2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 //    
 //        3. This notice may not be removed or altered from any source distribution.
-//
-// Created by norbert on 27.08.17.
-//
-
-#ifndef YATBCPP_TELEGRAM_METHOD_H
-#define YATBCPP_TELEGRAM_METHOD_H
+#ifndef YATBCPP_TELEGRAM_METHODJSON_H
+#define YATBCPP_TELEGRAM_METHODJSON_H
 
 #include "curl/curl.h"
 #include <json/json.h>
 #include "../exceptions/telegram_api_error.h"
 #include "../exceptions/curl_error.h"
 #include "../types/telegram_type.h"
-#include "../exceptions/essential_key_missing.h" //todo move to cc file as include is else dirty
+#include "../exceptions/essential_key_missing.h"
 #include "../bot/Token.h"
 
 namespace yatbcpp{
     template <typename T> Json::Value toJson(T Obj);
 
-
-    template <class RETURNTYPE> class telegram_method{
+    /**
+     * Required for Methods which can be serialized to a json request, for file uploading use multipart, file types are then considered files to be uploaded
+     * @tparam RETURNTYPE
+     */
+    template <class RETURNTYPE> class telegram_methodJSON{
     public:
 
-        telegram_method(std::string functionname) : functionname(functionname){
+        telegram_methodJSON(std::string functionname) : functionname(functionname){
             //ok das iwie noch meh
-//            static_assert(std::is_base_of<RETURNTYPE,telegram_method>::value, "Derived RETURNTYPE is not derived from BaseClass, fromJSON can not be guaranteed");
+            //static_assert(std::is_base_of<RETURNTYPE,telegram_method>::value, "Derived RETURNTYPE is not derived from BaseClass, fromJSON can not be guaranteed");
         }
 
         static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *stringptr){
@@ -44,7 +43,7 @@ namespace yatbcpp{
 
 
 
-        static RETURNTYPE perform_request(Token T, telegram_method<RETURNTYPE> &method_body){
+        static RETURNTYPE perform_requestJSON(Token T, telegram_methodJSON<RETURNTYPE> &method_body){
             using namespace std;
             string curl_payload( method_body.toJson().toStyledString() );
             string api_url ( "https://api.telegram.org/bot"+T.getToken()+"/"+method_body.getFunctionname() );
@@ -63,14 +62,12 @@ namespace yatbcpp{
 
             CURLcode res = curl_easy_perform(curl);
             reader.parse(readBuffer,Response);
-//            std::cout << "PAYLOAD" << std::endl;
-//            std::cout <<  curl_payload << std::endl;
-//            std::cout << "READBUFFER" << std::endl;
-//            std::cout << readBuffer << std::endl;
             if(res!=CURLE_OK){
                 throw curl_error(res,curl_easy_strerror(res));
             }
             if(Response["ok"].asBool()){
+                curl_slist_free_all(curl_header_list);
+                curl_easy_cleanup(curl);
                 return yatbcpp::fromJson<RETURNTYPE>(Response["result"]);
             }
             else{
@@ -81,14 +78,16 @@ namespace yatbcpp{
 
 
         }
-
-
-//        virtual void sies()=0;
+        /**
+         * Method Required for derived classes so they can be made into json object
+         * @return
+         */
         virtual Json::Value toJson(){}
-//        virtual void sies(){
-//            std::cerr<< "näy"<< std::endl;
-//        }
 
+        /**
+         * returns the Functionname
+         * @return
+         */
         const std::string &getFunctionname() const {
             return functionname;
         }
@@ -100,4 +99,4 @@ namespace yatbcpp{
 }
 
 
-#endif //YATBCPP_TELEGRAM_METHOD_H
+#endif //YATBCPP_TELEGRAM_METHODJSON_H

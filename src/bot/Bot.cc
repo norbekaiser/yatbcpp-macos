@@ -245,7 +245,7 @@ void Bot::addOnChannelPostEditedListener(std::function<void(Message)> Listener) 
 // "Outgoing"  Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //maybe enum of allowed functions?
-//template <typename T> T Bot::perform_request(T (*fptr)(Json::Value),std::string function,std::string params){
+//template <typename T> T Bot::perform_requestJSON(T (*fptr)(Json::Value),std::string function,std::string params){
 //    CURL* curl = curl_easy_init();
 //    string apiURL("https://api.telegram.org/bot"+token.getToken()+"/"+function);
 //    string readBuffer;
@@ -271,17 +271,17 @@ void Bot::addOnChannelPostEditedListener(std::function<void(Message)> Listener) 
 //
 //}
 
-//template User Bot::perform_request(User (*fptr)(Json::Value), std::string function, std::string params);
+//template User Bot::perform_requestJSON(User (*fptr)(Json::Value), std::string function, std::string params);
 
 
 const User Bot::getMe() {
     auto GM = yatbcpp::getMe();
-    User u = telegram_method<User>::perform_request(token,GM);
+    User u = telegram_methodJSON<User>::perform_requestJSON(token, GM);
     return u;
 }
 
 //const Message Bot::sendSM(sendMessage sm){
-//    Message M = telegram_method<Message>::perform_request(token,sm);
+//    Message M = telegram_method<Message>::perform_requestJSON(token,sm);
 //    return M;
 //}
 
@@ -301,5 +301,5 @@ const User Bot::getMe() {
 //    if(sm.getReply_to_message_id()){
 //        params+="&reply_to_message_id="+to_string(sm.getReply_to_message_id().value());
 //    }
-//    return  perform_request(Message::fromJson,"sendMessage",params);
+//    return  perform_requestJSON(Message::fromJson,"sendMessage",params);
 //}

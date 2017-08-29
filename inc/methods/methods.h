@@ -12,7 +12,8 @@
 #ifndef YATBCPP_METHODS_H
 #define YATBCPP_METHODS_H
 
-#include "telegram_method.h"
+#include "telegram_methodJSON.h"
+#include "telegram_methodMultipart.h"
 #include "getMe.h"
 #include "sendAudio.h"
 #include "sendMessage.h"
