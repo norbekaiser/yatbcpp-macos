@@ -6,6 +6,7 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
+#include <iostream>
 #include "methods/sendPhoto.h"
 
 using namespace std;

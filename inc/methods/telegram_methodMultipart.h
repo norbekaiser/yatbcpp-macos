@@ -45,12 +45,12 @@ namespace yatbcpp{
             Json::Reader reader;
             Json::Value Response;
             struct curl_slist * curl_header_list =NULL;
-            curl_header_list = curl_slist_append(curl_header_list,"Content-Type: application/Multipart");
+            curl_header_list = curl_slist_append(curl_header_list,"Content-Type: multipart/form-data");
 
             struct curl_httppost *uploadPost=NULL;
-            struct curl_httppost *lastptr=NULL;
+            struct curl_httppost *endptr=NULL;
 
-            method_body.add_to_post(&uploadPost,&lastptr);
+            method_body.add_to_post(&uploadPost,&endptr);
 
             CURL* curl = curl_easy_init();
 
