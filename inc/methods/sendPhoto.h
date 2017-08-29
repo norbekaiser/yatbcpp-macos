@@ -13,8 +13,8 @@
 // Created by norbert on 27.08.17.
 //
 
-#ifndef YATBCPP_SENDMESSAGE_H
-#define YATBCPP_SENDMESSAGE_H
+#ifndef YATBCPP_SENDPHOTO_H
+#define YATBCPP_SENDPHOTO_H
 
 #include "../types/Chat.h"
 #include "../types/Message.h"
@@ -25,18 +25,18 @@
 #include "telegram_method.h"
 
 namespace yatbcpp{
-    class sendMessage : public telegram_method<Message>{
+    class sendPhoto : public telegram_method<Message>{
     public:
 
         Json::Value toJson();
 
-        sendMessage(int chat_id,std::string text);
+        sendPhoto(int chat_id,std::string photo);
 
-        sendMessage(std::string chat_id,std::string text);
+        sendPhoto(std::string chat_id,std::string photo);
 
-        sendMessage(Chat C, std::string text);
+        sendPhoto(Chat C, std::string photo);
 
-        void setParse_mode(const std::optional<std::string> &parse_mode);
+        void setCaption(const std::optional<std::string> &caption);
 
         void setDisable_web_page_preview(const std::optional<bool> &disable_web_page_preview);
 
@@ -50,9 +50,9 @@ namespace yatbcpp{
 
         const std::string &getChat_id() const;
 
-        const std::string &getText() const;
+        const std::string &getPhoto() const;
 
-        const std::optional<std::string> &getParse_mode() const;
+        const std::optional<std::string> &getCaption() const;
 
         const std::optional<bool> &getDisable_web_page_preview() const;
 
@@ -64,9 +64,9 @@ namespace yatbcpp{
 
 
     private:
-        std::string chat_id;//Maybe simpler because @username or chat_id
-        std::string text;
-        std::optional<std::string> parse_mode;
+        std::string chat_id;
+        std::string Photo;//Currently only file id
+        std::optional<std::string> caption;
         std::optional<bool> disable_web_page_preview;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
@@ -74,4 +74,4 @@ namespace yatbcpp{
     };
 }
 
-#endif //YATBCPP_SENDMESSAGE_H
+#endif //YATBCPP_SENDPHOTO_H

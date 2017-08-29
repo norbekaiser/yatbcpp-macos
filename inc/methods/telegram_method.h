@@ -20,6 +20,7 @@
 #include <json/json.h>
 #include <iostream>
 #include "../exceptions/telegram_api_error.h"
+#include "../exceptions/curl_error.h"
 #include "../types/telegram_type.h"
 #include "../exceptions/essential_key_missing.h" //todo move to cc file as include is else dirty
 #include "../bot/Token.h"
@@ -30,21 +31,11 @@ namespace yatbcpp{
 
     template <class RETURNTYPE> class telegram_method{
     public:
-        /**
-         * Telegram Method Needs the Token to Send, however might as wellbe returned by bot with read inToken?
-         * @param T
-         */
-//        telegram_method(Token T) : (&T) {}
+
         telegram_method(std::string functionname) : functionname(functionname){
             //ok das iwie noch meh
 //            static_assert(std::is_base_of<RETURNTYPE,telegram_method>::value, "Derived RETURNTYPE is not derived from BaseClass, fromJSON can not be guaranteed");
         }
-
-        /**
-         * An outgoing Request needs to be parsable to json so it can be transmitted
-         * will throw if nescesary tokens are not present mb
-         * @return a Json::Value Representation of the object
-         */
 
         static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *stringptr){
             using namespace std;
@@ -58,10 +49,6 @@ namespace yatbcpp{
             std::cerr << "STarting to perform request" << std::endl;
             using namespace std;
             string curl_payload( method_body.toJson().toStyledString() );
-//            string curl_payload( "" );
-//            toJson<telegram_method<RETURNTYPE>>(method_body);
-//            method_body.sies();
-            std::cout << "Sending >> " << curl_payload << ">>" << std::endl;
             string api_url ( "https://api.telegram.org/bot"+T.getToken()+"/"+method_body.getFunctionname() );
             string readBuffer;
             Json::Reader reader;
@@ -78,16 +65,17 @@ namespace yatbcpp{
 
             CURLcode res = curl_easy_perform(curl);
             reader.parse(readBuffer,Response);
-            std::cout << "PAYLOAD" << std::endl;
-            std::cout <<  curl_payload << std::endl;
-            std::cout << "READBUFFER" << std::endl;
-            std::cout << readBuffer << std::endl;
+//            std::cout << "PAYLOAD" << std::endl;
+//            std::cout <<  curl_payload << std::endl;
+//            std::cout << "READBUFFER" << std::endl;
+//            std::cout << readBuffer << std::endl;
+            if(res!=CURLE_OK){
+                throw curl_error(res,curl_easy_strerror(res));
+            }
             if(Response["ok"].asBool()){
-                std::cout << "Trying to Parse" << std::endl;
                 return yatbcpp::fromJson<RETURNTYPE>(Response["result"]);
             }
             else{
-                std::cout << "Oh No" << std::endl;
                 curl_easy_cleanup(curl);
                 curl_slist_free_all(curl_header_list);
                 throw telegram_api_error(Response["error_code"].asInt(),Response["description"].asString());

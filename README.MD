@@ -12,6 +12,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 ## Features 
 * Allows to register on Message or on Command
 * sendMessage is possible
+* sendPhoto is possible , however uploading an image not
 * Token From File fails sometimes(?)
 
 ## Requirements 

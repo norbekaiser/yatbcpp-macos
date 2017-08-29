@@ -100,6 +100,7 @@ set(SOURCE_FILE_TYPES_FROMJSON
 set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
         src/methods/getMe.cc
         src/methods/sendMessage.cc
+        src/methods/sendPhoto.cc
         )
 
 set(SOURCE_FILES_BOT ${yatbcppBotHeadersList}

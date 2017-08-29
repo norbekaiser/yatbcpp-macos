@@ -14,19 +14,38 @@ using namespace yatbcpp;
 
 sendMessage::sendMessage(Chat C, std::string text) : telegram_method("sendMessage") , chat_id(to_string(C.getId())), text(text)
 {
-//    chatid = C.getId();
-//    escape_text_string();
+
 }
 
 sendMessage::sendMessage(int chat_id, std::string text) : telegram_method("sendMessage") ,chat_id(to_string(chat_id)) , text(text)
 {
-//    chatid = chat_id;
-//    escape_text_string();
+
 }
 
 sendMessage::sendMessage(string chat_id, std::string text) : telegram_method("sendMessage") ,chat_id(chat_id) , text(text)
 {
-//    escape_text_string();
+
+}
+
+Json::Value sendMessage::toJson() {
+    Json::Value Outgoing;
+    Outgoing["chat_id"] = getChat_id();
+    Outgoing["text"] = getText();
+    if(getParse_mode()){
+        Outgoing["parse_mode"] = getParse_mode().value();
+    }
+    if(getDisable_web_page_preview()){
+        Outgoing["disable_web_page_preview"] = getDisable_web_page_preview().value();
+    }
+    if(getDisable_notification()){
+        Outgoing["disable_notification"] = getDisable_notification().value();
+    }
+    if(getReply_to_message_id()){
+        Outgoing["reply_to_message_id"] = getReply_to_message_id().value();
+    }
+    //Todo add keyboard
+
+    return Outgoing;
 }
 
 void sendMessage::setParse_mode(const std::optional<std::string> &parse_mode) {
@@ -69,28 +88,6 @@ void sendMessage::setReplyMarkup(const ForceReply FR){
     sendMessage::reply_markup = FR;
 }
 
-//template <> Json::Value yatbcpp::toJson(sendMessage SM) {
-Json::Value sendMessage::toJson() {
-    Json::Value Outgoing;
-    Outgoing["chat_id"] = getChat_id();
-    Outgoing["text"] = getText();
-    if(getParse_mode()){
-        Outgoing["parse_mode"] = getParse_mode().value();
-    }
-    if(getDisable_web_page_preview()){
-        Outgoing["disable_web_page_preview"] = getDisable_web_page_preview().value();
-    }
-    if(getDisable_notification()){
-        Outgoing["disable_notification"] = getDisable_notification().value();
-    }
-    if(getReply_to_message_id()){
-        Outgoing["reply_to_message_id"] = getReply_to_message_id().value();
-    }
-
-
-    return Outgoing;
-
-}
 
 const string &sendMessage::getChat_id() const {
     return chat_id;
