@@ -8,7 +8,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "exceptions/essential_key_missing.h"
 #include "types/MessageEntity.h"
 
@@ -34,7 +33,7 @@ MessageEntity::MessageEntity(std::string type, int offset, int length) : type(ty
     else if(type.compare("text_link")){}
     else if(type.compare("text_mention")){}
     else{
-        throw essential_key_missing("MessageEntity::type <"+type+"> is not a type which was wished for");
+        throw essential_key_missing("MessageEntity::type <"+type+"> is not a type which was wished for");//TODO enum
     }
 
 

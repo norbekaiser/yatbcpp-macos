@@ -23,7 +23,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 
 namespace yatbcpp{
     //See also https://core.telegram.org/bots/api#voice

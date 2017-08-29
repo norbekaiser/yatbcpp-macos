@@ -1,12 +1,9 @@
-
-#include <string>
 #if __has_include(<optional>) 
 #include <optional> 
 #else 
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "types/ReplyKeyboardRemove.h"
 
 using namespace yatbcpp;

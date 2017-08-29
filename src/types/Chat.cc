@@ -1,14 +1,10 @@
-//
-// Created by norbert on 18.08.17.
-//
-
+#include <string>
 #if __has_include(<optional>) 
 #include <optional> 
 #else 
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include "exceptions/essential_key_missing.h"
 #include "types/Chat.h"
 
 

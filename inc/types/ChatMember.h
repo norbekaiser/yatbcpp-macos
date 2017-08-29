@@ -9,10 +9,6 @@
 //        2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 //    
 //        3. This notice may not be removed or altered from any source distribution.
-//
-// Created by norbert on 25.08.17.
-//
-
 #ifndef YATBCPP_CHATMEMBER_H
 #define YATBCPP_CHATMEMBER_H
 
@@ -30,8 +26,6 @@ namespace yatbcpp{
     class ChatMember {
     public:
         ChatMember(User user,std::string status);
-
-//        static ChatMember fromJson(Json::Value Data);
 
         void setUntil_date(const std::optional<int> &until_date);
 

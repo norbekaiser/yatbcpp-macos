@@ -1,7 +1,3 @@
-//
-// Created by norbert on 27.08.17.
-//
-
 #if __has_include(<optional>) 
 #include <optional> 
 #else 

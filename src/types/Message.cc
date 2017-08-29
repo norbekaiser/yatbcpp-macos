@@ -9,9 +9,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
-#include "types/telegram_type.h"
-#include "exceptions/essential_key_missing.h"
 #include "types/User.h"
 #include "types/Chat.h"
 #include "types/MessageEntity.h"

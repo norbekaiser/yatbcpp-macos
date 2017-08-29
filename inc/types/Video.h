@@ -23,7 +23,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "PhotoSize.h"
 
 namespace yatbcpp{

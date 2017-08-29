@@ -24,7 +24,6 @@
 #define optional experimental::optional 
 #endif 
 #include <vector>
-#include <json/json.h>
 #include "KeyboardButton.h"
 #include "ReplyMarkup.h"
 
@@ -34,8 +33,6 @@ namespace yatbcpp{
     class ReplyKeyboardMarkup : public ReplyMarkup{
     public:
         ReplyKeyboardMarkup(std::vector<std::vector<KeyboardButton>> keyboard);
-
-//        static ReplyKeyboardMarkup fromJson(Json::Value Data);
 
         void setResize_keyboard(const std::optional<bool> &resize_keyboard);
 

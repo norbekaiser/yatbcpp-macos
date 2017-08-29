@@ -9,23 +9,16 @@
 //        2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 //    
 //        3. This notice may not be removed or altered from any source distribution.
-//
-// Created by norbert on 25.08.17.
-//
-
 #ifndef YATBCPP_CHATPHOTO_H
 #define YATBCPP_CHATPHOTO_H
 
 #include <string>
-#include <json/json.h>
 
 namespace yatbcpp{
     //See also https://core.telegram.org/bots/api#chatphoto
     class ChatPhoto {
     public:
         ChatPhoto(std::string small_file_id, std::string big_file_id);
-
-//        static ChatPhoto fromJson(Json::Value Data);
 
         const std::string &getSmall_file_id() const;
 

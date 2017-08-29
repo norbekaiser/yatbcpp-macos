@@ -1,9 +1,11 @@
-//
-// Created by norbert on 25.08.17.
-//
-
-#include "exceptions/essential_key_missing.h"
-#include "types/telegram_type.h"
+#include <string>
+#if __has_include(<optional>) 
+#include <optional> 
+#else 
+#include <experimental/optional> 
+#define optional experimental::optional 
+#endif 
+#include "types/User.h"
 #include "types/ChatMember.h"
 
 

@@ -23,7 +23,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "Message.h"
 
 namespace yatbcpp{
@@ -31,8 +30,6 @@ namespace yatbcpp{
     class Update {
     public:
         Update(int update_id);
-
-//        static Update fromJson(Json::Value Data);
 
         void setMessage(const std::optional<Message> &message);
 

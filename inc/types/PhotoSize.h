@@ -23,15 +23,12 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 
 namespace yatbcpp{
     //See also https://core.telegram.org/bots/api#photosize
     class PhotoSize {
     public:
         PhotoSize(std::string file_id,int width, int height);
-
-//        static PhotoSize fromJson(Json::Value Data);
 
         void setFile_size(const std::optional<int> &file_size);
 

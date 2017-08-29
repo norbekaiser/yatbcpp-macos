@@ -1,7 +1,3 @@
-//
-// Created by norbert on 26.08.17.
-//
-
 #include <string>
 #if __has_include(<optional>) 
 #include <optional> 
@@ -9,9 +5,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
-#include "exceptions/essential_key_missing.h"
-#include "types/telegram_type.h"
 #include "types/KeyboardButton.h"
 
 using namespace yatbcpp;

@@ -1,10 +1,4 @@
-//
-// Created by norbert on 25.08.17.
-//
 #include <string>
-#include <json/json.h>
-#include "exceptions/essential_key_missing.h"
-#include "types/telegram_type.h"
 #include "types/ChatPhoto.h"
 
 

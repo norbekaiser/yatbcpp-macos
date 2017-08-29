@@ -17,6 +17,7 @@
 #define YATBCPP_TELEGRAM_TYPE_H
 
 #include <json/json.h>
+
 namespace yatbcpp{
     template <typename T> T fromJson(Json::Value Data);
 }

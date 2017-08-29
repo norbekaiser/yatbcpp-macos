@@ -23,7 +23,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "User.h"
 #include "Chat.h"
 #include "MessageEntity.h"
@@ -42,8 +41,6 @@ namespace yatbcpp{
     class Message{
     public:
         Message(int message_id,int date,Chat chat);
-
-//        static Message fromJson(Json::Value Data);
 
         void setFrom(const std::optional<User> &from);
 

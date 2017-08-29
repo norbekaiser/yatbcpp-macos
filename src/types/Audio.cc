@@ -1,7 +1,3 @@
-//
-// Created by norbert on 23.08.17.
-//
-
 #include <string>
 #if __has_include(<optional>) 
 #include <optional> 
@@ -9,8 +5,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
-#include "exceptions/essential_key_missing.h"
 #include "types/Audio.h"
 
 

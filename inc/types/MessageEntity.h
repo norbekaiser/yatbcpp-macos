@@ -23,7 +23,6 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include <json/json.h>
 #include "User.h"
 
 namespace yatbcpp{
@@ -31,8 +30,6 @@ namespace yatbcpp{
     class MessageEntity {
     public:
         MessageEntity(std::string type,int offset, int length);
-
-//        static MessageEntity fromJson(Json::Value Data);
 
         void setUrl(const std::optional<std::string> &url);
 
