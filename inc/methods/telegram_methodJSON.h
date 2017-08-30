@@ -46,12 +46,12 @@ namespace yatbcpp{
         static RETURNTYPE perform_requestJSON(Token T, telegram_methodJSON<RETURNTYPE> &method_body){
             using namespace std;
             string curl_payload( method_body.toJson().toStyledString() );
-            string api_url ( "https://api.telegram.org/bot"+T.getToken()+"/"+method_body.getFunctionname() );
+            string api_url ( "https://api.telegram.org/bot" + T.getToken() + "/" + method_body.getFunctionname() );
             string readBuffer;
             Json::Reader reader;
             Json::Value Response;
             struct curl_slist * curl_header_list =NULL;
-            curl_header_list = curl_slist_append(curl_header_list,"Content-Type: application/json");
+            curl_header_list = curl_slist_append( curl_header_list , "Content-Type: application/json" );
             CURL* curl = curl_easy_init();
 
             curl_easy_setopt(curl,CURLOPT_URL,api_url.c_str());

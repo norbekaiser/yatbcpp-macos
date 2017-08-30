@@ -40,12 +40,12 @@ namespace yatbcpp{
 
         static RETURNTYPE perform_requestMultipart(Token T, telegram_methodMultipart<RETURNTYPE> &method_body){
             using namespace std;
-            string api_url ( "https://api.telegram.org/bot"+T.getToken()+"/"+method_body.getFunctionname() );
+            string api_url ( "https://api.telegram.org/bot" + T.getToken() + "/" + method_body.getFunctionname() );
             string readBuffer;
             Json::Reader reader;
             Json::Value Response;
             struct curl_slist * curl_header_list =NULL;
-            curl_header_list = curl_slist_append(curl_header_list,"Content-Type: multipart/form-data");
+            curl_header_list = curl_slist_append( curl_header_list , "Content-Type: multipart/form-data" );
 
             struct curl_httppost *uploadPost=NULL;
             struct curl_httppost *endptr=NULL;

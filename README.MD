@@ -1,4 +1,5 @@
 # Yet Another Telegram Bot CPP API
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
 
 * Many Features are currently just implemented and might change heavily, feel free to use or wait till first "usefull" version
 * First "useful" version will have something like 0.1.* and not 0.0.*
@@ -42,7 +43,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 * coming soon?
 
 ## Usage Instructions (find_package)
-* Hello-User Example [Github](https://norbekaiser/yatbcpp-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
+* Hello-User Example [Github](https://github.com/norbekaiser/yatbcpp-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
     * Small Example Which requires installed yatbcpp
     * Build is also possible with external_project
 
