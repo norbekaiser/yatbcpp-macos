@@ -98,6 +98,7 @@ set(SOURCE_FILE_TYPES_FROMJSON
 )
 
 set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
+        src/methods/forwardMessage.cc
         src/methods/getMe.cc
         src/methods/sendAudio.cc
         src/methods/sendMessage.cc

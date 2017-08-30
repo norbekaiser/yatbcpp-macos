@@ -69,7 +69,19 @@ void sendPhoto::add_to_post(struct curl_httppost **start, struct curl_httppost *
                      CURLFORM_COPYCONTENTS,caption.value().c_str(),
                      CURLFORM_END);
     }
-    //TODO add other fields
+    if(disable_notification.value_or(false)){
+        curl_formadd(start,end,
+                     CURLFORM_COPYNAME,"disable_notification",
+                     CURLFORM_COPYCONTENTS,"true",
+                     CURLFORM_END);
+    }
+    if(reply_to_message_id.value_or(false)){
+        curl_formadd(start,end,
+                     CURLFORM_COPYNAME,"reply_to_message_id",
+                     CURLFORM_COPYCONTENTS,"true",
+                     CURLFORM_END);
+    }
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
