@@ -43,7 +43,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 * coming soon?
 
 ## Usage Instructions (find_package)
-* Hello-User Example [Github](https://github.com/norbekaiser/yatbcpp-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
+* Hello-User Example [Github](https://github.com/norbekaiser/yatbcpp-example-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
     * Small Example Which requires installed yatbcpp
     * Build is also possible with external_project
 
