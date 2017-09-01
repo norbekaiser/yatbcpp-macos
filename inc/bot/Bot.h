@@ -50,7 +50,7 @@ namespace yatbcpp {
 
         void stopUpdating();
 
-        const User getMe() ;//better get a hold on outgoing perform request, todo allow sendmessage or get me as argument
+        const User getMe() const ;
 
 //        const Message sendSM(sendMessage sm);
 
@@ -67,8 +67,6 @@ namespace yatbcpp {
         void addOnChannelPostEditedListener(std::function<void(Message)> Listener);
 
         void join();
-
-        template <typename T> T perform_request(T (*fptr)(Json::Value),std::string function,std::string params);
 
     private:
 

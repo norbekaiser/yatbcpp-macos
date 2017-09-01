@@ -13,8 +13,8 @@
 // Created by norbert on 27.08.17.
 //
 
-#ifndef YATBCPP_SENDAUDIO_H
-#define YATBCPP_SENDAUDIO_H
+#ifndef YATBCPP_SENDVOICE_H
+#define YATBCPP_SENDVOICE_H
 
 #include "../types/Chat.h"
 #include "../types/Message.h"
@@ -26,7 +26,7 @@
 #include "telegram_methodMultipart.h"
 
 namespace yatbcpp{
-    class sendAudio : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
+    class sendVoice : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
     public:
 
 
@@ -37,32 +37,28 @@ namespace yatbcpp{
         /**
          *
          * @param chat_id
-         * @param audio , and audio file id or an audio file location
+         * @param voice , and voice file id or an voice file location
          * to send local files use methodMultipart
          */
-        sendAudio(int chat_id,std::string audio);
+        sendVoice(int chat_id,std::string voice);
         /**
          *
          * @param chat_id
-         * @param audio , and audio file id or an audio file location
+         * @param voice , and voice file id or an voice file location
          * to send local files use methodMultipart
          */
-        sendAudio(std::string chat_id,std::string audio);
+        sendVoice(std::string chat_id,std::string voice);
         /**
          *
          * @param C
-         * @param audio , and audio file id or an audio file location
+         * @param voice , and voice file id or an voice file location
          * to send local files use methodMultipart
          */
-        sendAudio(Chat C, std::string audio);
+        sendVoice(Chat C, std::string voice);
 
         void setCaption(const std::optional<std::string> &caption);
 
         void setDuration(const std::optional<std::string> &duration);
-
-        void setPerformer(const std::optional<std::string> &performer);
-
-        void setTitle(const std::optional<std::string> &title);
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -74,15 +70,11 @@ namespace yatbcpp{
 
         const std::string &getChat_id() const;
 
-        const std::string &getAudio() const;
+        const std::string &getVoice() const;
 
         const std::optional<std::string> &getCaption() const;
 
         const std::optional<std::string> &getDuration() const;
-
-        const std::optional<std::string> &getPerformer() const;
-
-        const std::optional<std::string> &getTitle() const;
 
         const std::optional<bool> &getDisable_notification() const;
 
@@ -93,15 +85,13 @@ namespace yatbcpp{
 
     private:
         std::string chat_id;
-        std::string audio;//Currently only file id
+        std::string voice;
         std::optional<std::string> caption;
         std::optional<std::string> duration;
-        std::optional<std::string> performer;
-        std::optional<std::string> title;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }
 
-#endif //YATBCPP_SENDAUDIO_H
+#endif //YATBCPP_SENDVOICE_H

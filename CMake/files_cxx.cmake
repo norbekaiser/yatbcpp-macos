@@ -69,6 +69,7 @@ set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
         src/methods/sendAudio.cc
         src/methods/sendMessage.cc
         src/methods/sendPhoto.cc
+        src/methods/sendVoice.cc
         )
 
 set(SOURCE_FILES_BOT ${yatbcppBotHeadersList}

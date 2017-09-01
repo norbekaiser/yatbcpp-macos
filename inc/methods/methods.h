@@ -19,5 +19,6 @@
 #include "sendAudio.h"
 #include "sendMessage.h"
 #include "sendPhoto.h"
+#include "sendVoice.h"
 
 #endif //YATBCPP_METHODS_H

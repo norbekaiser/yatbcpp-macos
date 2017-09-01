@@ -244,62 +244,10 @@ void Bot::addOnChannelPostEditedListener(std::function<void(Message)> Listener) 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // "Outgoing"  Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//maybe enum of allowed functions?
-//template <typename T> T Bot::perform_requestJSON(T (*fptr)(Json::Value),std::string function,std::string params){
-//    CURL* curl = curl_easy_init();
-//    string apiURL("https://api.telegram.org/bot"+token.getToken()+"/"+function);
-//    string readBuffer;
-//    Json::Reader reader;
-//    Json::Value Response;
-//    CURLcode res;
-//    curl_easy_setopt(curl,CURLOPT_URL,apiURL.c_str());
-//    curl_easy_setopt(curl,CURLOPT_POSTFIELDS,params.c_str());
-//    curl_easy_setopt(curl,CURLOPT_WRITEFUNCTION,WriteCallback);
-//    curl_easy_setopt(curl,CURLOPT_WRITEDATA,&readBuffer);
-//    res = curl_easy_perform(curl);
-//    if(res != CURLE_OK){
-//        throw curl_error(res,curl_easy_strerror(res));
-//    }
-//    reader.parse(readBuffer,Response);
-//    if(Response["ok"].asBool()){
-//        curl_easy_cleanup(curl);
-//        return fptr(Response["result"]);
-//    }
-//    else{
-//        throw telegram_api_error(Response["error_code"].asInt(),Response["description"].asString());
-//    }
-//
-//}
 
-//template User Bot::perform_requestJSON(User (*fptr)(Json::Value), std::string function, std::string params);
-
-
-const User Bot::getMe() {
+const User Bot::getMe() const {
     auto GM = yatbcpp::getMe();
     User u = telegram_methodJSON<User>::perform_requestJSON(token, GM);
     return u;
 }
 
-//const Message Bot::sendSM(sendMessage sm){
-//    Message M = telegram_method<Message>::perform_requestJSON(token,sm);
-//    return M;
-//}
-
-//const Message Bot::send(sendMessage sm){
-//    string params="";
-//    params+="chat_id="+sm.getChat_id();
-//    params+="&text="+sm.getText();
-//    if(sm.getParse_mode()){
-//        params+="&parse_mode="+sm.getParse_mode().value();
-//    }
-//    if(sm.getDisable_web_page_preview().value_or(false)){
-//        params+="&disable_web_page_preview=true";
-//    }
-//    if(sm.getDisable_notification().value_or(false)){
-//        params+="&disable_notification=true";
-//    }
-//    if(sm.getReply_to_message_id()){
-//        params+="&reply_to_message_id="+to_string(sm.getReply_to_message_id().value());
-//    }
-//    return  perform_requestJSON(Message::fromJson,"sendMessage",params);
-//}
