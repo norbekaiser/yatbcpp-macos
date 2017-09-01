@@ -1,5 +1,5 @@
 # Yet Another Telegram Bot CPP API
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+
 
 * Many Features are currently just implemented and might change heavily, feel free to use or wait till first "usefull" version
 * First "useful" version will have something like 0.1.* and not 0.0.*
