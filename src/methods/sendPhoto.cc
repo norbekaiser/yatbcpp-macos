@@ -16,17 +16,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendPhoto::sendPhoto(Chat C, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(to_string(C.getId())), Photo(photo)
+sendPhoto::sendPhoto(Chat C, std::string photo) :
+        telegram_methodJSON("sendPhoto"), telegram_methodMultipart("sendPhoto"),
+        chat_id(to_string(C.getId())), Photo(photo)
 {
 
 }
 
-sendPhoto::sendPhoto(int chat_id, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(to_string(chat_id)) , Photo(photo)
+sendPhoto::sendPhoto(int chat_id, std::string photo) :
+        telegram_methodJSON("sendPhoto"), telegram_methodMultipart("sendPhoto"),
+        chat_id(to_string(chat_id)), Photo(photo)
 {
 
 }
 
-sendPhoto::sendPhoto(string chat_id, std::string photo) : telegram_methodJSON("sendPhoto") , telegram_methodMultipart("sendPhoto") , chat_id(chat_id) , Photo(photo)
+sendPhoto::sendPhoto(string chat_id, std::string photo) :
+        telegram_methodJSON("sendPhoto"), telegram_methodMultipart("sendPhoto"),
+        chat_id(chat_id), Photo(photo)
 {
 
 }

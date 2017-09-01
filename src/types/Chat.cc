@@ -15,7 +15,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Chat::Chat(int id, chat_type type) : id(id), type (type)
+Chat::Chat(int id, chat_type type) :
+        id(id), type (type)
 {
 
 }

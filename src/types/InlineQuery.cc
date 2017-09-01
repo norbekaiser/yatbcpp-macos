@@ -1,3 +1,4 @@
+
 #include <string>
 #if __has_include(<optional>) 
 #include <optional> 
@@ -5,8 +6,7 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include "types/PhotoSize.h"
-#include "types/Document.h"
+#include "types/InlineQuery.h"
 
 using namespace yatbcpp;
 using namespace std;
@@ -15,8 +15,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Document::Document(std::string file_id) :
-        file_id(file_id)
+InlineQuery::InlineQuery(std::string id, User from, std::string query, std::string offset) :
+        id(id), from(from), query(query), offset(offset)
 {
 
 }
@@ -25,42 +25,32 @@ Document::Document(std::string file_id) :
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Document::setThumb(const optional<PhotoSize> &thumb) {
-    Document::thumb = thumb;
-}
-
-void Document::setFile_name(const optional<string> &file_name) {
-    Document::file_name = file_name;
-}
-
-void Document::setMime_type(const optional<string> &mime_type) {
-    Document::mime_type = mime_type;
-}
-
-void Document::setFile_size(const optional<int> &file_size) {
-    Document::file_size = file_size;
+void InlineQuery::setLocation(const optional<Location> &location) {
+    InlineQuery::location = location;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Getter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const string &Document::getFile_id() const {
-    return file_id;
+const string &InlineQuery::getId() const {
+    return id;
 }
 
-const optional<PhotoSize> &Document::getThumb() const {
-    return thumb;
+const User &InlineQuery::getFrom() const {
+    return from;
 }
 
-const optional<string> &Document::getFile_name() const {
-    return file_name;
+const optional<Location> &InlineQuery::getLocation() const {
+    return location;
 }
 
-const optional<string> &Document::getMime_type() const {
-    return mime_type;
+const string &InlineQuery::getQuery() const {
+    return query;
 }
 
-const optional<int> &Document::getFile_size() const {
-    return file_size;
+const string &InlineQuery::getOffset() const {
+    return offset;
 }
+
+

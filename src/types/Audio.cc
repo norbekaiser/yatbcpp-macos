@@ -15,7 +15,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Audio::Audio(std::string file_id, int duration) : file_id(file_id), duration(duration)
+Audio::Audio(std::string file_id, int duration) :
+        file_id(file_id), duration(duration)
 {
 
 }

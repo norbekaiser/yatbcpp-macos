@@ -25,6 +25,10 @@ set(SOURCE_FILES_TYPES ${yatbcppTypesHeadersList}
         src/types/KeyboardButton.cc
         src/types/File.cc
         src/types/ForceReply.cc
+        src/types/InlineQuery.cc
+        src/types/InlineQueryResult.cc
+        src/types/InlineQueryResultCachedAudio.cc
+        src/types/InlineQueryResultCachedVoice.cc
         src/types/Location.cc
         src/types/Message.cc
         src/types/MessageEntity.cc
@@ -48,6 +52,7 @@ set(SOURCE_FILE_TYPES_FROMJSON ${yatbcppTypesHeadersList}
         src/types_fromJson/Contact_fromJson.cc
         src/types_fromJson/Document_fromJson.cc
         src/types_fromJson/File_fromJson.cc
+        src/types_fromJson/InlineQuery_fromJson.cc
         src/types_fromJson/KeyboardButton_fromJson.cc
         src/types_fromJson/Location_fromJson.cc
         src/types_fromJson/Message_fromJson.cc
@@ -64,6 +69,7 @@ set(SOURCE_FILE_TYPES_FROMJSON ${yatbcppTypesHeadersList}
         )
 
 set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
+        src/methods/answerInlineQuery.cc
         src/methods/forwardMessage.cc
         src/methods/getMe.cc
         src/methods/sendAudio.cc

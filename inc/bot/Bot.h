@@ -24,6 +24,7 @@
 #include <condition_variable>
 
 #include "../bot/Token.h"
+#include "../types/InlineQuery.h"
 #include "../types/MessageEntity.h"
 #include "../types/Message.h"
 #include "../types/Update.h"
@@ -66,6 +67,8 @@ namespace yatbcpp {
 
         void addOnChannelPostEditedListener(std::function<void(Message)> Listener);
 
+        void addOnInlineQueryListener(std::function<void(InlineQuery)> Listener);
+
         void join();
 
     private:
@@ -93,6 +96,7 @@ namespace yatbcpp {
         std::vector<std::function<void(Message)>> OnMessageEditedListener;
         std::vector<std::function<void(Message)>> OnChannelPostListener;
         std::vector<std::function<void(Message)>> OnChannelPostEditedListener;
+        std::vector<std::function<void(InlineQuery)>> OnInlineQueryListener;
 
 
     };

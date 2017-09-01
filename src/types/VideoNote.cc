@@ -14,7 +14,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-VideoNote::VideoNote(std::string file_id, int length, int duration) : file_id(file_id), length(length), duration(duration)
+VideoNote::VideoNote(std::string file_id, int length, int duration) :
+        file_id(file_id), length(length), duration(duration)
 {
 
 }

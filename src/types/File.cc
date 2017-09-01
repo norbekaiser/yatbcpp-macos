@@ -14,7 +14,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-File::File(std::string file_id) : file_id(file_id)
+File::File(std::string file_id) :
+        file_id(file_id)
 {
 
 }

@@ -24,6 +24,7 @@
 #define optional experimental::optional 
 #endif 
 #include "Message.h"
+#include "InlineQuery.h"
 
 namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#update */
@@ -49,14 +50,20 @@ namespace yatbcpp{
 
         const std::optional<Message> &getEdited_channel_post() const;
 
+        const std::optional<InlineQuery> &getInlineQuery() const;
+
+        void setInlineQuery(const std::optional<InlineQuery> &inlineQuery);
+
+
     private:
         int update_id;
         std::optional<Message> message;
         std::optional<Message> edited_message;
         std::optional<Message> channel_post;
         std::optional<Message> edited_channel_post;
-//        InlineQuery inline_query;//optional
-//        ChosenInlineResul chosen_inline_resultt;//optional
+        std::optional<InlineQuery> inlineQuery;
+//        std::optional<ChoosenInlineResult> chosen_inline_result;
+
 //        CallbackQuery callback_query;//optional
 //        ShippingQuery shipping_query;//optional
 //        PreCheckoutQuery pre_checkout_query;//optional

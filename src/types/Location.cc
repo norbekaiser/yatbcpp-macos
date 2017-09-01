@@ -8,7 +8,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Location::Location(float longitude, float latitude) : longitude(longitude), latitude(latitude)
+Location::Location(float longitude, float latitude) :
+        longitude(longitude), latitude(latitude)
 {
 
 }

@@ -12,7 +12,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-User::User(int id, bool is_bot, string first_name) : id(id), is_bot(is_bot), first_name(first_name)
+User::User(int id, bool is_bot, string first_name) :
+        id(id), is_bot(is_bot), first_name(first_name)
 {
 
 }

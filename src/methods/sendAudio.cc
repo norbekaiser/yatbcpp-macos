@@ -15,17 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendAudio::sendAudio(Chat C, std::string audio) : telegram_methodJSON("sendAudio"), telegram_methodMultipart("sendAudio") , chat_id(to_string(C.getId())), audio(audio)
+sendAudio::sendAudio(Chat C, std::string audio) :
+        telegram_methodJSON("sendAudio"), telegram_methodMultipart("sendAudio"),
+        chat_id(to_string(C.getId())), audio(audio)
 {
 
 }
 
-sendAudio::sendAudio(int chat_id, std::string audio) : telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio") ,chat_id(to_string(chat_id)) , audio(audio)
+sendAudio::sendAudio(int chat_id, std::string audio) :
+        telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio"),
+        chat_id(to_string(chat_id)) , audio(audio)
 {
 
 }
 
-sendAudio::sendAudio(string chat_id, std::string audio) : telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio") ,chat_id(chat_id) , audio(audio)
+sendAudio::sendAudio(string chat_id, std::string audio) :
+        telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio"),
+        chat_id(chat_id) , audio(audio)
 {
 
 }

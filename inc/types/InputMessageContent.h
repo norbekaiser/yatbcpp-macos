@@ -10,39 +10,16 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 21.08.17.
+// Created by norbert on 01.09.17.
 //
 
-#ifndef YATBCPP_TYPES_H
-#define YATBCPP_TYPES_H
+#ifndef YATBCPP_INPUTMESSAGECONTENT_H
+#define YATBCPP_INPUTMESSAGECONTENT_H
 
-#include "Audio.h"
-#include "Chat.h"
-#include "chat_type.h"
-#include "ChatMember.h"
-#include "ChatPhoto.h"
-#include "Contact.h"
-#include "Document.h"
-#include "File.h"
-#include "ForceReply.h"
-#include "InlineQuery.h"
-#include "InlineQueryResult.h"
-#include "InlineQueryResultCachedAudio.h"
-#include "InlineQueryResultCachedVoice.h"
-#include "InputMessageContent.h"
-#include "KeyboardButton.h"
-#include "Location.h"
-#include "Message.h"
-#include "MessageEntity.h"
-#include "PhotoSize.h"
-#include "ReplyMarkup.h"
-#include "UserProfilePhotos.h"
-#include "ReplyKeyboardMarkup.h"
-#include "Update.h"
-#include "User.h"
-#include "Venue.h"
-#include "Video.h"
-#include "VideoNote.h"
-#include "Voice.h"
+#include <string>
 
-#endif //YATBCPP_TYPES_H
+class InputMessageContent {
+
+};
+
+#endif //YATBCPP_INPUTMESSAGECONTENT_H

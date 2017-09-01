@@ -9,7 +9,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ChatPhoto::ChatPhoto(std::string small_file_id, std::string big_file_id) : small_file_id(small_file_id), big_file_id(big_file_id)
+ChatPhoto::ChatPhoto(std::string small_file_id, std::string big_file_id) :
+        small_file_id(small_file_id), big_file_id(big_file_id)
 {
 
 }

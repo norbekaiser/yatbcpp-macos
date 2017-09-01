@@ -15,17 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendMessage::sendMessage(Chat C, std::string text) : telegram_methodJSON("sendMessage") , chat_id(to_string(C.getId())), text(text)
+sendMessage::sendMessage(Chat C, std::string text) :
+        telegram_methodJSON("sendMessage"),
+        chat_id(to_string(C.getId())), text(text)
 {
 
 }
 
-sendMessage::sendMessage(int chat_id, std::string text) : telegram_methodJSON("sendMessage") ,chat_id(to_string(chat_id)) , text(text)
+sendMessage::sendMessage(int chat_id, std::string text) :
+        telegram_methodJSON("sendMessage"),
+        chat_id(to_string(chat_id)), text(text)
 {
 
 }
 
-sendMessage::sendMessage(string chat_id, std::string text) : telegram_methodJSON("sendMessage") ,chat_id(chat_id) , text(text)
+sendMessage::sendMessage(string chat_id, std::string text) :
+        telegram_methodJSON("sendMessage"),
+        chat_id(chat_id), text(text)
 {
 
 }

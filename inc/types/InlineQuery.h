@@ -10,39 +10,49 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 21.08.17.
+// Created by norbert on 01.09.17.
 //
 
-#ifndef YATBCPP_TYPES_H
-#define YATBCPP_TYPES_H
+#ifndef YATBCPP_INLINEQUERY_H
+#define YATBCPP_INLINEQUERY_H
 
-#include "Audio.h"
-#include "Chat.h"
-#include "chat_type.h"
-#include "ChatMember.h"
-#include "ChatPhoto.h"
-#include "Contact.h"
-#include "Document.h"
-#include "File.h"
-#include "ForceReply.h"
-#include "InlineQuery.h"
-#include "InlineQueryResult.h"
-#include "InlineQueryResultCachedAudio.h"
-#include "InlineQueryResultCachedVoice.h"
-#include "InputMessageContent.h"
-#include "KeyboardButton.h"
-#include "Location.h"
-#include "Message.h"
-#include "MessageEntity.h"
-#include "PhotoSize.h"
-#include "ReplyMarkup.h"
-#include "UserProfilePhotos.h"
-#include "ReplyKeyboardMarkup.h"
-#include "Update.h"
+#include <string>
+#if __has_include(<optional>) 
+#include <optional> 
+#else 
+#include <experimental/optional> 
+#define optional experimental::optional 
+#endif 
 #include "User.h"
-#include "Venue.h"
-#include "Video.h"
-#include "VideoNote.h"
-#include "Voice.h"
+#include "Location.h"
 
-#endif //YATBCPP_TYPES_H
+namespace yatbcpp{
+    class InlineQuery {
+    public:
+
+        InlineQuery(std::string id, User from, std::string query, std::string offset);
+
+        void setLocation(const std::optional<Location> &location);
+
+        const std::string &getId() const;
+
+        const User &getFrom() const;
+
+        const std::optional<Location> &getLocation() const;
+
+        const std::string &getQuery() const;
+
+        const std::string &getOffset() const;
+
+    private:
+        std::string id;
+        User from;
+        std::optional<Location> location;
+        std::string query;
+        std::string offset;
+    };
+
+}
+
+
+#endif //YATBCPP_INLINEQUERY_H

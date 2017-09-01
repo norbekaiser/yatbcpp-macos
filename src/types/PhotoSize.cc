@@ -15,7 +15,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-PhotoSize::PhotoSize(std::string file_id, int width, int height) : file_id(file_id), width(width), height(height)
+PhotoSize::PhotoSize(std::string file_id, int width, int height) :
+        file_id(file_id), width(width), height(height)
 {
 
 }

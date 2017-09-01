@@ -15,7 +15,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Video::Video(std::string file_id, int width, int height,int duration) : file_id(file_id), width(width), height(height), duration(duration)
+Video::Video(std::string file_id, int width, int height,int duration) :
+        file_id(file_id), width(width), height(height), duration(duration)
 {
 
 }

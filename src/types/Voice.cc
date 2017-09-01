@@ -14,7 +14,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Voice::Voice(std::string file_id, int duration) : file_id(file_id), duration(duration)
+Voice::Voice(std::string file_id, int duration) :
+        file_id(file_id), duration(duration)
 {
 
 }

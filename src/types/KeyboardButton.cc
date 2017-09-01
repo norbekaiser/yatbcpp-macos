@@ -14,7 +14,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-KeyboardButton::KeyboardButton(std::string text) : text(text)
+KeyboardButton::KeyboardButton(std::string text) :
+        text(text)
 {
 
 }

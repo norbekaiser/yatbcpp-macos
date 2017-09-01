@@ -14,6 +14,8 @@
 
 #include "telegram_methodJSON.h"
 #include "telegram_methodMultipart.h"
+#include "telegram_simplemethodJSON.h"
+#include "answerInlineQuery.h"
 #include "forwardMessage.h"
 #include "getMe.h"
 #include "sendAudio.h"

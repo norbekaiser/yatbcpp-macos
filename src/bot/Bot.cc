@@ -177,19 +177,10 @@ void Bot::NotifyRegisteredListeners() {
                     L(U.getMessage().value());
                 }
             }
-            //On Bot Command Listener
-//            for(function<void(Message,MessageEntity)> L: OnMessageCommandListener){
-//                if(U.getMessage()){
-//                    for(MessageEntity entity : U.getMessage().value().getEntities()){
-//                        if(entity.getType().compare("bot_command")){
-//                            L(U.getMessage().value(),entity);
-//                        }
-//                    }
-//                }
-//            }
+
             //On Message Edited
-            for(function<void(Message)> L: OnMessageEditedListener){
-                if(U.getEdited_message()){
+            if(U.getEdited_message()){
+                for(function<void(Message)> L: OnMessageEditedListener){
                     L(U.getEdited_message().value());
                 }
             }
@@ -205,9 +196,12 @@ void Bot::NotifyRegisteredListeners() {
                     L(U.getEdited_channel_post().value());
                 }
             }
-            //Checking if Command was issued, extracting it and notifying
-
-
+            //On Inline Query
+            if(U.getInlineQuery()){
+                for(function<void(InlineQuery)> L: OnInlineQueryListener){
+                    L(U.getInlineQuery().value());
+                }
+            }
             pendingUpdates.pop();
         }
     }
@@ -239,6 +233,10 @@ void Bot::addOnChannelPostListener(function<void(Message)> Listener) {
 
 void Bot::addOnChannelPostEditedListener(std::function<void(Message)> Listener) {
     OnChannelPostEditedListener.push_back(Listener);
+}
+
+void Bot::addOnInlineQueryListener(std::function<void(InlineQuery)> Listener) {
+    OnInlineQueryListener.push_back(Listener);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

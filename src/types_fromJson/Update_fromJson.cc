@@ -25,30 +25,26 @@ namespace yatbcpp {
         Update ret(update_id);
         //Adding Optional/Additional Information
         if (Data.isMember("message")) {
-//        Json::Value mData= Data["message"];
-//        Message M= Message::fromJson(mData);
             Message M = fromJson<Message>(Data["message"]);
             ret.setMessage(M);
         }
         if (Data.isMember("edited_message")) {
-//        Json::Value mData= Data["edited_message"];
-//        Message M= Message::fromJson(mData);
             Message M = fromJson<Message>(Data["edited_message"]);
-            ret.setMessage(M);
+            ret.setEdited_message(M);
         }
         if (Data.isMember("channel_post")) {
-//        Json::Value mData= Data["channel_post"];
-//        Message M= Message::fromJson(mData);
             Message M = fromJson<Message>(Data["channel_post"]);
-            ret.setMessage(M);
+            ret.setChannel_post(M);
         }
         if (Data.isMember("edited_channel_post")) {
-//        Json::Value mData= Data["edited_channel_post"];
-//        Message M= Message::fromJson(mData);
             Message M = fromJson<Message>(Data["edited_channel_post"]);
-            ret.setMessage(M);
+            ret.setEdited_channel_post(M);
         }
-        //Query comming one day to
+        if (Data.isMember("inline_query")) {
+            InlineQuery I= fromJson<InlineQuery>(Data["inline_query"]);
+            ret.setInlineQuery(I);
+        }
+
 
         return ret;
     }

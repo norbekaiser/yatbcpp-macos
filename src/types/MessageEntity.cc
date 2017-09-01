@@ -18,7 +18,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-MessageEntity::MessageEntity(std::string type, int offset, int length) : type(type), offset(offset), length(length)
+MessageEntity::MessageEntity(std::string type, int offset, int length) :
+        type(type), offset(offset), length(length)
 {
 
     if(type.compare("mention")){}

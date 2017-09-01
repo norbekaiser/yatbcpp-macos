@@ -9,40 +9,36 @@
 //        2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 //    
 //        3. This notice may not be removed or altered from any source distribution.
-//
-// Created by norbert on 21.08.17.
-//
+#ifndef YATBCPP_INLINEQUERYRESULTCACHEDVOICE_H
+#define YATBCPP_INLINEQUERYRESULTCACHEDVOICE_H
 
-#ifndef YATBCPP_TYPES_H
-#define YATBCPP_TYPES_H
-
-#include "Audio.h"
-#include "Chat.h"
-#include "chat_type.h"
-#include "ChatMember.h"
-#include "ChatPhoto.h"
-#include "Contact.h"
-#include "Document.h"
-#include "File.h"
-#include "ForceReply.h"
-#include "InlineQuery.h"
+#include <string>
+#if __has_include(<optional>) 
+#include <optional> 
+#else 
+#include <experimental/optional> 
+#define optional experimental::optional 
+#endif 
 #include "InlineQueryResult.h"
-#include "InlineQueryResultCachedAudio.h"
-#include "InlineQueryResultCachedVoice.h"
-#include "InputMessageContent.h"
-#include "KeyboardButton.h"
-#include "Location.h"
-#include "Message.h"
-#include "MessageEntity.h"
-#include "PhotoSize.h"
-#include "ReplyMarkup.h"
-#include "UserProfilePhotos.h"
-#include "ReplyKeyboardMarkup.h"
-#include "Update.h"
-#include "User.h"
-#include "Venue.h"
-#include "Video.h"
-#include "VideoNote.h"
-#include "Voice.h"
 
-#endif //YATBCPP_TYPES_H
+namespace yatbcpp{
+    class InlineQueryResultCachedVoice : public InlineQueryResult{
+    public:
+        InlineQueryResultCachedVoice(std::string id,std::string audio_file_id,std::string title);
+        Json::Value toJson();
+
+        const std::string &getVoice_file_id() const;
+
+        const std::string &getTitle() const;
+
+        const std::optional<std::string> &getCaption() const;
+
+
+    private:
+        std::string voice_file_id;
+        std::string title;
+        std::optional<std::string> caption;
+    };
+}
+
+#endif //YATBCPP_INLINEQUERYRESULTCACHEDVOICE_H

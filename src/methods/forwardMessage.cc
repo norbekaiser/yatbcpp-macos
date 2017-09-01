@@ -10,17 +10,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-forwardMessage::forwardMessage(Chat chat_id, Message from) : telegram_methodJSON("forwardMessage"), chat_id(to_string(chat_id.getId())), from_chat_id(to_string(from.getChat().getId())), message_id(from.getMessage_id())
+forwardMessage::forwardMessage(Chat chat_id, Message from) :
+        telegram_methodJSON("forwardMessage"),
+        chat_id(to_string(chat_id.getId())), from_chat_id(to_string(from.getChat().getId())), message_id(from.getMessage_id())
 {
 
 }
 
-forwardMessage::forwardMessage(std::string chat_id, std::string from_chat_id, int message_id) : telegram_methodJSON("forwardMessage"), chat_id(chat_id), from_chat_id(from_chat_id), message_id(message_id)
+forwardMessage::forwardMessage(std::string chat_id, std::string from_chat_id, int message_id) :
+        telegram_methodJSON("forwardMessage"),
+        chat_id(chat_id), from_chat_id(from_chat_id), message_id(message_id)
 {
 
 }
 
-forwardMessage::forwardMessage(int chat_id, int from_chat_id, int message_id) : telegram_methodJSON("forwardMessage"), chat_id(to_string(chat_id)), from_chat_id(to_string(from_chat_id)), message_id(message_id)
+forwardMessage::forwardMessage(int chat_id, int from_chat_id, int message_id) :
+        telegram_methodJSON("forwardMessage"),
+        chat_id(to_string(chat_id)), from_chat_id(to_string(from_chat_id)), message_id(message_id)
 {
 
 }

@@ -14,7 +14,8 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Venue::Venue(Location location, std::string title, std::string address) : location(location), title(title), address(address)
+Venue::Venue(Location location, std::string title, std::string address) :
+        location(location), title(title), address(address)
 {
 
 }

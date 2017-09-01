@@ -60,7 +60,6 @@ Token Token::FromFile(const char *filelocation) {
         for(readTokens=0;readTokens<__TELEGRAM_TOKEN_LENGTH;readTokens++){
             file.get(token[readTokens]);
         }
-//        cout << "I Have Read::" << readTokens << "Characters" << endl;
         if(readTokens!=__TELEGRAM_TOKEN_LENGTH){
             std::cerr << "Telegram Token Size Missmatch::" << readTokens << " instead of " << __TELEGRAM_TOKEN_LENGTH << std::endl;
             //An Error has occured, we did not stop where we thougt to stop
