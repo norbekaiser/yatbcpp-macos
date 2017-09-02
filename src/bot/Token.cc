@@ -53,15 +53,18 @@ Token::Token(const char ttoken[__TELEGRAM_TOKEN_LENGTH]) {
  * @return
  */
 Token Token::FromFile(const char *filelocation) {
-    char token[__TELEGRAM_TOKEN_LENGTH];
+//    char token[__TELEGRAM_TOKEN_LENGTH];
+    std::string token;
     ifstream file (filelocation, ios::in);
     if(file.is_open()){
-        int readTokens=0;
-        for(readTokens=0;readTokens<__TELEGRAM_TOKEN_LENGTH;readTokens++){
-            file.get(token[readTokens]);
-        }
-        if(readTokens!=__TELEGRAM_TOKEN_LENGTH){
-            std::cerr << "Telegram Token Size Missmatch::" << readTokens << " instead of " << __TELEGRAM_TOKEN_LENGTH << std::endl;
+//        int readTokens=0;
+//        for(readTokens=0;readTokens<__TELEGRAM_TOKEN_LENGTH;readTokens++){
+//            file.get(token[readTokens]);
+//        }
+        std::getline(file,token);
+//        if(readTokens!=__TELEGRAM_TOKEN_LENGTH){
+        if(token.size()!=__TELEGRAM_TOKEN_LENGTH){
+            std::cerr << "Telegram Token Size Missmatch::" << token.size() << " instead of " << __TELEGRAM_TOKEN_LENGTH << std::endl;
             //An Error has occured, we did not stop where we thougt to stop
         }
         file.close();
@@ -69,6 +72,6 @@ Token Token::FromFile(const char *filelocation) {
     else {
         throw file_not_found("Supplied File Location does not contain a file");
     }
-    return Token(token);
+    return Token(token.c_str());//sigh hoffentlich frisst das nich speicher
 
 }
