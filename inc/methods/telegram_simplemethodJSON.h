@@ -55,7 +55,7 @@ namespace yatbcpp{
             struct curl_slist * curl_header_list =NULL;
             curl_header_list = curl_slist_append( curl_header_list , "Content-Type: application/json" );
             CURL* curl = curl_easy_init();
-
+            std::cerr << "Outgoing" << curl_payload << std::endl;
             curl_easy_setopt(curl,CURLOPT_URL,api_url.c_str());
             curl_easy_setopt(curl,CURLOPT_POSTFIELDS,curl_payload.c_str());
             curl_easy_setopt(curl,CURLOPT_HTTPHEADER,curl_header_list);

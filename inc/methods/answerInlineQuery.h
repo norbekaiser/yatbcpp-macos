@@ -19,6 +19,7 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
+#include <memory>
 #include "telegram_simplemethodJSON.h"
 #include "../types/InlineQueryResult.h"
 
@@ -26,8 +27,11 @@
 namespace yatbcpp{
     class answerInlineQuery : public telegram_simplemethodJSON{
     public:
-        answerInlineQuery(std::string inline_query_id,std::vector<InlineQueryResult> results);
+        answerInlineQuery(std::string inline_query_id,std::vector<InlineQueryResult*> results);
+        answerInlineQuery(std::string inline_query_id);
         Json::Value toJson();
+
+        void addInlineQueryResult(InlineQueryResult* IQR);
 
         void setCache_time(const std::optional<int> &cache_time);
 
@@ -41,8 +45,6 @@ namespace yatbcpp{
 
         const std::string &getInline_query_id() const;
 
-        const std::vector<InlineQueryResult> &getResults() const;
-
         const std::optional<int> &getCache_time() const;
 
         const std::optional<bool> &getIs_personal() const;
@@ -55,13 +57,12 @@ namespace yatbcpp{
 
     private:
         std::string inline_query_id;
-        std::vector<InlineQueryResult> results;
+        std::vector<InlineQueryResult*> results;
         std::optional<int> cache_time;
         std::optional<bool> is_personal;
         std::optional<std::string> next_offset;
         std::optional<std::string> switch_pm_text;
         std::optional<std::string> switch_pm_parameter;
-
     };
 }
 

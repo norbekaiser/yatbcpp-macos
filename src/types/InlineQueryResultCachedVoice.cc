@@ -5,7 +5,7 @@ using namespace yatbcpp;
 using namespace std;
 
 InlineQueryResultCachedVoice::InlineQueryResultCachedVoice(std::string id,std::string voice_file_id,std::string title) :
-        InlineQueryResult("audio",id),
+        InlineQueryResult("voice",id),
         voice_file_id(voice_file_id), title(title)
 {
 
