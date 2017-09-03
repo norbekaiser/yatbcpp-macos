@@ -5,17 +5,18 @@
 * First "useful" version will have something like 0.1.* and not 0.0.*
 * Development Alpha is Currently 0.0.1 ( the latest release will currently always have this tag)
 
+
 ## About 
-Small Telegram Bot Api which sure misses some functionality, but if you think one should be implemented earlier, feel free to contact me
+Small Telegram Bot Api which sure misses some functionality, but if you think one should be implemented earlier, feel free to contact me.
+
 For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.de/doc) or [Bot Api](https://core.telegram.org/bots/api)
 
 
 ## Features 
-* Allows to register on Message or on Command
+* Allows to register on Message or on Command or on InlineQuery
 * sendMessage is possible
 * sendPhoto is possible , use telegramMethodMultipart for sending a local file
 * sendAudio is possible , use telegramMethodMultipart for sending a local file
-* Token From File fails sometimes(?)
 
 ## Requirements 
 * [cmake](https://cmake.org/) 
@@ -26,7 +27,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
     * In general use CMAKE_COMPILER / CMAKE_CXX_COMPILER to set an appropriate compiler
         * e.g. Linux supply -DCMAKE_C_COMPILER=/usr/bin/gcc-7 -DCMAKE_CXX_COMPILER=/usr/bin/g++-7
         * e.g. MacOS supply -DCMAKE_C_COMPILER=/usr/local/bin/gcc-7 -DCMAKE_CXX_COMPILER=/usr/local/bin/g++-7
-* Support for optional or at least experimental optional,        
+* Support for optional or at least experimental optional        
 
 ## Compile Instructions
 * mkdir -p build
@@ -46,7 +47,6 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 * Hello-User Example [Github](https://github.com/norbekaiser/yatbcpp-example-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
     * Small Example Which requires installed yatbcpp
     * Build is also possible with external_project
-
 
 ## Mirrors and other Repos
 * [github.com/norbekaiser/yatbcpp](https://github.com/norbekaiser/yatbcpp.git) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp;a=tree)
