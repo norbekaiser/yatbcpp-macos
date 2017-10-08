@@ -38,7 +38,8 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 
 ## Homebrew Instructions
 * brew tap [norbekaiser/yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp)
-* There is an Issue with optional on sierra , please consider using  brew install yatbcpp --cc=gcc-7 or 
+* There is an Issue with optional on sierra / high sierra , please consider compiling with a different compiler  ```brew install yatbcpp --cc=gcc-7```
+* Thre is a plan for an optional free version but not now  
 
 ## vcpkg Instructions
 * coming soon?
@@ -46,7 +47,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 ## Usage Instructions (find_package)
 * Hello-User Example [Github](https://github.com/norbekaiser/yatbcpp-example-hello-user) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-example-hello-user;a=tree)
     * Small Example Which requires installed yatbcpp
-    * Build is also possible with external_project
+    * Build is also possible with external_project ( dedicated example will follow soon)
 
 ## Mirrors and other Repos
 * [github.com/norbekaiser/yatbcpp](https://github.com/norbekaiser/yatbcpp.git) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp;a=tree)
