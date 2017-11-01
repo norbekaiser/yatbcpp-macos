@@ -42,6 +42,10 @@ int User::getId() const {
     return id;
 }
 
+bool User::IsBot() const{
+    return is_bot;
+}
+
 const string &User::getFirst_name() const {
     return first_name;
 }

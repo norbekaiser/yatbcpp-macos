@@ -33,6 +33,8 @@ namespace yatbcpp{
         User(int id,bool is_bot,std::string first_name);
 
         int getId() const;
+        
+        bool IsBot() const;
 
         void setLast_name(const std::optional<std::string> &last_name);
 
