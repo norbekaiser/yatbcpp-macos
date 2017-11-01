@@ -15,13 +15,17 @@ namespace yatbcpp{
 //        o << " User::language_code " << U.language_code;
         o << to_string(U.getId());
         if(U.IsBot()){
-            o << " [BOT] ";
+            o << " [BOT]";
+        }
+        else{
+            o << " [User]";
         }
         o << " ( ";
         o << U.getFirst_name();
         o << " " << U.getUsername().value_or("[NoUsername]");
         o << " " << U.getLast_name().value_or("[NoLastname]");
         o << " " << U.getLanguage_code().value_or("");
+        o << " )";
         return o;
     }
 }
