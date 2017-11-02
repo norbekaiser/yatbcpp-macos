@@ -14,11 +14,19 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Contact::Contact(std::string phone_number, std::string first_name) :
+Contact::Contact(std::string phone_number, std::string first_name):
         phone_number(phone_number), first_name(first_name)
 {
 
 }
+
+Contact::Contact(const Contact& Contact):
+        phone_number(Contact.phone_number), first_name(Contact.first_name)
+{
+    last_name = Contact.last_name;
+    user_id = Contact.user_id;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

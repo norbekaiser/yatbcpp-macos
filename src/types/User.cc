@@ -12,11 +12,20 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-User::User(int id, bool is_bot, string first_name) :
+User::User(int id, bool is_bot, string first_name):
         id(id), is_bot(is_bot), first_name(first_name)
 {
 
 }
+
+User::User(const User& user):
+        id(user.id), is_bot(user.is_bot), first_name(user.first_name)
+{
+    last_name = user.last_name;
+    username = user.username;
+    language_code = user.language_code;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

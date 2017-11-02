@@ -30,6 +30,8 @@ namespace yatbcpp{
     class Video {
     public:
         Video(std::string file_id,int width, int height,int duration);
+        
+        Video(const Video& Video);
 
 //        static Video fromJson(Json::Value Data);
 

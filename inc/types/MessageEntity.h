@@ -30,6 +30,8 @@ namespace yatbcpp{
     class MessageEntity {
     public:
         MessageEntity(std::string type,int offset, int length);
+        
+        MessageEntity(const MessageEntity& MessageEntity);
 
         void setUrl(const std::optional<std::string> &url);
 

@@ -15,11 +15,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-PhotoSize::PhotoSize(std::string file_id, int width, int height) :
+PhotoSize::PhotoSize(std::string file_id, int width, int height):
         file_id(file_id), width(width), height(height)
 {
 
 }
+
+PhotoSize::PhotoSize(const PhotoSize& PhotoSize):
+        file_id(PhotoSize.file_id), width(PhotoSize.width), height(PhotoSize.height)
+{
+    file_size = PhotoSize.file_size;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

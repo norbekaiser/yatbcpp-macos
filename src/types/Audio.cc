@@ -15,11 +15,21 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Audio::Audio(std::string file_id, int duration) :
+Audio::Audio(std::string file_id, int duration):
         file_id(file_id), duration(duration)
 {
 
 }
+
+Audio::Audio(const Audio& audio):
+        file_id(audio.file_id), duration(audio.duration)
+{
+    performer = audio.performer;
+    title = audio.title;
+    mime_type = audio.mime_type;
+    file_size = audio.file_size;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

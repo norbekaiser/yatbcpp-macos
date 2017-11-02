@@ -17,6 +17,8 @@ namespace yatbcpp{
     class Location {
     public:
         Location(float longitude, float latitude);
+        
+        Location(const Location& Location);
 
         float getLongitude() const;
 

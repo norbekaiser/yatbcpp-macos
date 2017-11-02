@@ -26,6 +26,8 @@ namespace yatbcpp{
     class ChatMember {
     public:
         ChatMember(User user,std::string status);
+        
+        ChatMember(const ChatMember& ChatMember);
 
         void setUntil_date(const std::optional<int> &until_date);
 

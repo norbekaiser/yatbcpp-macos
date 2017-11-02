@@ -25,6 +25,8 @@ namespace yatbcpp{
     class ForceReply : public ReplyMarkup {
     public:
         ForceReply();
+        
+        ForceReply(const ForceReply& ForceReply);
 
         void setSelective(const std::optional<bool> &selective);
 

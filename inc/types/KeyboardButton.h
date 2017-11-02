@@ -25,6 +25,8 @@ namespace yatbcpp{
     class KeyboardButton {
     public:
         KeyboardButton(std::string text);
+        
+        KeyboardButton(const KeyboardButton& KeyboardButton);
 
         void setRequest_contact(const std::optional<bool> &request_contact);
 

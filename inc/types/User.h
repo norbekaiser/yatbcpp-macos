@@ -31,6 +31,8 @@ namespace yatbcpp{
     public:
 
         User(int id,bool is_bot,std::string first_name);
+        
+        User(const User& user);
 
         int getId() const;
         

@@ -29,11 +29,34 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Message::Message(int message_id, int date, Chat chat) :
+Message::Message(int message_id, int date, Chat chat):
         message_id(message_id), date(date), chat(chat)
 {
 
 }
+
+Message::Message(const Message& Message):
+        message_id(Message.message_id), date(Message.date), chat(Message.chat)
+{
+    from = Message.from;
+    forward_from = Message.forward_from;
+    forward_from_chat = Message.forward_from_chat;
+    forward_from_message_id = Message.forward_from_message_id;
+    forward_signature = Message.forward_signature;
+    forward_date = Message.forward_date;
+    edit_date = Message.edit_date;
+    author_signature = Message.author_signature;
+    text = Message.text;
+    entities = Message.entities;
+    audio = Message.audio;
+    document = Message.document;
+    photo = Message.photo;
+    video = Message.video;
+    voice = Message.voice;
+    video_note = Message.video_note;
+    //TODO complete
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

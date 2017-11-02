@@ -19,6 +19,8 @@ namespace yatbcpp{
     class ChatPhoto {
     public:
         ChatPhoto(std::string small_file_id, std::string big_file_id);
+        
+        ChatPhoto(const ChatPhoto& ChatPhoto);
 
         const std::string &getSmall_file_id() const;
 

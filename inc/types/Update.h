@@ -31,6 +31,8 @@ namespace yatbcpp{
     class Update {
     public:
         Update(int update_id);
+        
+        Update(const Update& Update);
 
         void setMessage(const std::optional<Message> &message);
 

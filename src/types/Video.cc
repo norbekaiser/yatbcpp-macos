@@ -15,11 +15,20 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Video::Video(std::string file_id, int width, int height,int duration) :
+Video::Video(std::string file_id, int width, int height,int duration):
         file_id(file_id), width(width), height(height), duration(duration)
 {
 
 }
+
+Video::Video(const Video& Video):
+        file_id(Video.file_id), width(Video.width), height(Video.height), duration(Video.duration)
+{
+    thumb = Video.thumb;
+    mime_type = Video.mime_type;
+    file_size = Video.file_size;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

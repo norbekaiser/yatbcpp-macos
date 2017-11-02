@@ -25,6 +25,9 @@ namespace yatbcpp{
     class InlineQueryResultCachedAudio : public InlineQueryResult{
     public:
         InlineQueryResultCachedAudio(std::string id,std::string audio_file_id);
+        
+        InlineQueryResultCachedAudio(const InlineQueryResultCachedAudio& InlineQueryResultCachedAudio);
+        
         Json::Value toJson();
 
         const std::string &getAudio_file_id() const;

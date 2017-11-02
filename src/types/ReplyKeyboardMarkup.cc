@@ -20,6 +20,15 @@ ReplyKeyboardMarkup::ReplyKeyboardMarkup(std::vector<std::vector<KeyboardButton>
 
 }
 
+ReplyKeyboardMarkup::ReplyKeyboardMarkup(const ReplyKeyboardMarkup& ReplyKeyboardMarkup):
+        keyboard(ReplyKeyboardMarkup.keyboard)
+{
+    resize_keyboard = ReplyKeyboardMarkup.resize_keyboard;
+    one_time_keyboard = ReplyKeyboardMarkup.one_time_keyboard;
+    selective = ReplyKeyboardMarkup.selective;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

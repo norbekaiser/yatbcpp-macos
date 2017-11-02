@@ -33,6 +33,8 @@ namespace yatbcpp{
     class ReplyKeyboardMarkup : public ReplyMarkup{
     public:
         ReplyKeyboardMarkup(std::vector<std::vector<KeyboardButton>> keyboard);
+        
+        ReplyKeyboardMarkup(const ReplyKeyboardMarkup& ReplyKeyboardMarkup);
 
         void setResize_keyboard(const std::optional<bool> &resize_keyboard);
 

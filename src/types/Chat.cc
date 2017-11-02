@@ -15,11 +15,24 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Chat::Chat(int id, chat_type type) :
+Chat::Chat(int id, chat_type type):
         id(id), type (type)
 {
 
 }
+
+Chat::Chat(const Chat& chat):
+        id(id), type (type)
+{
+    title = chat.title;
+    username = chat.username;
+    first_name = chat.first_name;
+    last_name = chat.last_name;
+    all_members_are_administrators = chat.all_members_are_administrators;
+    description = chat.description;
+    invite_link = chat.invite_link;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

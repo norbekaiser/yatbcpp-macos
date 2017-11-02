@@ -25,6 +25,8 @@ namespace yatbcpp{
     class File {
     public:
         File(std::string file_id);
+        
+        File(const File& File);
 
         void setFile_size(const std::optional<int> &file_size);
 

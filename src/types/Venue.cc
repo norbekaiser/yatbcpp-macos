@@ -14,11 +14,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Venue::Venue(Location location, std::string title, std::string address) :
+Venue::Venue(Location location, std::string title, std::string address):
         location(location), title(title), address(address)
 {
 
 }
+
+Venue::Venue(const Venue& Venue):
+        location(Venue.location), title(Venue.title), address(Venue.address)
+{
+    foursquare_id = Venue.foursquare_id;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

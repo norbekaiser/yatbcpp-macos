@@ -14,10 +14,17 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-File::File(std::string file_id) :
+File::File(std::string file_id):
         file_id(file_id)
 {
 
+}
+
+File::File(const File& File):
+        file_id(file_id)
+{
+    file_size = File.file_size;
+    file_path = File.file_path;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

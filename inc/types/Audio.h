@@ -25,6 +25,8 @@ namespace yatbcpp{
     class Audio {
     public:
         Audio(std::string file_id,int duration);
+        
+        Audio(const Audio& audio);
 
 //        static Audio fromJson(Json::Value Data);
 

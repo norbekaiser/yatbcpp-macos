@@ -10,6 +10,14 @@ InlineQueryResultCachedAudio::InlineQueryResultCachedAudio(std::string id, std::
 {
 
 }
+
+InlineQueryResultCachedAudio::InlineQueryResultCachedAudio(const InlineQueryResultCachedAudio& InlineQueryResultCachedAudio): 
+    InlineQueryResult(InlineQueryResultCachedAudio.type,InlineQueryResultCachedAudio.id), 
+    audio_file_id(InlineQueryResultCachedAudio.audio_file_id)
+{
+    caption = InlineQueryResultCachedAudio.caption;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Outgoing Section                                                                                                   //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

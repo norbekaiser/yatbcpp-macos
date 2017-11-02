@@ -41,6 +41,8 @@ namespace yatbcpp{
     class Message{
     public:
         Message(int message_id,int date,Chat chat);
+        
+        Message(const Message& Message);
 
         void setFrom(const std::optional<User> &from);
 

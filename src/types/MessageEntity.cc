@@ -18,7 +18,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-MessageEntity::MessageEntity(std::string type, int offset, int length) :
+MessageEntity::MessageEntity(std::string type, int offset, int length):
         type(type), offset(offset), length(length)
 {
 
@@ -39,6 +39,14 @@ MessageEntity::MessageEntity(std::string type, int offset, int length) :
 
 
 }
+
+MessageEntity::MessageEntity(const MessageEntity& MessageEntity):
+    type(MessageEntity.type), offset(MessageEntity.offset), length(MessageEntity.length)
+{
+    url = MessageEntity.url;
+    user = MessageEntity.user;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

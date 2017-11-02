@@ -19,24 +19,30 @@
 #include <string>
 #include <json/json.h>
 #include <iostream>
+namespace yatbcpp{
 
-class InlineQueryResult {
-public:
-    InlineQueryResult(std::string type,std::string id);
-    virtual Json::Value toJson(){
-        Json::Value ret;
-        return ret;
-    }//=0;
-//    {
-//        std::cerr << "Calling Wrong Function" << std::endl;
-//    };//=0;
-protected:
-    std::string type;
-    std::string id;
-public:
-    const std::string &getType() const;
-
-    const std::string &getId() const;
-};
+    class InlineQueryResult {
+        
+    public:
+        InlineQueryResult(std::string type,std::string id);
+        
+        InlineQueryResult(const InlineQueryResult& InlineQueryResult);
+        
+        virtual Json::Value toJson(){
+            Json::Value ret;
+            return ret;
+        }
+        
+    protected:
+        std::string type;
+        
+        std::string id;
+        
+    public:
+        const std::string &getType() const;
+    
+        const std::string &getId() const;
+    };
+}
 
 #endif //YATBCPP_INLINEQUERYRESULT_H

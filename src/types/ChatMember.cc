@@ -16,11 +16,26 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ChatMember::ChatMember(User user, std::string status) :
+ChatMember::ChatMember(User user, std::string status):
         user(user), status(status)
 {
 
 }
+
+ChatMember::ChatMember(const ChatMember& ChatMember):
+        user(ChatMember.user), status(ChatMember.status)
+
+{
+        until_date = ChatMember.until_date;
+        can_be_edited = ChatMember.can_be_edited;
+        can_change_info = ChatMember.can_change_info;
+        can_post_messages = ChatMember.can_post_messages;
+        can_edit_messages = ChatMember.can_edit_messages;
+        can_delete_messages = ChatMember.can_delete_messages;
+        can_invite_users = ChatMember.can_invite_users;
+        can_restrict_members = ChatMember.can_restrict_members;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

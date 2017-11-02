@@ -31,6 +31,8 @@ namespace yatbcpp{
     public:
 
         InlineQuery(std::string id, User from, std::string query, std::string offset);
+        
+        InlineQuery(const InlineQuery& InlineQuery);
 
         void setLocation(const std::optional<Location> &location);
 

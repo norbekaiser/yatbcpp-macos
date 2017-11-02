@@ -27,6 +27,8 @@ namespace yatbcpp {
     class Token {
     public:
         Token(const char ttoken[__TELEGRAM_TOKEN_LENGTH]);
+        
+        Token(const Token& T);
 
         const std::string getToken() const;
 

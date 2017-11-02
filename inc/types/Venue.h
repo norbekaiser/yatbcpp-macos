@@ -30,6 +30,8 @@ namespace yatbcpp{
     class Venue {
     public:
         Venue(Location location, std::string title, std::string address);
+        
+        Venue(const Venue& Venue);
 
 //        static Venue fromJson(Json::Value Data);
 

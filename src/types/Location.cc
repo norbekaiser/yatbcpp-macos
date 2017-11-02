@@ -8,11 +8,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Location::Location(float longitude, float latitude) :
+Location::Location(float longitude, float latitude):
         longitude(longitude), latitude(latitude)
 {
 
 }
+
+Location::Location(const Location& Location):
+        longitude(Location.longitude), latitude(Location.latitude)
+{
+
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

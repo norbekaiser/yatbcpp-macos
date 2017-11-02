@@ -14,11 +14,19 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-KeyboardButton::KeyboardButton(std::string text) :
+KeyboardButton::KeyboardButton(std::string text):
         text(text)
 {
 
 }
+
+KeyboardButton::KeyboardButton(const KeyboardButton& KeyboardButton):
+        text(KeyboardButton.text)
+{
+        request_contact = KeyboardButton.request_contact;
+        request_location = KeyboardButton.request_location;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

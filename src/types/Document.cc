@@ -15,11 +15,21 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Document::Document(std::string file_id) :
+Document::Document(std::string file_id):
         file_id(file_id)
 {
 
 }
+
+Document::Document(const Document& Document):
+        file_id(Document.file_id)
+{
+    thumb = Document.thumb;
+    file_name = Document.file_name;
+    mime_type = Document.mime_type;
+    file_size = Document.file_size;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

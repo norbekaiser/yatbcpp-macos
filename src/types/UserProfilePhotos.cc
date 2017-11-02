@@ -16,11 +16,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-UserProfilePhotos::UserProfilePhotos(int total_count, std::vector<std::vector<PhotoSize>> photos) :
+UserProfilePhotos::UserProfilePhotos(int total_count, std::vector<std::vector<PhotoSize>> photos):
         total_count(total_count) , photos(photos)
 {
 
 }
+
+UserProfilePhotos::UserProfilePhotos(const UserProfilePhotos& UserProfilePhotos):
+        total_count(UserProfilePhotos.total_count) , photos(UserProfilePhotos.photos)
+{
+    
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

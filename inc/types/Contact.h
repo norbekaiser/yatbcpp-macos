@@ -25,6 +25,8 @@ namespace yatbcpp{
     class Contact {
     public:
         Contact(std::string phone_number, std::string first_name);
+        
+        Contact(const Contact& Contact);
 
         void setLast_name(const std::optional<std::string> &last_name);
 

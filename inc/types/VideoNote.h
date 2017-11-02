@@ -30,6 +30,8 @@ namespace yatbcpp{
     class VideoNote {
     public:
         VideoNote(std::string file_id,int length, int duration);
+        
+        VideoNote(const VideoNote& VideoNote);
 
 //        static VideoNote fromJson(Json::Value Data);
 

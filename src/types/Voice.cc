@@ -14,11 +14,19 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Voice::Voice(std::string file_id, int duration) :
+Voice::Voice(std::string file_id, int duration):
         file_id(file_id), duration(duration)
 {
 
 }
+
+Voice::Voice(const Voice& Voice):
+        file_id(Voice.file_id), duration(Voice.duration)
+{
+    mime_type = Voice.mime_type;
+    file_size = Voice.file_size;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

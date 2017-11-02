@@ -27,6 +27,8 @@ namespace yatbcpp{
     class Document {
     public:
         Document(std::string file_id);
+        
+        Document(const Document& Document);
 
         void setThumb(const std::optional<PhotoSize> &thumb);
 

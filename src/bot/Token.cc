@@ -47,6 +47,11 @@ Token::Token(const char ttoken[__TELEGRAM_TOKEN_LENGTH]) {
     this->setToken(ttoken);
 }
 
+Token::Token(const Token& T) {
+    token=T.token;
+}
+
+
 /**
  * Reads file and gets the token from the file
  * @param filelocation, the file location of the token

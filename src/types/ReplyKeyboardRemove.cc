@@ -13,11 +13,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ReplyKeyboardRemove::ReplyKeyboardRemove() :
+ReplyKeyboardRemove::ReplyKeyboardRemove():
         remove_keyboard(true)
 {
 
 }
+
+ReplyKeyboardRemove::ReplyKeyboardRemove(const ReplyKeyboardRemove& ReplyKeyboardRemove):
+        remove_keyboard(ReplyKeyboardRemove.remove_keyboard)
+{
+    selective = ReplyKeyboardRemove.selective;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

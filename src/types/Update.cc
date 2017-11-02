@@ -13,11 +13,22 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Update::Update(int update_id) :
+Update::Update(int update_id):
         update_id(update_id)
 {
 
 }
+
+Update::Update(const Update& Update):
+        update_id(Update.update_id)
+{
+    message = Update.message;
+    edited_message = Update.message;
+    channel_post = Update.channel_post;
+    edited_channel_post = Update.edited_channel_post;
+    inlineQuery = Update.inlineQuery;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

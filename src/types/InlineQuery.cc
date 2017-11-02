@@ -15,11 +15,18 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-InlineQuery::InlineQuery(std::string id, User from, std::string query, std::string offset) :
+InlineQuery::InlineQuery(std::string id, User from, std::string query, std::string offset):
         id(id), from(from), query(query), offset(offset)
 {
 
 }
+
+InlineQuery::InlineQuery(const InlineQuery& InlineQuery) :
+        id(InlineQuery.id), from(InlineQuery.from), query(InlineQuery.query), offset(InlineQuery.offset)
+{
+    location = InlineQuery.location;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setter Section                                                                                                     //

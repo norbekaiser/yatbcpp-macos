@@ -24,6 +24,8 @@ namespace yatbcpp{
     class UserProfilePhotos {
     public:
         UserProfilePhotos(int total_count,std::vector<std::vector<PhotoSize>> photos);
+        
+        UserProfilePhotos(const UserProfilePhotos& UserProfilePhotos);
 
         int getTotal_count() const;
 

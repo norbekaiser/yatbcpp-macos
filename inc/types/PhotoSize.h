@@ -29,7 +29,9 @@ namespace yatbcpp{
     class PhotoSize {
     public:
         PhotoSize(std::string file_id,int width, int height);
-
+        
+        PhotoSize(const PhotoSize& PhotoSize);
+        
         void setFile_size(const std::optional<int> &file_size);
 
         const std::string &getFile_id() const;

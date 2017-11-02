@@ -4,12 +4,20 @@
 using namespace yatbcpp;
 using namespace std;
 
-InlineQueryResultCachedVoice::InlineQueryResultCachedVoice(std::string id,std::string voice_file_id,std::string title) :
+InlineQueryResultCachedVoice::InlineQueryResultCachedVoice(std::string id,std::string voice_file_id,std::string title):
         InlineQueryResult("voice",id),
         voice_file_id(voice_file_id), title(title)
 {
 
 }
+
+InlineQueryResultCachedVoice::InlineQueryResultCachedVoice(const InlineQueryResultCachedVoice& InlineQueryResultCachedVoice):
+    InlineQueryResult(InlineQueryResultCachedVoice.type,InlineQueryResultCachedVoice.id),
+    voice_file_id(InlineQueryResultCachedVoice.voice_file_id), title(InlineQueryResultCachedVoice.title)
+{
+    caption = InlineQueryResultCachedVoice.caption;
+}
+
 
 Json::Value InlineQueryResultCachedVoice::toJson(){
     std::cout << "VoiceJSON" << std::endl;

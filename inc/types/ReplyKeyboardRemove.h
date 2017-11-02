@@ -30,6 +30,8 @@ namespace yatbcpp{
     class ReplyKeyboardRemove : public ReplyMarkup{
     public:
         ReplyKeyboardRemove();
+        
+        ReplyKeyboardRemove(const ReplyKeyboardRemove& ReplyKeyboardRemove);
 
         void setSelective(const std::optional<bool> &selective);
 
