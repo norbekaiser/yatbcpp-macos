@@ -52,6 +52,7 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 ## Mirrors and other Repos
 * [github.com/norbekaiser/yatbcpp](https://github.com/norbekaiser/yatbcpp.git) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp;a=tree)
     * This Repo will contain the stable releases as well as the current dev commits
+    * [![Build Status](https://travis-ci.org/norbekaiser/yatbcpp.svg?branch=master)](https://travis-ci.org/norbekaiser/yatbcpp)
 * [github.com/norbekaiser/homebrew-yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp.git)
     * Contains the Formula for source build using homebrew
 * [github.com/norbekaiser/macos-yatbcpp](https://github.com/norbekaiser/yatbcpp-macos) [yatbcpp.norbert-ruehl.de](https://yatbcpp.norbert-ruehl.de/src/?p=yatbcpp-macos;a=tree)
