@@ -22,7 +22,7 @@ Chat::Chat(int id, chat_type type):
 }
 
 Chat::Chat(const Chat& chat):
-        id(id), type (type)
+        id(chat.getId()), type (chat.getType())
 {
     title = chat.title;
     username = chat.username;
