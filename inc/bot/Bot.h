@@ -70,6 +70,8 @@ namespace yatbcpp {
         void addOnInlineQueryListener(std::function<void(InlineQuery)> Listener);
 
         void join();
+        
+        const Message send(sendMessage sendMessage) const;
 
     private:
 
@@ -97,6 +99,8 @@ namespace yatbcpp {
         std::vector<std::function<void(Message)>> OnChannelPostListener;
         std::vector<std::function<void(Message)>> OnChannelPostEditedListener;
         std::vector<std::function<void(InlineQuery)>> OnInlineQueryListener;
+        
+        
 
 
     };

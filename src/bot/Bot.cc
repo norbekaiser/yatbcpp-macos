@@ -249,3 +249,8 @@ const User Bot::getMe() const {
     return u;
 }
 
+
+const Message Bot::send(sendMessage sm) const{
+    return telegram_methodJSON<Message>::perform_requestJSON(token, sm);
+   
+}
