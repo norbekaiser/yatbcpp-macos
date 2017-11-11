@@ -15,10 +15,10 @@
 namespace yatbcpp{
 
     enum chat_type{//sigh ich vermiss das typdef von c
-        Private,
+        Private,//Großgeschrieben da private sonst ambigious
         Group,
         Supergroup,
-        Channel
+        Channel,
     };
 
 }
