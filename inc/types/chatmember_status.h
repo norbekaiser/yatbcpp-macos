@@ -14,7 +14,7 @@
 
 namespace yatbcpp{
 
-    enum chatmember_status{//sigh ich vermiss das typdef von c
+    enum class chatmember_status{//sigh ich vermiss das typdef von c
         creator,
         administrator,
         member,

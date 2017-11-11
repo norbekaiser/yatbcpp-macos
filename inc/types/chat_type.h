@@ -14,7 +14,7 @@
 
 namespace yatbcpp{
 
-    enum chat_type{//sigh ich vermiss das typdef von c
+    enum class chat_type{//sigh ich vermiss das typdef von c
         Private,//Großgeschrieben da private sonst ambigious
         Group,
         Supergroup,
