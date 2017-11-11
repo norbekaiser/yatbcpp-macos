@@ -28,7 +28,7 @@ namespace yatbcpp{
         
         Audio(const Audio& audio);
 
-//        static Audio fromJson(Json::Value Data);
+        //Audio(const Jsonthing);
 
         void setPerformer(const std::optional<std::string> &performer);
 

@@ -16,7 +16,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ChatMember::ChatMember(User user, std::string status):
+ChatMember::ChatMember(User user, chatmember_status status):
         user(user), status(status)
 {
 
@@ -34,6 +34,13 @@ ChatMember::ChatMember(const ChatMember& ChatMember):
         can_delete_messages = ChatMember.can_delete_messages;
         can_invite_users = ChatMember.can_invite_users;
         can_restrict_members = ChatMember.can_restrict_members;
+        can_pin_messages = ChatMember.can_pin_messages;
+        can_promote_members = ChatMember.can_promote_members;
+        can_send_messages = ChatMember.can_send_messages;
+        can_send_media_messages = ChatMember.can_send_media_messages;
+        can_send_other_messages = ChatMember.can_send_other_messages;
+        can_add_web_page_previews = ChatMember.can_add_web_page_previews;
+        
 }
 
 
@@ -105,7 +112,7 @@ const User &ChatMember::getUser() const {
     return user;
 }
 
-const string &ChatMember::getStatus() const {
+const chatmember_status &ChatMember::getStatus() const {
     return status;
 }
 

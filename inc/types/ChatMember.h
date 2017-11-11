@@ -19,13 +19,14 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
+#include "chatmember_status.h"
 #include "User.h"
 
 namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#chatmember */
     class ChatMember {
     public:
-        ChatMember(User user,std::string status);
+        ChatMember(User user,chatmember_status status);
         
         ChatMember(const ChatMember& ChatMember);
 
@@ -59,7 +60,7 @@ namespace yatbcpp{
 
         const User &getUser() const;
 
-        const std::string &getStatus() const;
+        const chatmember_status &getStatus() const;
 
         const std::optional<int> &getUntil_date() const;
 
@@ -91,7 +92,7 @@ namespace yatbcpp{
 
     private:
         User user;
-        std::string status;//creator,administrator,member,restricted,left,kicked
+        chatmember_status status;//creator,administrator,member,restricted,left,kicked
         std::optional<int> until_date;
         std::optional<bool> can_be_edited;
         std::optional<bool> can_change_info;

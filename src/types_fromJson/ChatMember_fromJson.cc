@@ -16,16 +16,17 @@ namespace yatbcpp {
      */
     template<> ChatMember fromJson(Json::Value Data) {
         if (!Data.isMember("user")) {
-            throw essential_key_missing("ChatMember::small_file_id is missing");
+            throw essential_key_missing("ChatMember::user is missing");
         }
         if (!Data.isMember("status")) {
-            throw essential_key_missing("ChatMember::big_file_id is missing");
+            throw essential_key_missing("ChatMember::status is missing");
         }
 
         //    yatbcpp<User>::fromJson()
         User user = yatbcpp::fromJson<User>(Data["user"]);
-        string status = Data["status"].asString();
-
+        //string status = Data["status"].asString();
+        chatmember_status status = yatbcpp::fromString<chatmember_status>(Data["status"].asString());
+        
         ChatMember ret(user, status);
 
         if (Data.isMember("until_date")) {

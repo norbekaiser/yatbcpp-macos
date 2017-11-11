@@ -67,7 +67,10 @@ set(SOURCE_FILE_TYPES_FROMJSON ${yatbcppTypesHeadersList}
         src/types_fromJson/VideoNote_fromJson.cc
         src/types_fromJson/Voice_fromJson.cc
         )
-
+set(SOURCE_FILES_TYPES_FROMSTRING ${yatbcppTypesHeadersList}
+        src/types_fromString/chatmember_status.cc
+        src/types_fromString/chat_type.cc
+)
 set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
         src/methods/answerInlineQuery.cc
         src/methods/forwardMessage.cc

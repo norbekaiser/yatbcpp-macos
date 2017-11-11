@@ -9,20 +9,21 @@
 //        2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 //    
 //        3. This notice may not be removed or altered from any source distribution.
-//
-// Created by norbert on 27.08.17.
-//
-
-#ifndef YATBCPP_TELEGRAM_TYPE_H
-#define YATBCPP_TELEGRAM_TYPE_H
-
-#include <string>
-#include <json/json.h>
+#ifndef YATBCPP_CHAT_TYPE_H
+#define YATBCPP_CHAT_TYPE_H
 
 namespace yatbcpp{
-    template <typename T> T fromJson(Json::Value Data);
-    template <typename T> T fromString(std::string Data);
+
+    enum chatmember_status{//sigh ich vermiss das typdef von c
+        creator,
+        administrator,
+        member,
+        restricted,
+        left,
+        kicked
+    };
+
 }
 
 
-#endif //YATBCPP_TELEGRAM_TYPE_H
+#endif //YATBCPP_CHAT_TYPE_H

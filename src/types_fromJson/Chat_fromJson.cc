@@ -23,8 +23,9 @@ namespace yatbcpp{
 
         int id = Data["id"].asInt();
         std::string s_chatType = Data["type"].asString();
-        chat_type chatType;
-        if(s_chatType[0]=='P'){
+        chat_type chatType = yatbcpp::fromString<chat_type>(Data["type"].asString());
+        
+        /*if(s_chatType[0]=='P'){
             chatType = chat_type::Private;
         }
         else if(s_chatType[0]=='G'){
@@ -35,7 +36,7 @@ namespace yatbcpp{
         }
         else if(s_chatType[0]=='C'){
             chatType = chat_type::Channel;
-        }
+        }*/
 
         Chat ret(id,chatType);
         //additional information//add fast option so additional data is ignored sometimes?
