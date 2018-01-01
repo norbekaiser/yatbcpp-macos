@@ -19,8 +19,11 @@
 #include "forwardMessage.h"
 #include "getMe.h"
 #include "sendAudio.h"
+#include "sendDocument.h"
+#include "sendLocation.h"
 #include "sendMessage.h"
 #include "sendPhoto.h"
+#include "sendVideo.h"
 #include "sendVoice.h"
 
 #endif //YATBCPP_METHODS_H

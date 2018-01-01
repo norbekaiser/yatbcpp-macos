@@ -76,9 +76,13 @@ set(SOURCE_FILES_METHODS ${yatbcppMethodsHeadersList}
         src/methods/forwardMessage.cc
         src/methods/getMe.cc
         src/methods/sendAudio.cc
+        src/methods/sendDocument.cc
+        src/methods/sendLocation.cc
         src/methods/sendMessage.cc
         src/methods/sendPhoto.cc
+        src/methods/sendVideo.cc
         src/methods/sendVoice.cc
+        
         )
 
 set(SOURCE_FILES_BOT ${yatbcppBotHeadersList}

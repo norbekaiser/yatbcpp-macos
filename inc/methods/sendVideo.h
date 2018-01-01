@@ -10,11 +10,11 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 27.08.17.
+// Created by norbert on 12.11.17.
 //
 
-#ifndef YATBCPP_SENDVOICE_H
-#define YATBCPP_SENDVOICE_H
+#ifndef YATBCPP_SENDVIDEO_H
+#define YATBCPP_SENDVIDEO_H
 
 #include "../types/Chat.h"
 #include "../types/Message.h"
@@ -26,7 +26,7 @@
 #include "telegram_methodMultipart.h"
 
 namespace yatbcpp{
-    class sendVoice : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
+    class sendVideo : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
     public:
 
 
@@ -37,28 +37,32 @@ namespace yatbcpp{
         /**
          *
          * @param chat_id
-         * @param voice , and voice file id or an voice file location
+         * @param video , and Video file id or an Video file location
          * to send local files use methodMultipart
          */
-        sendVoice(int chat_id,std::string voice);
+        sendVideo(int chat_id,std::string video);
         /**
          *
          * @param chat_id
-         * @param voice , and voice file id or an voice file location
+         * @param video , and Video file id or an Video file location
          * to send local files use methodMultipart
          */
-        sendVoice(std::string chat_id,std::string voice);
+        sendVideo(std::string chat_id,std::string video);
         /**
          *
          * @param C
-         * @param voice , and voice file id or an voice file location
+         * @param video , and Video file id or an Video file location
          * to send local files use methodMultipart
          */
-        sendVoice(Chat C, std::string voice);
+        sendVideo(Chat C, std::string video);
 
         void setCaption(const std::optional<std::string> &caption);
-
+        
         void setDuration(const std::optional<unsigned int> &duration);
+        
+        void setWidth(const std::optional<unsigned int> &width);
+        
+        void setHeight(const std::optional<unsigned int> &height);
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -70,11 +74,15 @@ namespace yatbcpp{
 
         const std::string &getChat_id() const;
 
-        const std::string &getVoice() const;
+        const std::string &getVideo() const;
 
         const std::optional<std::string> &getCaption() const;
-
+        
         const std::optional<unsigned int> &getDuration() const;
+        
+        const std::optional<unsigned int> &getWidth() const;
+        
+        const std::optional<unsigned int> &getHeight() const;
 
         const std::optional<bool> &getDisable_notification() const;
 
@@ -85,13 +93,15 @@ namespace yatbcpp{
 
     private:
         std::string chat_id;
-        std::string voice;
+        std::string video;
         std::optional<std::string> caption;
         std::optional<unsigned int> duration;
+        std::optional<unsigned int> width;
+        std::optional<unsigned int> height;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }
 
-#endif //YATBCPP_SENDVOICE_H
+#endif //YATBCPP_SENDVIDEO_H

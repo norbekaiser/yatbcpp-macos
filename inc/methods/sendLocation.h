@@ -10,12 +10,13 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 27.08.17.
+// Created by norbert on 12.11.17.
 //
 
-#ifndef YATBCPP_SENDVOICE_H
-#define YATBCPP_SENDVOICE_H
+#ifndef YATBCPP_SENDLOCATION_H
+#define YATBCPP_SENDLOCATION_H
 
+#include "../types/Location.h"
 #include "../types/Chat.h"
 #include "../types/Message.h"
 #include "../types/ReplyKeyboardMarkup.h"
@@ -26,39 +27,35 @@
 #include "telegram_methodMultipart.h"
 
 namespace yatbcpp{
-    class sendVoice : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
+    class sendLocation : public telegram_methodJSON<Message>{
     public:
 
 
-        void add_to_post(struct curl_httppost **start, struct curl_httppost **end);
+//        void add_to_post(struct curl_httppost **start, struct curl_httppost **end);
 
         Json::Value toJson();
-
+        //TODO langitude, latitude constructors
         /**
-         *
-         * @param chat_id
-         * @param voice , and voice file id or an voice file location
-         * to send local files use methodMultipart
-         */
-        sendVoice(int chat_id,std::string voice);
-        /**
-         *
-         * @param chat_id
-         * @param voice , and voice file id or an voice file location
-         * to send local files use methodMultipart
-         */
-        sendVoice(std::string chat_id,std::string voice);
-        /**
-         *
          * @param C
-         * @param voice , and voice file id or an voice file location
+         * @param location , and Document file id or an document file location
          * to send local files use methodMultipart
          */
-        sendVoice(Chat C, std::string voice);
-
-        void setCaption(const std::optional<std::string> &caption);
-
-        void setDuration(const std::optional<unsigned int> &duration);
+        sendLocation(Chat C,Location location);
+        /**
+         * @param chat_id
+         * @param location , and Document file id or an Document file location
+         * to send local files use methodMultipart
+         */
+        sendLocation(int chat_id,Location location);
+        /**
+         * @param chat_id
+         * @param location , and Location file id or an Document file location
+         * to send local files use methodMultipart
+         */
+        sendLocation(std::string chat_id,Location location);
+        
+        
+        void setLivePeriod(const std::optional<unsigned int> live_period);
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -69,12 +66,12 @@ namespace yatbcpp{
         void setReplyMarkup(const ForceReply FR);
 
         const std::string &getChat_id() const;
-
-        const std::string &getVoice() const;
-
-        const std::optional<std::string> &getCaption() const;
-
-        const std::optional<unsigned int> &getDuration() const;
+        
+        const float &getLatitude() const;
+        
+        const float &getLongitude() const;
+        
+        const std::optional<unsigned int> &getLivePeriod() const;
 
         const std::optional<bool> &getDisable_notification() const;
 
@@ -82,16 +79,18 @@ namespace yatbcpp{
 
         const std::optional<ReplyMarkup> &getReply_markup() const;
 
+        void setLive_period(const std::optional<unsigned int> &live_period);
+
 
     private:
         std::string chat_id;
-        std::string voice;
-        std::optional<std::string> caption;
-        std::optional<unsigned int> duration;
+        float latitude;
+        float longitude;
+        std::optional<unsigned int> live_period;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }
 
-#endif //YATBCPP_SENDVOICE_H
+#endif //YATBCPP_SENDLOCATION_H

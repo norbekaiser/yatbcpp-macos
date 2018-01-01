@@ -10,11 +10,11 @@
 //    
 //        3. This notice may not be removed or altered from any source distribution.
 //
-// Created by norbert on 27.08.17.
+// Created by norbert on 12.11.17.
 //
 
-#ifndef YATBCPP_SENDVOICE_H
-#define YATBCPP_SENDVOICE_H
+#ifndef YATBCPP_SENDDOCUMENT_H
+#define YATBCPP_SENDDOCUMENT_H
 
 #include "../types/Chat.h"
 #include "../types/Message.h"
@@ -26,7 +26,7 @@
 #include "telegram_methodMultipart.h"
 
 namespace yatbcpp{
-    class sendVoice : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
+    class sendDocument : public telegram_methodJSON<Message>, public telegram_methodMultipart<Message>{
     public:
 
 
@@ -37,28 +37,27 @@ namespace yatbcpp{
         /**
          *
          * @param chat_id
-         * @param voice , and voice file id or an voice file location
+         * @param document , and Document file id or an Document file location
          * to send local files use methodMultipart
          */
-        sendVoice(int chat_id,std::string voice);
+        sendDocument(int chat_id,std::string document);
         /**
          *
          * @param chat_id
-         * @param voice , and voice file id or an voice file location
+         * @param document , and Document file id or an Document file location
          * to send local files use methodMultipart
          */
-        sendVoice(std::string chat_id,std::string voice);
+        sendDocument(std::string chat_id,std::string document);
         /**
          *
          * @param C
-         * @param voice , and voice file id or an voice file location
-         * to send local files use methodMultipart
+         * @param document , and Document file id or an document file location
+         * to send local files use methodMultipart, and supply the file direction
+         * //TODO improve documentation on send Multipart and SendJson
          */
-        sendVoice(Chat C, std::string voice);
+        sendDocument(Chat C, std::string Document);
 
         void setCaption(const std::optional<std::string> &caption);
-
-        void setDuration(const std::optional<unsigned int> &duration);
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -70,11 +69,9 @@ namespace yatbcpp{
 
         const std::string &getChat_id() const;
 
-        const std::string &getVoice() const;
+        const std::string &getDocument() const;
 
         const std::optional<std::string> &getCaption() const;
-
-        const std::optional<unsigned int> &getDuration() const;
 
         const std::optional<bool> &getDisable_notification() const;
 
@@ -85,13 +82,12 @@ namespace yatbcpp{
 
     private:
         std::string chat_id;
-        std::string voice;
+        std::string document;
         std::optional<std::string> caption;
-        std::optional<unsigned int> duration;
         std::optional<bool> disable_notification;
         std::optional<int> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }
 
-#endif //YATBCPP_SENDVOICE_H
+#endif //YATBCPP_SENDDOCUMENT_H

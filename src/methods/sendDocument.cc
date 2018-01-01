@@ -6,7 +6,7 @@
 #include <experimental/optional> 
 #define optional experimental::optional 
 #endif 
-#include "methods/sendVoice.h"
+#include "methods/sendDocument.h"
 
 using namespace std;
 using namespace yatbcpp;
@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendVoice::sendVoice(Chat C, std::string voice) :
-        telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(to_string(C.getId())), voice(voice)
+sendDocument::sendDocument(Chat C, std::string Document) :
+        telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
+        chat_id(to_string(C.getId())), document(Document)
 {
 
 }
 
-sendVoice::sendVoice(int chat_id, std::string voice) :
-        telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(to_string(chat_id)), voice(voice)
+sendDocument::sendDocument(int chat_id, std::string Document) :
+        telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
+        chat_id(to_string(chat_id)), document(Document)
 {
 
 }
 
-sendVoice::sendVoice(string chat_id, std::string voice) :
-        telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(chat_id), voice(voice)
+sendDocument::sendDocument(string chat_id, std::string Document) :
+        telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
+        chat_id(chat_id), document(Document)
 {
 
 }
@@ -41,16 +41,13 @@ sendVoice::sendVoice(string chat_id, std::string voice) :
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Json::Value sendVoice::toJson() {
+Json::Value sendDocument::toJson() {
     Json::Value Outgoing;
     Outgoing["chat_id"] = getChat_id();
-    Outgoing["voice"] = getVoice();
+    Outgoing["document"] = getDocument();
 
     if(getCaption()){
         Outgoing["caption"] = getCaption().value();
-    }
-    if(getDuration()){
-        Outgoing["duration"] = getDuration().value();
     }
     if(getDisable_notification()){
         Outgoing["disable_notification"] = getDisable_notification().value();
@@ -63,14 +60,14 @@ Json::Value sendVoice::toJson() {
 
 }
 
-void sendVoice::add_to_post(struct curl_httppost **start, struct curl_httppost **end) {
+void sendDocument::add_to_post(struct curl_httppost **start, struct curl_httppost **end) {
     curl_formadd(start,end,
                  CURLFORM_COPYNAME,"chat_id",
                  CURLFORM_COPYCONTENTS,chat_id.c_str(),
                  CURLFORM_END);
     curl_formadd(start,end,
-                 CURLFORM_COPYNAME,"voice",
-                 CURLFORM_FILE,voice.c_str(),
+                 CURLFORM_COPYNAME,"document",
+                 CURLFORM_FILE,document.c_str(),
                  CURLFORM_END);
     if(caption){
         curl_formadd(start,end,
@@ -84,75 +81,67 @@ void sendVoice::add_to_post(struct curl_httppost **start, struct curl_httppost *
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void sendVoice::setCaption(const optional<string> &caption) {
-    sendVoice::caption = caption;
+void sendDocument::setCaption(const optional<string> &caption) {
+    sendDocument::caption = caption;
 }
 
 
-void sendVoice::setDuration(const optional<unsigned int> &duration) {
-    sendVoice::duration = duration;
+void sendDocument::setDisable_notification(const std::optional<bool> &disable_notification) {
+    sendDocument::disable_notification = disable_notification;
 }
 
-void sendVoice::setDisable_notification(const std::optional<bool> &disable_notification) {
-    sendVoice::disable_notification = disable_notification;
-}
-
-void sendVoice::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
-    sendVoice::reply_to_message_id = reply_to_message_id;
+void sendDocument::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+    sendDocument::reply_to_message_id = reply_to_message_id;
 }
 
 /**
  * Sets an ReplyKeyboardMarkup
  * @param RKM
  */
-void sendVoice::setReplyMarkup(const ReplyKeyboardMarkup RKM){
-    sendVoice::reply_markup = RKM;
+void sendDocument::setReplyMarkup(const ReplyKeyboardMarkup RKM){
+    sendDocument::reply_markup = RKM;
 }
 
 /**
  * Sets an ReplyKeyboardRemove
  * @param RKR
  */
-void sendVoice::setReplyMarkup(const ReplyKeyboardRemove RKR){
-    sendVoice::reply_markup = RKR;
+void sendDocument::setReplyMarkup(const ReplyKeyboardRemove RKR){
+    sendDocument::reply_markup = RKR;
 }
 
 /**
  * Sets an ForceReply
  * @param FR
  */
-void sendVoice::setReplyMarkup(const ForceReply FR){
-    sendVoice::reply_markup = FR;
+void sendDocument::setReplyMarkup(const ForceReply FR){
+    sendDocument::reply_markup = FR;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Getter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const string &sendVoice::getChat_id() const {
+const string &sendDocument::getChat_id() const {
     return chat_id;
 }
 
-const string &sendVoice::getVoice() const {
-    return voice;
+const string &sendDocument::getDocument() const {
+    return document;
 }
 
-const optional<string> &sendVoice::getCaption() const {
+const optional<string> &sendDocument::getCaption() const {
     return caption;
 }
 
-const optional<unsigned int> &sendVoice::getDuration() const {
-    return duration;
-}
-
-const optional<bool> &sendVoice::getDisable_notification() const {
+const optional<bool> &sendDocument::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendVoice::getReply_to_message_id() const {
+const optional<int> &sendDocument::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 
-const optional<ReplyMarkup> &sendVoice::getReply_markup() const {
+const optional<ReplyMarkup> &sendDocument::getReply_markup() const {
     return reply_markup;
 }

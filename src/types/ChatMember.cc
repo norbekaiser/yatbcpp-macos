@@ -40,7 +40,6 @@ ChatMember::ChatMember(const ChatMember& ChatMember):
         can_send_media_messages = ChatMember.can_send_media_messages;
         can_send_other_messages = ChatMember.can_send_other_messages;
         can_add_web_page_previews = ChatMember.can_add_web_page_previews;
-        
 }
 
 
