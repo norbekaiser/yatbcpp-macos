@@ -46,7 +46,19 @@ set(SOURCE_FILES
 ########################################################################################################################
 
 include_directories(inc)
-add_library(yatbcpp ${SOURCE_FILES})
+#https://cmake.org/cmake/help/v3.5/command/add_library.html#object-libraries
+
+add_library(objlib OBJECT ${SOURCE_FILES})
+set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
+
+
+add_library(yatbcpp $<TARGET_OBJECTS:objlib>)
+add_library(yatbcpp_shared SHARED $<TARGET_OBJECTS:objlib>)
+add_library(yatbcpp_static STATIC $<TARGET_OBJECTS:objlib>)
+
+
+#add_library(yatbcpp_shared SHARED ${SOURCE_FILES})
+#add_library(yatbcpp  STATIC ${SOURCE_FILES})
 
 set(ConfigPackageLocation lib/cmake/yatbcpp)
 ########################################################################################################################
