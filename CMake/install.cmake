@@ -2,14 +2,24 @@
 # Install Target                                                                                                        #
 ########################################################################################################################
 include(GenerateExportHeader)
-generate_export_header(yatbcpp)
-set_property(TARGET yatbcpp PROPERTY VERSION ${yatbcpp_VERSION})
-set_property(TARGET yatbcpp PROPERTY SOVERSION ${yatbcpp_MAJOR_VERSION})
-set_property(TARGET yatbcpp PROPERTY INTERFACE_yatbcpp_MAJOR_VERSION ${yatbcpp_MAJOR_VERSION})
-set_property(TARGET yatbcpp APPEND PROPERTY COMPATIBLE_INTERFACE_STRING yatbcpp_MAJOR_VERSION)
+#generate_export_header(yatbcpp_static)
+#generate_export_header(yatbcpp_shared)
+set_property(TARGET yatbcpp_static PROPERTY VERSION ${yatbcpp_VERSION})
+set_property(TARGET yatbcpp_shared PROPERTY VERSION ${yatbcpp_VERSION})
+set_property(TARGET yatbcpp_static PROPERTY SOVERSION ${yatbcpp_MAJOR_VERSION})
+set_property(TARGET yatbcpp_shared PROPERTY SOVERSION ${yatbcpp_MAJOR_VERSION})
+set_property(TARGET yatbcpp_static PROPERTY INTERFACE_yatbcpp_MAJOR_VERSION ${yatbcpp_MAJOR_VERSION})
+set_property(TARGET yatbcpp_shared PROPERTY INTERFACE_yatbcpp_MAJOR_VERSION ${yatbcpp_MAJOR_VERSION})
+set_property(TARGET yatbcpp_static APPEND PROPERTY COMPATIBLE_INTERFACE_STRING yatbcpp_MAJOR_VERSION)
+set_property(TARGET yatbcpp_shared APPEND PROPERTY COMPATIBLE_INTERFACE_STRING yatbcpp_MAJOR_VERSION)
 
 
-install(TARGETS yatbcpp EXPORT yatbcppTargets
+install(TARGETS yatbcpp_shared EXPORT yatbcppTargets
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        INCLUDES DESTINATION include
+)
+install(TARGETS yatbcpp_static EXPORT yatbcppTargets
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib
         INCLUDES DESTINATION include
@@ -22,7 +32,7 @@ install(TARGETS yatbcpp EXPORT yatbcppTargets
 install(
         FILES
         yatbcpp.h
-        "${CMAKE_CURRENT_BINARY_DIR}/yatbcpp_export.h"
+        #"${CMAKE_CURRENT_BINARY_DIR}/yatbcpp_export.h"
         DESTINATION
         include/yatbcpp
         COMPONENT

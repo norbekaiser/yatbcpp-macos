@@ -52,9 +52,11 @@ add_library(objlib OBJECT ${SOURCE_FILES})
 set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
 
 
-add_library(yatbcpp $<TARGET_OBJECTS:objlib>)
+#add_library(yatbcpp $<TARGET_OBJECTS:objlib>)
 add_library(yatbcpp_shared SHARED $<TARGET_OBJECTS:objlib>)
 add_library(yatbcpp_static STATIC $<TARGET_OBJECTS:objlib>)
+set_target_properties(yatbcpp_shared PROPERTIES OUTPUT_NAME "yatbpcpp")
+set_target_properties(yatbcpp_static PROPERTIES OUTPUT_NAME "yatbpcpp")
 
 
 #add_library(yatbcpp_shared SHARED ${SOURCE_FILES})
