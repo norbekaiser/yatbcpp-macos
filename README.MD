@@ -4,6 +4,7 @@
 * Many Features are currently just implemented and might change heavily, feel free to use or wait till first "usefull" version
 * First "useful" version will have something like 0.1.* and not 0.0.*
 * Development Alpha is Currently 0.0.1 ( the latest release will currently always have this tag)
+* For Installation or Compile Instructions, take a look at Install.MD
 
 
 ## About 
