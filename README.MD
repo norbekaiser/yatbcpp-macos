@@ -37,10 +37,14 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 * make
 * sudo make install
 
+## apt-get Instructions
+* [packages.norbert-ruehl.de](https://packages.norbert-ruehl.de)
+* [norbekaiser.github.io/packages](https://norbekaiser.github.io/packages/)
+
 ## Homebrew Instructions
 * brew tap [norbekaiser/yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp)
 * There is an Issue with optional on sierra / high sierra , please consider compiling with a different compiler  ```brew install yatbcpp --cc=gcc-7```
-* Thre is a plan for an optional free version but not now  
+* There is a plan for an optional free version but not now  
 
 ## vcpkg Instructions
 * coming soon?
@@ -62,6 +66,8 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
     * [![Build Status](https://travis-ci.org/norbekaiser/yatbcpp-macos.svg?branch=master)](https://travis-ci.org/norbekaiser/yatbcpp-macos)
 * Feel free to open an issue on one of these repos, however development will be done on a private [gitlab](https://gitlab.norbert-ruehl.de/yatbcpp/yatbcpp) instance, it might take some time till an update is pushed to the mirroring repos
 * If you wish for another mirror on another plattform just contact me
+* [packages.norbert-ruehl.de](https://packages.norbert-ruehl.de)
+* [norbekaiser.github.io/packages](https://norbekaiser.github.io/packages/)
 
 ## Documentation
 * Doxygen Documentation is available [yatbcpp-doc](https://yatbcpp.norbert-ruehl.de/doc)
