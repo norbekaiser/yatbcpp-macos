@@ -1,4 +1,4 @@
-//    Copyright (c) 2017 Norbert Rühl
+//    Copyright (c) 2017,2018 Norbert Rühl
 //    
 //    This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
 //    
@@ -27,11 +27,11 @@
 namespace yatbcpp{
     class answerInlineQuery : public telegram_simplemethodJSON{
     public:
-        answerInlineQuery(std::string inline_query_id,std::vector<InlineQueryResult*> results);
+        answerInlineQuery(std::string inline_query_id,std::vector<std::shared_ptr<InlineQueryResult>> results);
         answerInlineQuery(std::string inline_query_id);
         Json::Value toJson();
 
-        void addInlineQueryResult(InlineQueryResult* IQR);
+        void addInlineQueryResult(std::shared_ptr<InlineQueryResult> IQR);
 
         void setCache_time(const std::optional<int> &cache_time);
 
@@ -57,7 +57,7 @@ namespace yatbcpp{
 
     private:
         std::string inline_query_id;
-        std::vector<InlineQueryResult*> results;
+        std::vector<std::shared_ptr<InlineQueryResult>> results;
         std::optional<int> cache_time;
         std::optional<bool> is_personal;
         std::optional<std::string> next_offset;
