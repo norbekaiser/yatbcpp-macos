@@ -30,11 +30,11 @@ namespace yatbcpp{
     class User {
     public:
 
-        User(int id,bool is_bot,std::string first_name);
+        User(std::int32_t id,bool is_bot,std::string first_name);
         
         User(const User& user);
 
-        int getId() const;
+        std::int32_t getId() const;
         
         bool IsBot() const;
 
@@ -55,7 +55,7 @@ namespace yatbcpp{
         friend std::ostream& operator<< (std::ostream& o, const User& U);
 
     private:
-        int id;
+        std::int32_t id;
         bool is_bot;
         std::string first_name;
         std::optional<std::string> last_name;//optional

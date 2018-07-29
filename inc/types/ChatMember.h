@@ -30,7 +30,7 @@ namespace yatbcpp{
         
         ChatMember(const ChatMember& ChatMember);
 
-        void setUntil_date(const std::optional<int> &until_date);
+        void setUntil_date(const std::optional<std::int32_t> &until_date);
 
         void setCan_be_edited(const std::optional<bool> &can_be_edited);
 
@@ -62,7 +62,7 @@ namespace yatbcpp{
 
         const chatmember_status &getStatus() const;
 
-        const std::optional<int> &getUntil_date() const;
+        const std::optional<std::int32_t> &getUntil_date() const;
 
         const std::optional<bool> &getCan_be_edited() const;
 
@@ -93,7 +93,7 @@ namespace yatbcpp{
     private:
         User user;
         chatmember_status status;//creator,administrator,member,restricted,left,kicked
-        std::optional<int> until_date;
+        std::optional<std::int32_t> until_date;//2038 might be a problem one day
         std::optional<bool> can_be_edited;
         std::optional<bool> can_change_info;
         std::optional<bool> can_post_messages;

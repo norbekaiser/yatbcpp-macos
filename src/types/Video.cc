@@ -15,7 +15,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Video::Video(std::string file_id, int width, int height,int duration):
+Video::Video(std::string file_id, int32_t  width, int32_t  height,int32_t  duration):
         file_id(file_id), width(width), height(height), duration(duration)
 {
 
@@ -42,7 +42,7 @@ void Video::setMime_type(const optional<string> &mime_type) {
     Video::mime_type = mime_type;
 }
 
-void Video::setFile_size(const optional<int> &file_size) {
+void Video::setFile_size(const optional<int32_t > &file_size) {
     Video::file_size = file_size;
 }
 
@@ -54,15 +54,15 @@ const string &Video::getFile_id() const {
     return file_id;
 }
 
-int Video::getWidth() const {
+int32_t  Video::getWidth() const {
     return width;
 }
 
-int Video::getHeight() const {
+int32_t  Video::getHeight() const {
     return height;
 }
 
-int Video::getDuration() const {
+int32_t  Video::getDuration() const {
     return duration;
 }
 
@@ -74,7 +74,7 @@ const optional<string> &Video::getMime_type() const {
     return mime_type;
 }
 
-const optional<int> &Video::getFile_size() const {
+const optional<int32_t > &Video::getFile_size() const {
     return file_size;
 }
 

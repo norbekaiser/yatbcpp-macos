@@ -15,7 +15,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Chat::Chat(int id, chat_type type):
+Chat::Chat(int64_t id, chat_type type):
         id(id), type (type)
 {
 
@@ -70,7 +70,7 @@ void Chat::setInvite_link(const optional<string> &invite_link) {
 // Getter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int Chat::getId() const {
+int64_t Chat::getId() const {
     return id;
 }
 

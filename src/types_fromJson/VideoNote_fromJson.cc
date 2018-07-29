@@ -26,8 +26,8 @@ namespace yatbcpp {
         }
 
         std::string file_id = Data["file_id"].asString();
-        int length = Data["length"].asInt();
-        int duration = Data["duration"].asInt();
+        std::int32_t length = Data["length"].asInt();
+        std::int32_t duration = Data["duration"].asInt();
 
         VideoNote ret(file_id, length, duration);
 

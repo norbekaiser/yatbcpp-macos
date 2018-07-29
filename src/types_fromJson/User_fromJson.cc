@@ -27,9 +27,9 @@ namespace yatbcpp {
             throw essential_key_missing("User::first_name is missing");
         }
         //Extracting the essential information
-        int id = Data["id"].asInt();
+        std::int32_t id = Data["id"].asInt();
         bool is_bot = Data["is_bot"].asBool();
-        string first_name = Data["first_name"].asString();
+        std::string first_name = Data["first_name"].asString();
         //Creating the for return created object
         User ret(id, is_bot, first_name);
         //Adding Optional/Additional Information

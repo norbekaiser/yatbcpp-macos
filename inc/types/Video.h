@@ -29,7 +29,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#video */
     class Video {
     public:
-        Video(std::string file_id,int width, int height,int duration);
+        Video(std::string file_id,std::int32_t width, std::int32_t height,std::int32_t duration);
         
         Video(const Video& Video);
 
@@ -41,28 +41,28 @@ namespace yatbcpp{
 
         void setMime_type(const std::optional<std::string> &mime_type);
 
-        void setFile_size(const std::optional<int> &file_size);
+        void setFile_size(const std::optional<std::int32_t> &file_size);
 
-        int getWidth() const;
+        std::int32_t getWidth() const;
 
-        int getHeight() const;
+        std::int32_t getHeight() const;
 
-        int getDuration() const;
+        std::int32_t getDuration() const;
 
         const std::optional<PhotoSize> &getThumb() const;
 
         const std::optional<std::string> &getMime_type() const;
 
-        const std::optional<int> &getFile_size() const;
+        const std::optional<std::int32_t> &getFile_size() const;
 
     private:
         std::string file_id;
-        int width;
-        int height;
-        int duration;
+        std::int32_t width;
+        std::int32_t height;
+        std::int32_t duration;
         std::optional<PhotoSize> thumb;
         std::optional<std::string> mime_type;
-        std::optional<int> file_size;
+        std::optional<std::int32_t> file_size;
 
     };
 

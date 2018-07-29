@@ -26,8 +26,8 @@ namespace yatbcpp {
         }
 
         std::string type = Data["type"].asString();
-        int offset = Data["offset"].asInt();
-        int length = Data["length"].asInt();
+        std::int32_t offset = Data["offset"].asInt();
+        std::int32_t length = Data["length"].asInt();
 
         MessageEntity ret(type, offset, length);
 

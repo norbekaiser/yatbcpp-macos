@@ -40,7 +40,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#message */
     class Message{
     public:
-        Message(int message_id,int date,Chat chat);
+        Message(std::int32_t message_id,std::int32_t date,Chat chat);
         
         Message(const Message& Message);
 
@@ -50,13 +50,13 @@ namespace yatbcpp{
 
         void setForward_from_chat(const std::optional<Chat> &forward_from_chat);
 
-        void setForward_from_message_id(const std::optional<int> &forward_from_message_id);
+        void setForward_from_message_id(const std::optional<std::int32_t> &forward_from_message_id);
 
         void setForward_signature(const std::optional<std::string> &forward_signature);
 
-        void setForward_date(const std::optional<int> &forward_date);
+        void setForward_date(const std::optional<std::int32_t> &forward_date);
 
-        void setEdit_date(const std::optional<int> &edit_date);
+        void setEdit_date(const std::optional<std::int32_t> &edit_date);
 
         void setAuthor_signature(const std::optional<std::string> &author_signature);
 
@@ -107,11 +107,11 @@ namespace yatbcpp{
         void setMigrate_from_chat_id(const std::optional<long> &migrate_from_chat_id);
 
 
-        int getMessage_id() const;
+        std::int32_t getMessage_id() const;
 
         const std::optional<User> &getFrom() const;
 
-        int getDate() const;
+        std::int32_t getDate() const;
 
         const Chat &getChat() const;
 
@@ -119,13 +119,13 @@ namespace yatbcpp{
 
         const std::optional<Chat> &getForward_from_chat() const;
 
-        const std::optional<int> &getForward_from_message_id() const;
+        const std::optional<std::int32_t> &getForward_from_message_id() const;
 
         const std::optional<std::string> &getForward_signature() const;
 
-        const std::optional<int> &getForward_date() const;
+        const std::optional<std::int32_t> &getForward_date() const;
 
-        const std::optional<int> &getEdit_date() const;
+        const std::optional<std::int32_t> &getEdit_date() const;
 
         const std::optional<std::string> &getAuthor_signature() const;
 
@@ -178,11 +178,11 @@ namespace yatbcpp{
 
     private:
         /**Unique message identifier inside this chat*/
-        int message_id;
+        std::int32_t message_id;
         /**Optional. Sender, empty for messages sent to channels*/
         std::optional<User> from;//Optional
         /**Date the message was sent in Unix time*/
-        int date;
+        std::int32_t date;
         /**onversation the message belongs to*/
         Chat chat;
         /**Optional. For forwarded messages, sender of the original message*/
@@ -190,15 +190,15 @@ namespace yatbcpp{
         /**Optional. For messages forwarded from channels, information about the original channel*/
         std::optional<Chat> forward_from_chat;
         /**Optional. For messages forwarded from channels, identifier of the original message in the channel*/
-        std::optional<int> forward_from_message_id;
+        std::optional<std::int32_t> forward_from_message_id;
         /**Optional. For messages forwarded from channels, signature of the post author if present*/
         std::optional<std::string> forward_signature;
         /**Optional. For forwarded messages, date the original message was sent in Unix time*/
-        std::optional<int> forward_date;
+        std::optional<std::int32_t> forward_date;
 //        Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
 //        std::optional<Message*> reply_to_message;//=NULL;//Optional//sigh auch das noch//naja dann als pointer, ggf adden?
         /**Optional. Date the message was last edited in Unix time*/
-        std::optional<int> edit_date;
+        std::optional<std::int32_t> edit_date;
         /**Optional. Signature of the post author for messages in channels*/
         std::optional<std::string> author_signature;
         /**Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters.*/

@@ -23,16 +23,16 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#userprofilephotos */
     class UserProfilePhotos {
     public:
-        UserProfilePhotos(int total_count,std::vector<std::vector<PhotoSize>> photos);
+        UserProfilePhotos(std::int32_t total_count,std::vector<std::vector<PhotoSize>> photos);
         
         UserProfilePhotos(const UserProfilePhotos& UserProfilePhotos);
 
-        int getTotal_count() const;
+        std::int32_t getTotal_count() const;
 
         const std::vector<std::vector<PhotoSize>> &getPhotos() const;
 
     private:
-        int total_count;
+        std::int32_t total_count;
         std::vector<std::vector<PhotoSize> > photos;
 
 

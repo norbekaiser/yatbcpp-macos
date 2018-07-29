@@ -21,7 +21,7 @@ namespace yatbcpp{
         }
 
         std::string file_id = Data["file_id"].asString();
-        int duration = Data["duration"].asInt();
+        std::int32_t  duration = Data["duration"].asInt();
 
         Audio ret(file_id,duration);
 

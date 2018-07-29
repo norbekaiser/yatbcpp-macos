@@ -29,7 +29,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Message::Message(int message_id, int date, Chat chat):
+Message::Message(int32_t message_id, int32_t date, Chat chat):
         message_id(message_id), date(date), chat(chat)
 {
 
@@ -74,7 +74,7 @@ void Message::setForward_from_chat(const optional<Chat> &forward_from_chat) {
     Message::forward_from_chat = forward_from_chat;
 }
 
-void Message::setForward_from_message_id(const optional<int> &forward_from_message_id) {
+void Message::setForward_from_message_id(const optional<int32_t> &forward_from_message_id) {
     Message::forward_from_message_id = forward_from_message_id;
 }
 
@@ -82,7 +82,7 @@ void Message::setForward_signature(const optional<string> &forward_signature) {
     Message::forward_signature = forward_signature;
 }
 
-void Message::setForward_date(const optional<int> &forward_date) {
+void Message::setForward_date(const optional<int32_t> &forward_date) {
     Message::forward_date = forward_date;
 }
 
@@ -90,7 +90,7 @@ void Message::setForward_date(const optional<int> &forward_date) {
 //    Message::reply_to_message = reply_to_message;
 //}
 
-void Message::setEdit_date(const optional<int> &edit_date) {
+void Message::setEdit_date(const optional<int32_t> &edit_date) {
     Message::edit_date = edit_date;
 }
 
@@ -198,7 +198,7 @@ void Message::setMigrate_from_chat_id(const optional<long> &migrate_from_chat_id
 // Getter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int Message::getMessage_id() const {
+int32_t Message::getMessage_id() const {
     return message_id;
 }
 
@@ -206,7 +206,7 @@ const optional<User> &Message::getFrom() const {
     return from;
 }
 
-int Message::getDate() const {
+int32_t Message::getDate() const {
     return date;
 }
 
@@ -222,7 +222,7 @@ const optional<Chat> &Message::getForward_from_chat() const {
     return forward_from_chat;
 }
 
-const optional<int> &Message::getForward_from_message_id() const {
+const optional<int32_t> &Message::getForward_from_message_id() const {
     return forward_from_message_id;
 }
 
@@ -230,7 +230,7 @@ const optional<string> &Message::getForward_signature() const {
     return forward_signature;
 }
 
-const optional<int> &Message::getForward_date() const {
+const optional<int32_t> &Message::getForward_date() const {
     return forward_date;
 }
 
@@ -238,7 +238,7 @@ const optional<int> &Message::getForward_date() const {
 //    return reply_to_message;
 //}
 
-const optional<int> &Message::getEdit_date() const {
+const optional<int32_t> &Message::getEdit_date() const {
     return edit_date;
 }
 

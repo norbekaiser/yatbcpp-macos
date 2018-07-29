@@ -31,7 +31,7 @@ File::File(const File& File):
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void File::setFile_size(const optional<int> &file_size) {
+void File::setFile_size(const optional<int32_t> &file_size) {
     File::file_size = file_size;
 }
 
@@ -47,7 +47,7 @@ const string &File::getFile_id() const {
     return file_id;
 }
 
-const optional<int> &File::getFile_size() const {
+const optional<int32_t> &File::getFile_size() const {
     return file_size;
 }
 

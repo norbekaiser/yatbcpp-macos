@@ -30,7 +30,7 @@ namespace yatbcpp{
 
         void setLast_name(const std::optional<std::string> &last_name);
 
-        void setUser_id(const std::optional<int> &user_id);
+        void setUser_id(const std::optional<std::int32_t> &user_id);
 
         const std::string &getPhone_number() const;
 
@@ -38,13 +38,13 @@ namespace yatbcpp{
 
         const std::optional<std::string> &getLast_name() const;
 
-        const std::optional<int> &getUser_id() const;
+        const std::optional<std::int32_t> &getUser_id() const;
 
     private:
         std::string phone_number;
         std::string first_name;
         std::optional<std::string> last_name;
-        std::optional<int> user_id;
+        std::optional<std::int32_t > user_id;
     };
 
 }

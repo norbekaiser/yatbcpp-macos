@@ -21,7 +21,7 @@ namespace yatbcpp{
             throw essential_key_missing("Chat::type is missing");
         }
 
-        int id = Data["id"].asInt();
+        std::int64_t id = Data["id"].asInt64();
         std::string s_chatType = Data["type"].asString();
         chat_type chatType = yatbcpp::fromString<chat_type>(Data["type"].asString());
         

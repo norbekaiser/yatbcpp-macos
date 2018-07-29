@@ -19,7 +19,7 @@ namespace yatbcpp {
             throw essential_key_missing("File::file_id is missing");
         }
 
-        string file_id = Data["address"].asString();
+        std::string file_id = Data["address"].asString();
 
         File ret(file_id);
 

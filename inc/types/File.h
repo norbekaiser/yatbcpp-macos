@@ -28,19 +28,19 @@ namespace yatbcpp{
         
         File(const File& File);
 
-        void setFile_size(const std::optional<int> &file_size);
+        void setFile_size(const std::optional<std::int32_t> &file_size);
 
         void setFile_path(const std::optional<std::string> &file_path);
 
         const std::string &getFile_id() const;
 
-        const std::optional<int> &getFile_size() const;
+        const std::optional<std::int32_t> &getFile_size() const;
 
         const std::optional<std::string> &getFile_path() const;
 
     private:
         std::string file_id;
-        std::optional<int> file_size;
+        std::optional<std::int32_t> file_size;
         std::optional<std::string> file_path;
 
     };

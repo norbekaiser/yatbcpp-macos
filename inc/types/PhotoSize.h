@@ -28,26 +28,26 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#photosize */
     class PhotoSize {
     public:
-        PhotoSize(std::string file_id,int width, int height);
+        PhotoSize(std::string file_id,std::int32_t width, std::int32_t height);
         
         PhotoSize(const PhotoSize& PhotoSize);
         
-        void setFile_size(const std::optional<int> &file_size);
+        void setFile_size(const std::optional<std::int32_t> &file_size);
 
         const std::string &getFile_id() const;
 
-        int getWidth() const;
+        std::int32_t getWidth() const;
 
-        int getHeight() const;
+        std::int32_t getHeight() const;
 
-        const std::optional<int> &getFile_size() const;
+        const std::optional<std::int32_t> &getFile_size() const;
 
 
     private:
         std::string file_id;
-        int width;
-        int height;
-        std::optional<int> file_size;
+        std::int32_t width;
+        std::int32_t height;
+        std::optional<std::int32_t> file_size;
 
     };
 

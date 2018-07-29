@@ -26,8 +26,8 @@ namespace yatbcpp {
         }
 
         std::string file_id = Data["file_id"].asString();
-        int width = Data["width"].asInt();
-        int height = Data["height"].asInt();
+        std::int32_t width = Data["width"].asInt();
+        std::int32_t height = Data["height"].asInt();
 
         PhotoSize ret(file_id, width, height);
 

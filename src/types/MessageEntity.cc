@@ -18,7 +18,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-MessageEntity::MessageEntity(std::string type, int offset, int length):
+MessageEntity::MessageEntity(std::string type, int32_t offset, int32_t length):
         type(type), offset(offset), length(length)
 {
 
@@ -79,11 +79,11 @@ const string &MessageEntity::getType() const {
     return type;
 }
 
-int MessageEntity::getOffset() const {
+int32_t MessageEntity::getOffset() const {
     return offset;
 }
 
-int MessageEntity::getLength() const {
+int32_t MessageEntity::getLength() const {
     return length;
 }
 

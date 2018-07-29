@@ -24,11 +24,13 @@ namespace yatbcpp {
             throw essential_key_missing("UserProfilePhotos::photos is missing");
         }
 
-        int total_count = Data["total_count"].asInt();
+        std::int32_t total_count = Data["total_count"].asInt();
         std::vector<std::vector<PhotoSize>> photos;
+//        photos.reserve(Data["photos"].size());
         //ok make sure that each photo maximal has 4 photosizes each
         for (int i = 0; i < Data["photos"].size(); i++) {
             std::vector<PhotoSize> photo;
+//            photo.reserve(Data["photos"][i].size());
             for (int j = 0; j < Data["photos"][i].size(); j++) {
                 photo.push_back(fromJson<PhotoSize>(Data["photos"][i]));
             }

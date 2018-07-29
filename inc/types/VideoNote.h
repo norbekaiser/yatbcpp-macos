@@ -29,7 +29,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#videonote */
     class VideoNote {
     public:
-        VideoNote(std::string file_id,int length, int duration);
+        VideoNote(std::string file_id,std::int32_t length, std::int32_t duration);
         
         VideoNote(const VideoNote& VideoNote);
 
@@ -37,24 +37,24 @@ namespace yatbcpp{
 
         void setThumb(const std::optional<PhotoSize> &thumb);
 
-        void setFile_size(const std::optional<int> &file_size);
+        void setFile_size(const std::optional<std::int32_t> &file_size);
 
         const std::string &getFile_id() const;
 
-        int getLength() const;
+        std::int32_t getLength() const;
 
-        int getDuration() const;
+        std::int32_t getDuration() const;
 
         const std::optional<PhotoSize> &getThumb() const;
 
-        const std::optional<int> &getFile_size() const;
+        const std::optional<std::int32_t> &getFile_size() const;
 
     private:
         std::string file_id;
-        int length;
-        int duration;
+        std::int32_t length;
+        std::int32_t duration;
         std::optional<PhotoSize> thumb;
-        std::optional<int> file_size;
+        std::optional<std::int32_t> file_size;
 
     };
 

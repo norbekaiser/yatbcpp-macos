@@ -36,7 +36,7 @@ void Contact::setLast_name(const optional<string> &last_name) {
     Contact::last_name = last_name;
 }
 
-void Contact::setUser_id(const optional<int> &user_id) {
+void Contact::setUser_id(const optional<int32_t> &user_id) {
     Contact::user_id = user_id;
 }
 
@@ -57,6 +57,6 @@ const optional<string> &Contact::getLast_name() const {
     return last_name;
 }
 
-const optional<int> &Contact::getUser_id() const {
+const optional<int32_t> &Contact::getUser_id() const {
     return user_id;
 }

@@ -24,7 +24,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#audio */
     class Audio {
     public:
-        Audio(std::string file_id,int duration);
+        Audio(std::string file_id,std::int32_t duration);
         
         Audio(const Audio& audio);
 
@@ -36,11 +36,11 @@ namespace yatbcpp{
 
         void setMime_type(const std::optional<std::string> &mime_type);
 
-        void setFile_size(const std::optional<int> &file_size);
+        void setFile_size(const std::optional<std::int32_t> &file_size);
 
         const std::string &getFile_id() const;
 
-        int getDuration() const;
+        std::int32_t getDuration() const;
 
         const std::optional<std::string> &getPerformer() const;
 
@@ -48,15 +48,15 @@ namespace yatbcpp{
 
         const std::optional<std::string> &getMime_type() const;
 
-        const std::optional<int> &getFile_size() const;
+        const std::optional<std::int32_t> &getFile_size() const;
 
     private:
         std::string file_id;
-        int duration;
+        std::int32_t duration;
         std::optional<std::string> performer;
         std::optional<std::string> title;
         std::optional<std::string> mime_type;
-        std::optional<int> file_size;
+        std::optional<std::int32_t> file_size;
 
     };
 

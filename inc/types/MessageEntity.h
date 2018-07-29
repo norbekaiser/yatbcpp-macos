@@ -29,7 +29,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#messageentity */
     class MessageEntity {
     public:
-        MessageEntity(std::string type,int offset, int length);
+        MessageEntity(std::string type,std::int32_t offset, std::int32_t length);
         
         MessageEntity(const MessageEntity& MessageEntity);
 
@@ -39,9 +39,9 @@ namespace yatbcpp{
 
         const std::string &getType() const;
 
-        int getOffset() const;
+        std::int32_t getOffset() const;
 
-        int getLength() const;
+        std::int32_t getLength() const;
 
         const std::optional<std::string> &getUrl() const;
 
@@ -49,8 +49,8 @@ namespace yatbcpp{
 
     private:
         std::string type;
-        int offset;
-        int length;
+        std::int32_t offset;
+        std::int32_t length;
         std::optional<std::string> url;//only when text_link, vll eher lieber vererben
         std::optional<User> user;//only when text_metnion
 

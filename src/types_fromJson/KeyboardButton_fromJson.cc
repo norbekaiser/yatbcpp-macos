@@ -20,7 +20,7 @@ namespace yatbcpp {
             throw essential_key_missing("KeyboardButton::text is missing");
         }
 
-        string text = Data["text"].asString();
+        std::string text = Data["text"].asString();
 
         KeyboardButton ret(text);
 

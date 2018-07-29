@@ -29,9 +29,9 @@ namespace yatbcpp {
         }
 
         std::string file_id = Data["file_id"].asString();
-        int width = Data["width"].asInt();
-        int height = Data["height"].asInt();
-        int duration = Data["duration"].asInt();
+        std::int32_t width = Data["width"].asInt();
+        std::int32_t height = Data["height"].asInt();
+        std::int32_t duration = Data["duration"].asInt();
 
         Video ret(file_id, width, height, duration);
 

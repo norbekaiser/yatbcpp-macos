@@ -14,7 +14,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-VideoNote::VideoNote(std::string file_id, int length, int duration):
+VideoNote::VideoNote(std::string file_id, int32_t  length, int32_t  duration):
         file_id(file_id), length(length), duration(duration)
 {
 
@@ -36,7 +36,7 @@ void VideoNote::setThumb(const optional<PhotoSize> &thumb) {
     VideoNote::thumb = thumb;
 }
 
-void VideoNote::setFile_size(const optional<int> &file_size) {
+void VideoNote::setFile_size(const optional<int32_t > &file_size) {
     VideoNote::file_size = file_size;
 }
 
@@ -48,11 +48,11 @@ const string &VideoNote::getFile_id() const {
     return file_id;
 }
 
-int VideoNote::getLength() const {
+int32_t  VideoNote::getLength() const {
     return length;
 }
 
-int VideoNote::getDuration() const {
+int32_t  VideoNote::getDuration() const {
     return duration;
 }
 
@@ -60,6 +60,6 @@ const optional<PhotoSize> &VideoNote::getThumb() const {
     return thumb;
 }
 
-const optional<int> &VideoNote::getFile_size() const {
+const optional<int32_t > &VideoNote::getFile_size() const {
     return file_size;
 }

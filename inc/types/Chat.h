@@ -25,7 +25,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#chat */
     class Chat {
     public:
-        Chat(int id,chat_type type);
+        Chat(std::int64_t id,chat_type type);
         
         Chat(const Chat& chat);
 
@@ -43,7 +43,7 @@ namespace yatbcpp{
 
         void setInvite_link(const std::optional<std::string> &invite_link);
 
-        int getId() const;
+        std::int64_t getId() const;
 
         chat_type getType() const;
 
@@ -63,7 +63,7 @@ namespace yatbcpp{
 
 
     private:
-        int id;
+        std::int64_t id;
         chat_type type;
         std::optional<std::string> title;//optional
         std::optional<std::string> username;//optional

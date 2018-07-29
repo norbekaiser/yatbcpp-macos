@@ -14,7 +14,7 @@ using namespace std;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Voice::Voice(std::string file_id, int duration):
+Voice::Voice(std::string file_id, int32_t  duration):
         file_id(file_id), duration(duration)
 {
 
@@ -37,7 +37,7 @@ void Voice::setMime_type(const optional<string> &mime_type) {
     Voice::mime_type = mime_type;
 }
 
-void Voice::setFile_size(const optional<int> &file_size) {
+void Voice::setFile_size(const optional<int32_t > &file_size) {
     Voice::file_size = file_size;
 }
 
@@ -49,7 +49,7 @@ const string &Voice::getFile_id() const {
     return file_id;
 }
 
-int Voice::getDuration() const {
+int32_t  Voice::getDuration() const {
     return duration;
 }
 
@@ -57,7 +57,7 @@ const optional<string> &Voice::getMime_type() const {
     return mime_type;
 }
 
-const optional<int> &Voice::getFile_size() const {
+const optional<int32_t > &Voice::getFile_size() const {
     return file_size;
 }
 

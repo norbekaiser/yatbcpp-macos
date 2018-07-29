@@ -20,7 +20,7 @@ namespace yatbcpp {
             throw essential_key_missing("Update::update_id is missing");
         }
         //Extracting the essential information
-        int update_id = Data["update_id"].asInt();
+        std::int32_t update_id = Data["update_id"].asInt();
         //Creating the for return created object
         Update ret(update_id);
         //Adding Optional/Additional Information

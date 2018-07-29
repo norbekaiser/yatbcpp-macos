@@ -30,7 +30,7 @@ namespace yatbcpp{
     /** See also https://core.telegram.org/bots/api#update */
     class Update {
     public:
-        Update(int update_id);
+        Update(std::int32_t update_id);
         
         Update(const Update& Update);
 
@@ -42,7 +42,7 @@ namespace yatbcpp{
 
         void setEdited_channel_post(const std::optional<Message> &edited_channel_post);
 
-        int getUpdate_id() const;
+        std::int32_t getUpdate_id() const;
 
         const std::optional<Message> &getMessage() const;
 
@@ -58,7 +58,7 @@ namespace yatbcpp{
 
 
     private:
-        int update_id;
+        std::int32_t update_id;
         std::optional<Message> message;
         std::optional<Message> edited_message;
         std::optional<Message> channel_post;
