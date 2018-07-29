@@ -39,7 +39,7 @@ namespace yatbcpp{
          * @param photo , and audio file id or an audio file location
          * to send local files use methodMultipart
          */
-        sendPhoto(int chat_id,std::string photo);
+        sendPhoto(std::int64_t  chat_id,std::string photo);
         /**
          *
          * @param chat_id
@@ -59,7 +59,7 @@ namespace yatbcpp{
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
-        void setReply_to_message_id(const std::optional<int> &reply_to_message_id);
+        void setReply_to_message_id(const std::optional<std::int32_t> &reply_to_message_id);
 
         void setReplyMarkup(const ReplyKeyboardMarkup RKM);
         void setReplyMarkup(const ReplyKeyboardRemove RKR);
@@ -73,7 +73,7 @@ namespace yatbcpp{
 
         const std::optional<bool> &getDisable_notification() const;
 
-        const std::optional<int> &getReply_to_message_id() const;
+        const std::optional<std::int32_t> &getReply_to_message_id() const;
 
         const std::optional<ReplyMarkup> &getReply_markup() const;
 
@@ -84,7 +84,7 @@ namespace yatbcpp{
         std::optional<std::string> caption;
 
         std::optional<bool> disable_notification;
-        std::optional<int> reply_to_message_id;
+        std::optional<std::int32_t> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }

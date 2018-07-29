@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendMessage::sendMessage(Chat C, std::string text) :
+sendMessage::sendMessage(Chat C, string text) :
         telegram_methodJSON("sendMessage"),
-        chat_id(to_string(C.getId())), text(text)
+        chat_id(to_string(C.getId())), text(move(text))
 {
 
 }
 
-sendMessage::sendMessage(int chat_id, std::string text) :
+sendMessage::sendMessage(int64_t chat_id, string text) :
         telegram_methodJSON("sendMessage"),
-        chat_id(to_string(chat_id)), text(text)
+        chat_id(to_string(chat_id)), text(move(text))
 {
 
 }
 
-sendMessage::sendMessage(string chat_id, std::string text) :
+sendMessage::sendMessage(string chat_id, string text) :
         telegram_methodJSON("sendMessage"),
-        chat_id(chat_id), text(text)
+        chat_id(move(chat_id)), text(move(text))
 {
 
 }
@@ -66,19 +66,19 @@ Json::Value sendMessage::toJson() {
 // Setter Section                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void sendMessage::setParse_mode(const std::optional<std::string> &parse_mode) {
+void sendMessage::setParse_mode(const optional<string> &parse_mode) {
     sendMessage::parse_mode = parse_mode;
 }
 
-void sendMessage::setDisable_web_page_preview(const std::optional<bool> &disable_web_page_preview) {
+void sendMessage::setDisable_web_page_preview(const optional<bool> &disable_web_page_preview) {
     sendMessage::disable_web_page_preview = disable_web_page_preview;
 }
 
-void sendMessage::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendMessage::setDisable_notification(const optional<bool> &disable_notification) {
     sendMessage::disable_notification = disable_notification;
 }
 
-void sendMessage::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendMessage::setReply_to_message_id(const optional<int32_t> &reply_to_message_id) {
     sendMessage::reply_to_message_id = reply_to_message_id;
 }
 
@@ -130,7 +130,7 @@ const optional<bool> &sendMessage::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendMessage::getReply_to_message_id() const {
+const optional<int32_t> &sendMessage::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 

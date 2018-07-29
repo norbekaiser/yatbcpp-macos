@@ -46,7 +46,7 @@ namespace yatbcpp{
          * @param location , and Document file id or an Document file location
          * to send local files use methodMultipart
          */
-        sendLocation(int chat_id,Location location);
+        sendLocation(std::int64_t  chat_id,Location location);
         /**
          * @param chat_id
          * @param location , and Location file id or an Document file location

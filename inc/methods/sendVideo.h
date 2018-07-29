@@ -40,7 +40,7 @@ namespace yatbcpp{
          * @param video , and Video file id or an Video file location
          * to send local files use methodMultipart
          */
-        sendVideo(int chat_id,std::string video);
+        sendVideo(std::int64_t  chat_id,std::string video);
         /**
          *
          * @param chat_id
@@ -86,7 +86,7 @@ namespace yatbcpp{
 
         const std::optional<bool> &getDisable_notification() const;
 
-        const std::optional<int> &getReply_to_message_id() const;
+        const std::optional<std::int32_t> &getReply_to_message_id() const;
 
         const std::optional<ReplyMarkup> &getReply_markup() const;
 
@@ -99,7 +99,7 @@ namespace yatbcpp{
         std::optional<unsigned int> width;
         std::optional<unsigned int> height;
         std::optional<bool> disable_notification;
-        std::optional<int> reply_to_message_id;
+        std::optional<std::int32_t> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }

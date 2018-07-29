@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendVideo::sendVideo(Chat C, std::string video) :
+sendVideo::sendVideo(Chat C, string video) :
         telegram_methodJSON("sendVideo"), telegram_methodMultipart("sendVideo"),
-        chat_id(to_string(C.getId())), video(video)
+        chat_id(to_string(C.getId())), video(move(video))
 {
 
 }
 
-sendVideo::sendVideo(int chat_id, std::string video) :
+sendVideo::sendVideo(int64_t chat_id, string video) :
         telegram_methodJSON("sendVideo"), telegram_methodMultipart("sendVideo"),
-        chat_id(to_string(chat_id)), video(video)
+        chat_id(to_string(chat_id)), video(move(video))
 {
 
 }
 
-sendVideo::sendVideo(string chat_id, std::string video) :
+sendVideo::sendVideo(string chat_id, string video) :
         telegram_methodJSON("sendVideo"), telegram_methodMultipart("sendVideo"),
-        chat_id(chat_id), video(video)
+        chat_id(move(chat_id)), video(move(video))
 {
 
 }
@@ -107,11 +107,11 @@ void sendVideo::setHeight(const optional<unsigned int> &height) {
     sendVideo::height = height;
 }
 
-void sendVideo::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendVideo::setDisable_notification(const optional<bool> &disable_notification) {
     sendVideo::disable_notification = disable_notification;
 }
 
-void sendVideo::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendVideo::setReply_to_message_id(const optional<int> &reply_to_message_id) {
     sendVideo::reply_to_message_id = reply_to_message_id;
 }
 
@@ -171,7 +171,7 @@ const optional<bool> &sendVideo::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendVideo::getReply_to_message_id() const {
+const optional<int32_t> &sendVideo::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 

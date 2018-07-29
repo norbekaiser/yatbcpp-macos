@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendDocument::sendDocument(Chat C, std::string Document) :
+sendDocument::sendDocument(Chat C, string Document) :
         telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
-        chat_id(to_string(C.getId())), document(Document)
+        chat_id(to_string(C.getId())), document(move(Document))
 {
 
 }
 
-sendDocument::sendDocument(int chat_id, std::string Document) :
+sendDocument::sendDocument(int64_t chat_id, string Document) :
         telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
-        chat_id(to_string(chat_id)), document(Document)
+        chat_id(to_string(chat_id)), document(move(Document))
 {
 
 }
 
-sendDocument::sendDocument(string chat_id, std::string Document) :
+sendDocument::sendDocument(string chat_id, string Document) :
         telegram_methodJSON("sendDocument"), telegram_methodMultipart("sendDocument"),
-        chat_id(chat_id), document(Document)
+        chat_id(move(chat_id)), document(move(Document))
 {
 
 }
@@ -86,11 +86,11 @@ void sendDocument::setCaption(const optional<string> &caption) {
 }
 
 
-void sendDocument::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendDocument::setDisable_notification(const optional<bool> &disable_notification) {
     sendDocument::disable_notification = disable_notification;
 }
 
-void sendDocument::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendDocument::setReply_to_message_id(const optional<int32_t> &reply_to_message_id) {
     sendDocument::reply_to_message_id = reply_to_message_id;
 }
 
@@ -138,7 +138,7 @@ const optional<bool> &sendDocument::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendDocument::getReply_to_message_id() const {
+const optional<int32_t > &sendDocument::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 

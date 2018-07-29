@@ -28,7 +28,7 @@ namespace yatbcpp{
     template <class RETURNTYPE> class telegram_methodMultipart{
     public:
 
-        telegram_methodMultipart(std::string functionname) : functionname(functionname){}
+        telegram_methodMultipart(std::string functionname) : functionname(move(functionname)){}
 
         static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *stringptr){
             using namespace std;

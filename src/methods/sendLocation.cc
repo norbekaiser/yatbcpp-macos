@@ -22,7 +22,7 @@ sendLocation::sendLocation(Chat C,Location location) :
     
 }
 
-sendLocation::sendLocation(int chat_id,Location location) :
+sendLocation::sendLocation(int64_t chat_id,Location location) :
         telegram_methodJSON("sendLocation"),
         chat_id(to_string(chat_id)), latitude(location.getLatitude()), longitude(location.getLongitude())
 {
@@ -31,7 +31,7 @@ sendLocation::sendLocation(int chat_id,Location location) :
 
 sendLocation::sendLocation(string chat_id,Location location) :
         telegram_methodJSON("sendLocation"),
-        chat_id(chat_id), latitude(location.getLatitude()), longitude(location.getLongitude())
+        chat_id(move(chat_id)), latitude(location.getLatitude()), longitude(location.getLongitude())
 {
     
 }
@@ -70,11 +70,11 @@ void sendLocation::setLive_period(const optional<unsigned int> &live_period) {
     sendLocation::live_period = live_period;
 }
 
-void sendLocation::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendLocation::setDisable_notification(const optional<bool> &disable_notification) {
     sendLocation::disable_notification = disable_notification;
 }
 
-void sendLocation::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendLocation::setReply_to_message_id(const optional<int32_t> &reply_to_message_id) {
     sendLocation::reply_to_message_id = reply_to_message_id;
 }
 
@@ -127,7 +127,7 @@ const optional<bool> &sendLocation::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendLocation::getReply_to_message_id() const {
+const optional<int32_t> &sendLocation::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 

@@ -17,14 +17,14 @@ forwardMessage::forwardMessage(Chat chat_id, Message from) :
 
 }
 
-forwardMessage::forwardMessage(std::string chat_id, std::string from_chat_id, int message_id) :
+forwardMessage::forwardMessage(string chat_id, string from_chat_id, int32_t  message_id) :
         telegram_methodJSON("forwardMessage"),
-        chat_id(chat_id), from_chat_id(from_chat_id), message_id(message_id)
+        chat_id(move(chat_id)), from_chat_id(move(from_chat_id)), message_id(message_id)
 {
 
 }
 
-forwardMessage::forwardMessage(int chat_id, int from_chat_id, int message_id) :
+forwardMessage::forwardMessage(int64_t chat_id, int64_t from_chat_id, int32_t message_id) :
         telegram_methodJSON("forwardMessage"),
         chat_id(to_string(chat_id)), from_chat_id(to_string(from_chat_id)), message_id(message_id)
 {
@@ -70,6 +70,6 @@ const optional<bool> &forwardMessage::getDisable_notification() const {
     return disable_notification;
 }
 
-int forwardMessage::getMessage_id() const {
+int32_t forwardMessage::getMessage_id() const {
     return message_id;
 }

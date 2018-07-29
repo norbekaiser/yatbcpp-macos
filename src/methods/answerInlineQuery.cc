@@ -5,15 +5,15 @@
 using namespace yatbcpp;
 using namespace std;
 
-answerInlineQuery::answerInlineQuery(std::string inline_query_id,vector<std::shared_ptr<InlineQueryResult>> results) :
+answerInlineQuery::answerInlineQuery(string inline_query_id,vector<shared_ptr<InlineQueryResult>> results) :
         telegram_simplemethodJSON("answerInlineQuery"),
-        inline_query_id(inline_query_id), results(results)
+        inline_query_id(move(inline_query_id)), results(move(results))
 {
 
 }
-answerInlineQuery::answerInlineQuery(std::string inline_query_id) :
+answerInlineQuery::answerInlineQuery(string inline_query_id) :
         telegram_simplemethodJSON("answerInlineQuery"),
-        inline_query_id(inline_query_id)
+        inline_query_id(move(inline_query_id))
 {
 
 }
@@ -53,11 +53,11 @@ Json::Value answerInlineQuery::toJson(){
  * current state is a smart ptr
  * @param IQR
  */
-void answerInlineQuery::addInlineQueryResult(std::shared_ptr<InlineQueryResult>IQR) {
+void answerInlineQuery::addInlineQueryResult(shared_ptr<InlineQueryResult>IQR) {
     this->results.push_back(move(IQR));
 }
 
-void answerInlineQuery::setCache_time(const optional<int> &cache_time) {
+void answerInlineQuery::setCache_time(const optional<std::int32_t> &cache_time) {
     answerInlineQuery::cache_time = cache_time;
 }
 
@@ -87,7 +87,7 @@ const string &answerInlineQuery::getInline_query_id() const {
 
 //tood return of vector?, add?
 
-const optional<int> &answerInlineQuery::getCache_time() const {
+const optional<std::int32_t> &answerInlineQuery::getCache_time() const {
     return cache_time;
 }
 

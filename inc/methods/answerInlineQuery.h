@@ -33,7 +33,7 @@ namespace yatbcpp{
 
         void addInlineQueryResult(std::shared_ptr<InlineQueryResult> IQR);
 
-        void setCache_time(const std::optional<int> &cache_time);
+        void setCache_time(const std::optional<std::int32_t> &cache_time);
 
         void setIs_personal(const std::optional<bool> &is_personal);
 
@@ -58,7 +58,7 @@ namespace yatbcpp{
     private:
         std::string inline_query_id;
         std::vector<std::shared_ptr<InlineQueryResult>> results;
-        std::optional<int> cache_time;
+        std::optional<std::int32_t> cache_time;
         std::optional<bool> is_personal;
         std::optional<std::string> next_offset;
         std::optional<std::string> switch_pm_text;

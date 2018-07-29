@@ -40,7 +40,7 @@ namespace yatbcpp{
          * @param voice , and voice file id or an voice file location
          * to send local files use methodMultipart
          */
-        sendVoice(int chat_id,std::string voice);
+        sendVoice(std::int64_t  chat_id,std::string voice);
         /**
          *
          * @param chat_id

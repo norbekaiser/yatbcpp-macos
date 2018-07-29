@@ -30,8 +30,8 @@
 namespace yatbcpp{
     class forwardMessage : public telegram_methodJSON<Message>{
     public:
-        forwardMessage(std::string chat_id, std::string from_chat_id, int message_id);
-        forwardMessage(int chat_id, int from_chat_id, int message_id);
+        forwardMessage(std::string chat_id, std::string from_chat_id, std::int32_t message_id);
+        forwardMessage(std::int64_t chat_id, std::int64_t from_chat_id, std::int32_t message_id);
         forwardMessage(Chat chat_id, Message from);
         Json::Value toJson();
 
@@ -41,7 +41,7 @@ namespace yatbcpp{
 
         const std::optional<bool> &getDisable_notification() const;
 
-        int getMessage_id() const;
+        std::int32_t getMessage_id() const;
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
@@ -49,7 +49,7 @@ namespace yatbcpp{
         std::string chat_id;
         std::string from_chat_id;
         std::optional<bool> disable_notification;
-        int message_id;
+        std::int32_t message_id;
     };
 }
 

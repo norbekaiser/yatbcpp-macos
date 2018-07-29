@@ -30,7 +30,7 @@ namespace yatbcpp{
 
         Json::Value toJson();
 
-        sendMessage(int chat_id,std::string text);
+        sendMessage(std::int64_t  chat_id,std::string text);
 
         sendMessage(std::string chat_id,std::string text);
 
@@ -42,7 +42,7 @@ namespace yatbcpp{
 
         void setDisable_notification(const std::optional<bool> &disable_notification);
 
-        void setReply_to_message_id(const std::optional<int> &reply_to_message_id);
+        void setReply_to_message_id(const std::optional<std::int32_t> &reply_to_message_id);
 
         void setReplyMarkup(const ReplyKeyboardMarkup RKM);
         void setReplyMarkup(const ReplyKeyboardRemove RKR);
@@ -58,7 +58,7 @@ namespace yatbcpp{
 
         const std::optional<bool> &getDisable_notification() const;
 
-        const std::optional<int> &getReply_to_message_id() const;
+        const std::optional<std::int32_t> &getReply_to_message_id() const;
 
         const std::optional<ReplyMarkup> &getReply_markup() const;
 
@@ -69,7 +69,7 @@ namespace yatbcpp{
         std::optional<std::string> parse_mode;
         std::optional<bool> disable_web_page_preview;
         std::optional<bool> disable_notification;
-        std::optional<int> reply_to_message_id;
+        std::optional<std::int32_t> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }

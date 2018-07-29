@@ -30,7 +30,7 @@ namespace yatbcpp{
     template <class RETURNTYPE> class telegram_methodJSON{
     public:
 
-        telegram_methodJSON(std::string functionname) : functionname(functionname){
+        telegram_methodJSON(std::string functionname) : functionname(move(functionname)){
             //ok das iwie noch meh
             //static_assert(std::is_base_of<RETURNTYPE,telegram_method>::value, "Derived RETURNTYPE is not derived from BaseClass, fromJSON can not be guaranteed");
         }

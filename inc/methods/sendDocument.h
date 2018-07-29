@@ -40,7 +40,7 @@ namespace yatbcpp{
          * @param document , and Document file id or an Document file location
          * to send local files use methodMultipart
          */
-        sendDocument(int chat_id,std::string document);
+        sendDocument(std::int64_t chat_id,std::string document);
         /**
          *
          * @param chat_id
@@ -53,7 +53,6 @@ namespace yatbcpp{
          * @param C
          * @param document , and Document file id or an document file location
          * to send local files use methodMultipart, and supply the file direction
-         * //TODO improve documentation on send Multipart and SendJson
          */
         sendDocument(Chat C, std::string Document);
 
@@ -75,7 +74,7 @@ namespace yatbcpp{
 
         const std::optional<bool> &getDisable_notification() const;
 
-        const std::optional<int> &getReply_to_message_id() const;
+        const std::optional<std::int32_t> &getReply_to_message_id() const;
 
         const std::optional<ReplyMarkup> &getReply_markup() const;
 
@@ -85,7 +84,7 @@ namespace yatbcpp{
         std::string document;
         std::optional<std::string> caption;
         std::optional<bool> disable_notification;
-        std::optional<int> reply_to_message_id;
+        std::optional<std::int32_t> reply_to_message_id;
         std::optional<ReplyMarkup> reply_markup;
     };
 }

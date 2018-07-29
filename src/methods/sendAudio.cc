@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendAudio::sendAudio(Chat C, std::string audio) :
+sendAudio::sendAudio(Chat C, string audio) :
         telegram_methodJSON("sendAudio"), telegram_methodMultipart("sendAudio"),
-        chat_id(to_string(C.getId())), audio(audio)
+        chat_id(to_string(C.getId())), audio(move(audio))
 {
 
 }
 
-sendAudio::sendAudio(int chat_id, std::string audio) :
+sendAudio::sendAudio(int64_t  chat_id, string audio) :
         telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio"),
-        chat_id(to_string(chat_id)) , audio(audio)
+        chat_id(to_string(chat_id)) , audio(move(audio))
 {
 
 }
 
-sendAudio::sendAudio(string chat_id, std::string audio) :
+sendAudio::sendAudio(string chat_id, string audio) :
         telegram_methodJSON("sendAudio"),telegram_methodMultipart("sendAudio"),
-        chat_id(chat_id) , audio(audio)
+        chat_id(move(chat_id)) , audio(move(audio))
 {
 
 }
@@ -108,11 +108,11 @@ void sendAudio::setTitle(const optional<string> &title) {
     sendAudio::title = title;
 }
 
-void sendAudio::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendAudio::setDisable_notification(const optional<bool> &disable_notification) {
     sendAudio::disable_notification = disable_notification;
 }
 
-void sendAudio::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendAudio::setReply_to_message_id(const optional<int32_t> &reply_to_message_id) {
     sendAudio::reply_to_message_id = reply_to_message_id;
 }
 
@@ -172,7 +172,7 @@ const optional<bool> &sendAudio::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendAudio::getReply_to_message_id() const {
+const optional<int32_t> &sendAudio::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 

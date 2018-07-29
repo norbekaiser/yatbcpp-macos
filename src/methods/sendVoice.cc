@@ -15,23 +15,23 @@ using namespace yatbcpp;
 // Constructor Section                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sendVoice::sendVoice(Chat C, std::string voice) :
+sendVoice::sendVoice(Chat C, string voice) :
         telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(to_string(C.getId())), voice(voice)
+        chat_id(to_string(C.getId())), voice(move(voice))
 {
 
 }
 
-sendVoice::sendVoice(int chat_id, std::string voice) :
+sendVoice::sendVoice(int64_t chat_id, string voice) :
         telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(to_string(chat_id)), voice(voice)
+        chat_id(to_string(chat_id)), voice(move(voice))
 {
 
 }
 
-sendVoice::sendVoice(string chat_id, std::string voice) :
+sendVoice::sendVoice(string chat_id, string voice) :
         telegram_methodJSON("sendVoice"), telegram_methodMultipart("sendVoice"),
-        chat_id(chat_id), voice(voice)
+        chat_id(move(chat_id)), voice(move(voice))
 {
 
 }
@@ -93,11 +93,11 @@ void sendVoice::setDuration(const optional<unsigned int> &duration) {
     sendVoice::duration = duration;
 }
 
-void sendVoice::setDisable_notification(const std::optional<bool> &disable_notification) {
+void sendVoice::setDisable_notification(const optional<bool> &disable_notification) {
     sendVoice::disable_notification = disable_notification;
 }
 
-void sendVoice::setReply_to_message_id(const std::optional<int> &reply_to_message_id) {
+void sendVoice::setReply_to_message_id(const optional<int32_t> &reply_to_message_id) {
     sendVoice::reply_to_message_id = reply_to_message_id;
 }
 
@@ -149,7 +149,7 @@ const optional<bool> &sendVoice::getDisable_notification() const {
     return disable_notification;
 }
 
-const optional<int> &sendVoice::getReply_to_message_id() const {
+const optional<int32_t> &sendVoice::getReply_to_message_id() const {
     return reply_to_message_id;
 }
 
