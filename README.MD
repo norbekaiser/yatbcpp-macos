@@ -44,7 +44,6 @@ For More Information Checkout the [Documentation](https://yatbcpp.norbert-ruehl.
 ## Homebrew Instructions
 * brew tap [norbekaiser/yatbcpp](https://github.com/norbekaiser/homebrew-yatbcpp)
 * There is an Issue with optional on sierra / high sierra , please consider compiling with a different compiler  ```brew install yatbcpp --cc=gcc-7```
-* There is a plan for an optional free version but not now  
 
 ## vcpkg Instructions
 * coming soon?
